@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Github, Linkedin } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -29,19 +29,19 @@ const Contact = () => {
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email",
-      value: "your.email@example.com",
-      link: "mailto:your.email@example.com"
+      value: "kenny5dsouza@gmail.com",
+      link: "mailto:kenny5dsouza@gmail.com"
     },
     {
       icon: <Phone className="w-6 h-6" />,
       title: "Phone",
-      value: "+1 (555) 123-4567",
-      link: "tel:+15551234567"
+      value: "+91 8217589141",
+      link: "tel:+918217589141"
     },
     {
       icon: <MapPin className="w-6 h-6" />,
       title: "Location",
-      value: "San Francisco, CA",
+      value: "Bengaluru, Karnataka, India",
       link: null
     }
   ];
@@ -50,17 +50,12 @@ const Contact = () => {
     {
       icon: <Github className="w-6 h-6" />,
       name: "GitHub",
-      url: "#"
+      url: "https://github.com/kennydsouza"
     },
     {
       icon: <Linkedin className="w-6 h-6" />,
-      name: "LinkedIn",
-      url: "#"
-    },
-    {
-      icon: <Twitter className="w-6 h-6" />,
-      name: "Twitter",
-      url: "#"
+      name: "LinkedIn", 
+      url: "https://www.linkedin.com/in/kenny-dsouza/"
     }
   ];
 
@@ -72,7 +67,7 @@ const Contact = () => {
             Let's Work Together
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Ready to bring your ideas to life? I'd love to hear about your project and discuss how we can collaborate.
+            Ready to bring your ideas to life? I'd love to hear about your project and discuss how we can create scalable, user-centered solutions together.
           </p>
         </div>
 
@@ -164,7 +159,8 @@ const Contact = () => {
               <h3 className="text-2xl font-bold text-gray-900 mb-6">Get in Touch</h3>
               <p className="text-gray-600 mb-8 leading-relaxed">
                 I'm always open to discussing new opportunities, interesting projects, and potential collaborations. 
-                Whether you have a question or just want to say hi, feel free to reach out!
+                As a Lead Engineer with experience building applications for millions of users, I'm excited to help 
+                bring your ideas to life with scalable, performant solutions.
               </p>
             </div>
 
@@ -194,7 +190,7 @@ const Contact = () => {
 
             {/* Social Links */}
             <div>
-              <h4 className="font-semibold text-gray-900 mb-4">Follow Me</h4>
+              <h4 className="font-semibold text-gray-900 mb-4">Connect With Me</h4>
               <div className="flex space-x-4">
                 {socialLinks.map((social, index) => (
                   <a
@@ -202,6 +198,8 @@ const Contact = () => {
                     href={social.url}
                     className="w-12 h-12 bg-white rounded-lg shadow-md flex items-center justify-center text-gray-600 hover:text-blue-600 hover:shadow-lg transition-all duration-300"
                     title={social.name}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     {social.icon}
                   </a>
@@ -217,7 +215,8 @@ const Contact = () => {
                 <span className="text-green-700 font-medium">Available for new projects</span>
               </div>
               <p className="text-gray-600 text-sm">
-                I typically respond to emails within 24 hours and am available for calls Monday through Friday, 9 AM - 6 PM PST.
+                I typically respond to emails within 24 hours and am available for calls Monday through Friday, 
+                9 AM - 6 PM IST. Let's discuss how I can help with your next project!
               </p>
             </div>
           </div>

@@ -14,11 +14,12 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-4">
-              Your Name
+              Kenny Dsouza
             </h3>
             <p className="text-gray-400 leading-relaxed">
-              Full-Stack Developer passionate about creating exceptional digital experiences 
-              that solve real-world problems and make a positive impact.
+              Lead Engineer passionate about creating scalable, user-focused solutions. 
+              Specialized in React, Redux, and TypeScript with 6+ years of experience 
+              building applications for millions of users.
             </p>
           </div>
 
@@ -28,7 +29,7 @@ const Footer = () => {
             <ul className="space-y-2">
               {[
                 { name: 'About', href: '#about' },
-                { name: 'Projects', href: '#projects' },
+                { name: 'Skills', href: '#skills' },
                 { name: 'Experience', href: '#experience' },
                 { name: 'Contact', href: '#contact' }
               ].map((link, index) => (
@@ -48,9 +49,10 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Let's Connect</h4>
             <div className="space-y-2 text-gray-400">
-              <p>📧 your.email@example.com</p>
-              <p>📱 +1 (555) 123-4567</p>
-              <p>📍 San Francisco, CA</p>
+              <p>📧 kenny5dsouza@gmail.com</p>
+              <p>📱 +91 8217589141</p>
+              <p>📍 Bengaluru, Karnataka, India</p>
+              <p>💼 <a href="https://www.linkedin.com/in/kenny-dsouza/" className="hover:text-blue-400 transition-colors">LinkedIn Profile</a></p>
             </div>
           </div>
         </div>
@@ -60,7 +62,7 @@ const Footer = () => {
           <div className="flex items-center space-x-1 text-gray-400 mb-4 md:mb-0">
             <span>Made with</span>
             <Heart size={16} className="text-red-500 fill-current" />
-            <span>by Your Name</span>
+            <span>by Kenny Dsouza</span>
           </div>
           
           <div className="flex items-center space-x-6">

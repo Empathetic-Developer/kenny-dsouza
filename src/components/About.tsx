@@ -7,22 +7,22 @@ const About = () => {
     {
       icon: <Code className="w-6 h-6" />,
       title: "Clean Code",
-      description: "Writing maintainable, efficient, and scalable code"
+      description: "Writing maintainable, efficient, and scalable code with 6+ years of experience"
     },
     {
       icon: <Palette className="w-6 h-6" />,
-      title: "Creative Design",
-      description: "Crafting beautiful and intuitive user experiences"
+      title: "UX Focused",
+      description: "Google UX Design certified, creating intuitive user experiences"
     },
     {
       icon: <Users className="w-6 h-6" />,
-      title: "Team Player",
-      description: "Collaborating effectively with cross-functional teams"
+      title: "Agile Leader",
+      description: "Certified Scrum Master & SAFe® Product Owner/Manager"
     },
     {
       icon: <Zap className="w-6 h-6" />,
-      title: "Quick Learner",
-      description: "Adapting to new technologies and methodologies"
+      title: "Performance Expert",
+      description: "Optimizing applications with code splitting, lazy loading, and caching strategies"
     }
   ];
 
@@ -34,7 +34,7 @@ const About = () => {
             About Me
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Passionate about creating digital solutions that make a difference
+            Senior Software Engineer passionate about creating scalable, user-focused solutions
           </p>
         </div>
 
@@ -43,34 +43,33 @@ const About = () => {
           <div className="space-y-6">
             <div className="prose prose-lg text-gray-600">
               <p>
-                With over 5 years of experience in full-stack development, I specialize in creating 
-                modern web applications that combine beautiful design with robust functionality. 
-                My journey began with a Computer Science degree and has evolved through various 
-                challenging projects across different industries.
+                I'm a Senior Software Engineer with 6+ years of experience, specializing in Frontend Development, 
+                Cloud Technologies, and Agile Leadership. I've led the development of scalable, user-focused 
+                solutions and have successfully delivered 20+ applications for clients such as eBay, Trader Joe's and Cartus.
               </p>
               
               <p>
-                I believe in the power of technology to solve real problems and improve people's lives. 
-                Whether it's building scalable web applications, designing intuitive user interfaces, 
-                or optimizing system performance, I approach every project with curiosity and dedication.
+                My technical expertise spans React.js, Redux/Redux Toolkit, TypeScript, and modern CSS frameworks. 
+                I'm passionate about performance optimization, implementing code splitting, lazy loading, and 
+                conducting Lighthouse audits to improve accessibility and SEO.
               </p>
 
               <p>
-                When I'm not coding, you can find me contributing to open-source projects, 
-                writing technical articles, or exploring the latest in web technologies. 
-                I'm always excited to take on new challenges and collaborate with like-minded professionals.
+                As a Certified Scrum Master and SAFe® Product Owner/Manager, I bring strong leadership skills 
+                to cross-functional teams. My goal is to create impactful software that drives business success 
+                while mentoring new engineers and fostering innovation.
               </p>
             </div>
 
             <div className="flex flex-wrap gap-3">
               <span className="px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
-                Problem Solver
+                Certified Scrum Master
               </span>
               <span className="px-4 py-2 bg-purple-100 text-purple-800 rounded-full text-sm font-medium">
-                Innovation Driven
+                SAFe® Product Owner
               </span>
               <span className="px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-medium">
-                User Focused
+                UX Design Certified
               </span>
             </div>
           </div>

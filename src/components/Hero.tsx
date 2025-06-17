@@ -21,12 +21,12 @@ const Hero = () => {
             <h1 className="text-5xl md:text-7xl font-bold text-gray-900">
               Hi, I'm{' '}
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Your Name
+                Kenny Dsouza
               </span>
             </h1>
             
             <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Full-Stack Developer & Designer passionate about creating exceptional digital experiences that solve real-world problems.
+              Lead Engineer | React, Redux, Tailwind, TypeScript | Built 20+ Apps for Millions of Users | Certified Scrum Master, SAFe® 5 Product Manager/Owner
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -41,13 +41,13 @@ const Hero = () => {
 
           {/* Social Links */}
           <div className="flex justify-center space-x-6">
-            <a href="#" className="text-gray-600 hover:text-blue-600 transform hover:scale-110 transition-all duration-300">
+            <a href="https://github.com/kennydsouza" className="text-gray-600 hover:text-blue-600 transform hover:scale-110 transition-all duration-300">
               <Github size={24} />
             </a>
-            <a href="#" className="text-gray-600 hover:text-blue-600 transform hover:scale-110 transition-all duration-300">
+            <a href="https://www.linkedin.com/in/kenny-dsouza/" className="text-gray-600 hover:text-blue-600 transform hover:scale-110 transition-all duration-300">
               <Linkedin size={24} />
             </a>
-            <a href="#" className="text-gray-600 hover:text-blue-600 transform hover:scale-110 transition-all duration-300">
+            <a href="mailto:kenny5dsouza@gmail.com" className="text-gray-600 hover:text-blue-600 transform hover:scale-110 transition-all duration-300">
               <Mail size={24} />
             </a>
           </div>
