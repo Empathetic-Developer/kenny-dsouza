@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const Skills = () => {
@@ -11,7 +10,8 @@ const Skills = () => {
         { name: "Redux/Redux Toolkit", level: 92 },
         { name: "Tailwind CSS", level: 88 },
         { name: "JavaScript (ES6+)", level: 93 },
-        { name: "HTML5/CSS3", level: 95 }
+        { name: "HTML5/CSS3", level: 95 },
+        { name: "React Query", level: 85 }
       ]
     },
     {
@@ -20,17 +20,20 @@ const Skills = () => {
         { name: "CSS Grid & Flexbox", level: 90 },
         { name: "SASS", level: 85 },
         { name: "Bootstrap", level: 88 },
-        { name: "Styled Components", level: 82 }
+        { name: "Styled Components", level: 82 },
+        { name: "Cross Browser Compatibility", level: 88 }
       ]
     },
     {
-      title: "Tools & Performance",
+      title: "Quality & Performance",
       skills: [
         { name: "Jest Testing", level: 85 },
         { name: "Chrome DevTools", level: 90 },
         { name: "Lighthouse Audits", level: 88 },
         { name: "Code Splitting", level: 85 },
-        { name: "Performance Optimization", level: 90 }
+        { name: "Performance Optimization", level: 90 },
+        { name: "Web Accessibility (WCAG)", level: 87 },
+        { name: "Internationalization", level: 83 }
       ]
     }
   ];

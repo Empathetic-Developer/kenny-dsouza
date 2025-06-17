@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Calendar, MapPin } from 'lucide-react';
+import { Calendar, MapPin, Building2 } from 'lucide-react';
 
 const Experience = () => {
   const experiences = [
@@ -58,6 +58,13 @@ const Experience = () => {
     }
   ];
 
+  const clients = [
+    { name: "eBay", logo: "🛒", description: "E-commerce platform solutions" },
+    { name: "Trader Joe's", logo: "🏪", description: "Retail management applications" },
+    { name: "Cartus", logo: "🏠", description: "Relocation management systems" },
+    { name: "FBM", logo: "📦", description: "Fulfillment by Merchant solutions" }
+  ];
+
   const achievements = [
     { number: "20+", label: "Apps Built" },
     { number: "40K+", label: "Users Impacted" },
@@ -73,53 +80,64 @@ const Experience = () => {
             Professional Experience
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            6+ years of delivering scalable solutions for clients like eBay, Trader Joe's, and Cartus
+            6+ years of delivering scalable solutions for enterprise clients
           </p>
         </div>
 
-        {/* Experience Timeline */}
-        <div className="relative">
-          {/* Timeline Line */}
-          <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-blue-600 to-purple-600"></div>
-          
-          <div className="space-y-12">
-            {experiences.map((exp, index) => (
-              <div key={index} className={`relative flex items-center ${
-                index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-              }`}>
-                {/* Timeline Dot */}
-                <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full border-4 border-white shadow-lg z-10"></div>
-                
-                {/* Content Card */}
-                <div className={`ml-12 md:ml-0 md:w-5/12 ${
-                  index % 2 === 0 ? 'md:mr-auto md:pr-8' : 'md:ml-auto md:pl-8'
-                }`}>
-                  <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
-                      <h3 className="text-xl font-bold text-gray-900">{exp.title}</h3>
-                      <div className="flex items-center text-blue-600 text-sm font-medium">
+        {/* Clients Section */}
+        <div className="mb-20">
+          <h3 className="text-3xl font-bold text-gray-900 text-center mb-12">Trusted by Leading Companies</h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {clients.map((client, index) => (
+              <div key={index} className="bg-white rounded-xl p-6 shadow-lg text-center hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <div className="text-4xl mb-3">{client.logo}</div>
+                <h4 className="font-semibold text-gray-900 mb-2">{client.name}</h4>
+                <p className="text-sm text-gray-600">{client.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Experience Cards */}
+        <div className="space-y-8 mb-20">
+          {experiences.map((exp, index) => (
+            <div key={index} className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+              <div className="p-8">
+                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
+                  <div className="flex-1">
+                    <div className="flex items-center mb-2">
+                      <Building2 className="w-5 h-5 text-blue-600 mr-2" />
+                      <h3 className="text-2xl font-bold text-gray-900">{exp.title}</h3>
+                    </div>
+                    <h4 className="text-xl font-semibold text-blue-600 mb-2">{exp.company}</h4>
+                    <div className="flex flex-col sm:flex-row sm:items-center text-gray-600 text-sm space-y-1 sm:space-y-0 sm:space-x-4">
+                      <div className="flex items-center">
+                        <MapPin size={14} className="mr-1" />
+                        {exp.location}
+                      </div>
+                      <div className="flex items-center">
                         <Calendar size={14} className="mr-1" />
                         {exp.period}
                       </div>
                     </div>
-                    
-                    <div className="mb-4">
-                      <h4 className="text-lg font-semibold text-gray-800">{exp.company}</h4>
-                      <div className="flex items-center text-gray-600 text-sm">
-                        <MapPin size={14} className="mr-1" />
-                        {exp.location}
-                      </div>
-                    </div>
-                    
-                    <ul className="space-y-2 mb-4">
+                  </div>
+                </div>
+                
+                <div className="grid lg:grid-cols-3 gap-6">
+                  <div className="lg:col-span-2">
+                    <h5 className="font-semibold text-gray-900 mb-3">Key Achievements</h5>
+                    <ul className="space-y-3">
                       {exp.description.map((item, descIndex) => (
-                        <li key={descIndex} className="text-gray-600 text-sm flex items-start">
+                        <li key={descIndex} className="text-gray-600 flex items-start">
                           <span className="w-2 h-2 bg-blue-600 rounded-full mr-3 mt-2 flex-shrink-0"></span>
                           {item}
                         </li>
                       ))}
                     </ul>
-                    
+                  </div>
+                  
+                  <div>
+                    <h5 className="font-semibold text-gray-900 mb-3">Technologies Used</h5>
                     <div className="flex flex-wrap gap-2">
                       {exp.skills.map((skill, skillIndex) => (
                         <span 
@@ -133,27 +151,36 @@ const Experience = () => {
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
 
         {/* Education Section */}
-        <div className="mt-20">
+        <div className="mb-20">
           <h3 className="text-3xl font-bold text-gray-900 text-center mb-12">Education</h3>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-xl p-6 shadow-lg text-center">
+            <div className="bg-white rounded-xl p-6 shadow-lg text-center hover:shadow-xl transition-all duration-300">
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
+                BE
+              </div>
               <h4 className="text-lg font-semibold text-gray-900 mb-2">Bachelor of Engineering</h4>
               <p className="text-gray-600 mb-1">Computer Science</p>
               <p className="text-blue-600 font-medium">Gogte Institute of Technology</p>
               <p className="text-gray-500 text-sm">2016 - 2019</p>
             </div>
-            <div className="bg-white rounded-xl p-6 shadow-lg text-center">
+            <div className="bg-white rounded-xl p-6 shadow-lg text-center hover:shadow-xl transition-all duration-300">
+              <div className="w-16 h-16 bg-gradient-to-r from-green-600 to-blue-600 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
+                HS
+              </div>
               <h4 className="text-lg font-semibold text-gray-900 mb-2">High School Diploma</h4>
               <p className="text-gray-600 mb-1">Computer Science</p>
               <p className="text-blue-600 font-medium">K.L.S. Shri Vasantrao Potdar Polytechnic</p>
               <p className="text-gray-500 text-sm">2013 - 2016</p>
             </div>
-            <div className="bg-white rounded-xl p-6 shadow-lg text-center">
+            <div className="bg-white rounded-xl p-6 shadow-lg text-center hover:shadow-xl transition-all duration-300">
+              <div className="w-16 h-16 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
+                SE
+              </div>
               <h4 className="text-lg font-semibold text-gray-900 mb-2">Secondary Education</h4>
               <p className="text-gray-600 mb-1">General Studies</p>
               <p className="text-blue-600 font-medium">St. Paul's High School</p>
@@ -163,12 +190,12 @@ const Experience = () => {
         </div>
 
         {/* Achievements Section */}
-        <div className="mt-20">
+        <div>
           <h3 className="text-3xl font-bold text-gray-900 text-center mb-12">Key Achievements</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {achievements.map((achievement, index) => (
               <div key={index} className="text-center">
-                <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
                   <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
                     {achievement.number}
                   </div>

@@ -1,30 +1,8 @@
 
-import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Github, Linkedin } from 'lucide-react';
+import React from 'react';
+import { Mail, Phone, MapPin, Github, Linkedin } from 'lucide-react';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    // Reset form
-    setFormData({ name: '', email: '', subject: '', message: '' });
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
   const contactInfo = [
     {
       icon: <Mail className="w-6 h-6" />,
@@ -71,154 +49,59 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
-          <div className="bg-white rounded-xl p-8 shadow-lg">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Send a Message</h3>
-            
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                    Full Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300"
-                    placeholder="John Doe"
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300"
-                    placeholder="john@example.com"
-                  />
-                </div>
+        <div className="grid lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          {/* Contact Details */}
+          {contactInfo.map((item, index) => (
+            <div key={index} className="bg-white rounded-xl p-6 shadow-lg text-center hover:shadow-xl transition-all duration-300">
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white mx-auto mb-4">
+                {item.icon}
               </div>
-              
-              <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
-                  Subject
-                </label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300"
-                  placeholder="Project Collaboration"
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={6}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300"
-                  placeholder="Tell me about your project..."
-                ></textarea>
-              </div>
-              
-              <button
-                type="submit"
-                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
+              <h3 className="font-semibold text-gray-900 mb-2">{item.title}</h3>
+              {item.link ? (
+                <a 
+                  href={item.link}
+                  className="text-gray-600 hover:text-blue-600 transition-colors duration-300 text-lg"
+                >
+                  {item.value}
+                </a>
+              ) : (
+                <p className="text-gray-600 text-lg">{item.value}</p>
+              )}
+            </div>
+          ))}
+        </div>
+
+        {/* Social Links */}
+        <div className="text-center mt-12">
+          <h3 className="text-2xl font-semibold text-gray-900 mb-6">Connect With Me</h3>
+          <div className="flex justify-center space-x-6">
+            {socialLinks.map((social, index) => (
+              <a
+                key={index}
+                href={social.url}
+                className="w-16 h-16 bg-white rounded-full shadow-lg flex items-center justify-center text-gray-600 hover:text-blue-600 hover:shadow-xl transition-all duration-300 hover:scale-110"
+                title={social.name}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <Send size={18} />
-                Send Message
-              </button>
-            </form>
+                {social.icon}
+              </a>
+            ))}
           </div>
+        </div>
 
-          {/* Contact Information */}
-          <div className="space-y-8">
-            <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Get in Touch</h3>
-              <p className="text-gray-600 mb-8 leading-relaxed">
-                I'm always open to discussing new opportunities, interesting projects, and potential collaborations. 
-                As a Lead Engineer with experience building applications for millions of users, I'm excited to help 
-                bring your ideas to life with scalable, performant solutions.
-              </p>
+        {/* Availability */}
+        <div className="max-w-2xl mx-auto mt-12">
+          <div className="bg-white rounded-xl p-8 shadow-lg text-center">
+            <h3 className="text-2xl font-semibold text-gray-900 mb-4">Current Availability</h3>
+            <div className="flex items-center justify-center space-x-3 mb-4">
+              <div className="w-4 h-4 bg-green-500 rounded-full"></div>
+              <span className="text-green-700 font-medium text-lg">Available for new projects</span>
             </div>
-
-            {/* Contact Details */}
-            <div className="space-y-6">
-              {contactInfo.map((item, index) => (
-                <div key={index} className="flex items-center space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center text-white">
-                    {item.icon}
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900">{item.title}</h4>
-                    {item.link ? (
-                      <a 
-                        href={item.link}
-                        className="text-gray-600 hover:text-blue-600 transition-colors duration-300"
-                      >
-                        {item.value}
-                      </a>
-                    ) : (
-                      <p className="text-gray-600">{item.value}</p>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Social Links */}
-            <div>
-              <h4 className="font-semibold text-gray-900 mb-4">Connect With Me</h4>
-              <div className="flex space-x-4">
-                {socialLinks.map((social, index) => (
-                  <a
-                    key={index}
-                    href={social.url}
-                    className="w-12 h-12 bg-white rounded-lg shadow-md flex items-center justify-center text-gray-600 hover:text-blue-600 hover:shadow-lg transition-all duration-300"
-                    title={social.name}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {social.icon}
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            {/* Availability */}
-            <div className="bg-white rounded-lg p-6 shadow-lg">
-              <h4 className="font-semibold text-gray-900 mb-3">Current Availability</h4>
-              <div className="flex items-center space-x-2 mb-2">
-                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                <span className="text-green-700 font-medium">Available for new projects</span>
-              </div>
-              <p className="text-gray-600 text-sm">
-                I typically respond to emails within 24 hours and am available for calls Monday through Friday, 
-                9 AM - 6 PM IST. Let's discuss how I can help with your next project!
-              </p>
-            </div>
+            <p className="text-gray-600">
+              I typically respond to emails within 24 hours and am available for calls Monday through Friday, 
+              9 AM - 6 PM IST. Let's discuss how I can help with your next project!
+            </p>
           </div>
         </div>
       </div>
