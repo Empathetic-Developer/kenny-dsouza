@@ -1,73 +1,139 @@
-# Welcome to your Lovable project
+
+# Kenny Dsouza - Portfolio Website
+
+A modern, minimalist glass morphism portfolio website built with React, TypeScript, and Tailwind CSS.
 
 ## Project info
 
 **URL**: https://lovable.dev/projects/e4dde206-3808-4c3a-833e-465d94b2d868
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+- 🎨 Minimalist glass morphism design
+- 🌙 Dark/Light mode toggle
+- 📱 Fully responsive design
+- ♿ Accessible and SEO optimized
+- ⚡ Built with modern web technologies
 
-**Use Lovable**
+## Technologies Used
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/e4dde206-3808-4c3a-833e-465d94b2d868) and start prompting.
+- **Framework**: React 18 with TypeScript
+- **Styling**: Tailwind CSS with custom glass morphism effects
+- **Build Tool**: Vite
+- **UI Components**: Shadcn/ui
+- **Icons**: Lucide React
+- **Deployment**: GitHub Pages
 
-Changes made via Lovable will be committed automatically to this repo.
+## Local Development
 
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+To run this project locally:
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
+# Clone the repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
+# Navigate to the project directory
 cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The application will be available at `http://localhost:8080`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## GitHub Pages Deployment
 
-**Use GitHub Codespaces**
+This project is configured for automatic deployment to GitHub Pages using GitHub Actions.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Setup Instructions
 
-## What technologies are used for this project?
+1. **Enable GitHub Pages**:
+   - Go to your repository settings
+   - Navigate to "Pages" section
+   - Under "Source", select "GitHub Actions"
 
-This project is built with:
+2. **Configure Custom Domain** (Optional):
+   - If you have a custom domain, update the `cname` field in `.github/workflows/deploy.yml`
+   - Add a CNAME file to the `public` directory with your domain
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+3. **Automatic Deployment**:
+   - The site automatically deploys when you push to the `main` branch
+   - GitHub Actions will build and deploy the site
+   - Check the "Actions" tab to monitor deployment status
 
-## How can I deploy this project?
+### Manual Deployment
 
-Simply open [Lovable](https://lovable.dev/projects/e4dde206-3808-4c3a-833e-465d94b2d868) and click on Share -> Publish.
+If you prefer manual deployment:
 
-## Can I connect a custom domain to my Lovable project?
+```sh
+# Build the project
+npm run build
 
-Yes, you can!
+# Deploy to GitHub Pages (if you have gh-pages installed)
+npm install -g gh-pages
+gh-pages -d dist
+```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Environment Configuration
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+The project includes:
+- **Base URL**: Configured for GitHub Pages in `vite.config.ts`
+- **Build Optimization**: Optimized bundle splitting and asset handling
+- **SEO**: Comprehensive meta tags and structured data
+
+## Project Structure
+
+```
+src/
+├── components/          # React components
+├── pages/              # Page components
+├── lib/                # Utility functions
+├── hooks/              # Custom React hooks
+└── index.css           # Global styles and glass morphism utilities
+```
+
+## Customization
+
+### Glass Morphism Theme
+The glass morphism effects are defined in `src/index.css` with CSS custom properties that automatically adapt to light/dark modes.
+
+### Content Updates
+- **Personal Info**: Update `src/components/Hero.tsx`
+- **Skills**: Modify `src/components/Skills.tsx`
+- **Experience**: Edit `src/components/Experience.tsx`
+- **Contact**: Update `src/components/Contact.tsx`
+
+## SEO Features
+
+- Comprehensive meta tags
+- Structured data (JSON-LD)
+- Open Graph and Twitter Card support
+- Optimized for search engines
+- Accessible design following WCAG guidelines
+
+## Performance
+
+- Lazy loading and code splitting
+- Optimized images and assets
+- Minimal JavaScript bundle
+- Fast loading times
+
+## Browser Support
+
+- Modern browsers (Chrome, Firefox, Safari, Edge)
+- Mobile browsers (iOS Safari, Chrome Mobile)
+- Progressive enhancement for older browsers
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## Contact
+
+**Kenny Dsouza**
+- Email: kenny5dsouza@gmail.com
+- LinkedIn: [kenny-dsouza](https://www.linkedin.com/in/kenny-dsouza/)
+- GitHub: [kennydsouza](https://github.com/kennydsouza)

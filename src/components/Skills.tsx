@@ -23,7 +23,8 @@ const Skills = () => {
       title: "Development Tools & Practices",
       skills: [
         "Git", "Github", "Jenkins", "Babel.js", "Code Review", "Debugging",
-        "Model-View-Controller (MVC)", "Web Components", "Coding Experience"
+        "Model-View-Controller (MVC)", "Web Components", "Coding Experience",
+        "Code Design", "Programming"
       ]
     },
     {
@@ -31,7 +32,7 @@ const Skills = () => {
       skills: [
         "User Interface", "Web Content Optimization", "Responsive Web Design",
         "Web Content Accessibility Guidelines (WCAG)", "Search Engine Optimization (SEO)",
-        "Optimization Techniques", "Code Design"
+        "Optimization Techniques", "Digital Marketing"
       ]
     },
     {
@@ -42,16 +43,10 @@ const Skills = () => {
       ]
     },
     {
-      title: "Communication & Soft Skills",
+      title: "Communication & Additional Skills",
       skills: [
         "Interpersonal Communication", "Communication", "Presentation Skills",
-        "Problem Solving", "Email Clients"
-      ]
-    },
-    {
-      title: "Additional Skills",
-      skills: [
-        "Web Applications", "Digital Marketing", "Photography", "Programming"
+        "Problem Solving", "Email Clients", "Web Applications", "Photography"
       ]
     }
   ];
@@ -90,14 +85,14 @@ const Skills = () => {
           {skillCategories.map((category, categoryIndex) => (
             <div 
               key={categoryIndex} 
-              className="glass-card rounded-2xl p-8 hover:bg-white/30 dark:hover:bg-black/30 transition-all duration-300 animate-fade-in"
+              className="glass-card rounded-2xl p-8 min-h-[300px] flex flex-col hover:bg-white/35 dark:hover:bg-black/35 transition-all duration-300 animate-fade-in"
               style={{ animationDelay: `${categoryIndex * 100}ms` }}
             >
               <h3 className="text-xl font-medium text-black dark:text-white mb-6 text-center">
                 {category.title}
               </h3>
               
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-3 flex-1 items-start">
                 {category.skills.map((skill, skillIndex) => (
                   <span 
                     key={skillIndex}
@@ -120,7 +115,7 @@ const Skills = () => {
             {certifications.map((cert, index) => (
               <div 
                 key={index}
-                className="glass-card text-gray-700 dark:text-gray-300 rounded-xl p-6 font-normal text-center hover:bg-white/30 dark:hover:bg-black/30 transition-all duration-300"
+                className="glass-card text-gray-700 dark:text-gray-300 rounded-xl p-6 font-normal text-center hover:bg-white/35 dark:hover:bg-black/35 transition-all duration-300"
               >
                 {cert}
               </div>
@@ -129,7 +124,7 @@ const Skills = () => {
         </div>
 
         {/* Awards */}
-        <div className="mb-16">
+        <div>
           <h3 className="text-2xl font-light text-black dark:text-white mb-8 text-center">
             Awards & Recognition
           </h3>
@@ -137,31 +132,10 @@ const Skills = () => {
             {awards.map((award, index) => (
               <div 
                 key={index}
-                className="glass-card text-gray-700 dark:text-gray-300 rounded-xl p-6 font-normal text-center hover:bg-white/30 dark:hover:bg-black/30 transition-all duration-300"
+                className="glass-card text-gray-700 dark:text-gray-300 rounded-xl p-6 font-normal text-center hover:bg-white/35 dark:hover:bg-black/35 transition-all duration-300"
               >
                 🏆 {award}
               </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Languages */}
-        <div className="text-center">
-          <h3 className="text-2xl font-light text-black dark:text-white mb-8">Languages</h3>
-          <div className="flex flex-wrap justify-center gap-4">
-            {[
-              { lang: "English", level: "Professional Working" },
-              { lang: "Konkani", level: "Native" },
-              { lang: "Hindi", level: "Professional Working" },
-              { lang: "Kannada", level: "Professional Working" },
-              { lang: "Marathi", level: "Professional Working" }
-            ].map((language, index) => (
-              <span 
-                key={index}
-                className="px-6 py-3 glass-card text-gray-700 dark:text-gray-300 rounded-full font-normal hover:bg-white/30 dark:hover:bg-black/30 transition-all duration-300"
-              >
-                {language.lang} ({language.level})
-              </span>
             ))}
           </div>
         </div>

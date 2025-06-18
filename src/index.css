@@ -102,26 +102,28 @@
   }
 }
 
-/* Glass Morphism Utilities */
+/* Glass Morphism Utilities - Always Visible */
 @layer utilities {
   .glass {
-    @apply backdrop-blur-md bg-white/10 dark:bg-black/10 border border-white/20 dark:border-white/10;
+    @apply backdrop-blur-md bg-white/20 dark:bg-black/20 border border-white/30 dark:border-white/20;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   }
 
   .glass-card {
-    @apply backdrop-blur-xl bg-white/20 dark:bg-black/20 border border-white/30 dark:border-white/20;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    @apply backdrop-blur-xl bg-white/25 dark:bg-black/25 border border-white/40 dark:border-white/30;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.1);
   }
 
   .glass-button {
-    @apply backdrop-blur-md bg-white/30 dark:bg-black/30 border border-white/40 dark:border-white/30;
+    @apply backdrop-blur-md bg-white/30 dark:bg-black/30 border border-white/50 dark:border-white/40;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.2);
     transition: all 0.3s ease;
   }
 
   .glass-button:hover {
     @apply bg-white/40 dark:bg-black/40;
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.3);
   }
 
   .animate-fade-in {
