@@ -18,8 +18,8 @@ const Navbar = () => {
     { name: 'Home', href: '#hero' },
     { name: 'About', href: '#about' },
     { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
     { name: 'Experience', href: '#experience' },
+    { name: 'Recommendations', href: '#recommendations' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -29,15 +29,10 @@ const Navbar = () => {
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <div className="flex-shrink-0">
-            <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Portfolio
-            </span>
-          </div>
           
           {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
+          <div className="hidden md:block w-full">
+            <div className="flex items-center justify-center space-x-8">
               {navItems.map((item) => (
                 <a
                   key={item.name}
@@ -52,7 +47,7 @@ const Navbar = () => {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="md:hidden ml-auto">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-700 hover:text-blue-600 focus:outline-none"
