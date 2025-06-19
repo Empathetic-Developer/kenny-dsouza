@@ -8,84 +8,84 @@
 @layer base {
   :root {
     /* Light Mode Colors */
-    --background: 235 242 247; /* #EBF2F7 */
-    --foreground: 52 61 70; /* #343D46 */
+    --background: #EBF2F7; /* Main Background Color */
+    --foreground: #343D46; /* Primary Text Color */
 
-    --card: 240 245 249; /* #F0F5F9 */
-    --card-foreground: 52 61 70;
+    --card: #F0F5F9; /* Neumorphic Surface */
+    --card-foreground: #343D46;
 
-    --popover: 240 245 249;
-    --popover-foreground: 52 61 70;
+    --popover: #F0F5F9;
+    --popover-foreground: #343D46;
 
-    --primary: 0 140 137; /* #008C89 */
-    --primary-foreground: 255 255 255;
+    --primary: #008C89; /* Accent Primary */
+    --primary-foreground: #FFFFFF;
 
-    --secondary: 107 118 130; /* #6B7682 */
-    --secondary-foreground: 52 61 70;
+    --secondary: #6B7682; /* Secondary Text Color */
+    --secondary-foreground: #343D46;
 
-    --muted: 160 168 176; /* #A0A8B0 */
-    --muted-foreground: 107 118 130;
+    --muted: #A0A8B0;
+    --muted-foreground: #6B7682; /* Secondary Text Color */
 
-    --accent: 0 169 165; /* #00A9A5 */
-    --accent-foreground: 52 61 70;
+    --accent: #00A9A5; /* Accent Light */
+    --accent-foreground: #343D46;
 
-    --destructive: 239 83 80; /* #EF5350 */
-    --destructive-foreground: 255 255 255;
+    --destructive: #EF5350; /* Error Light */
+    --destructive-foreground: #FFFFFF;
 
-    --success: 76 175 80; /* #4CAF50 */
-    --warning: 255 202 40; /* #FFCA28 */
+    --success: #4CAF50;
+    --warning: #FFCA28;
 
-    --border: 202 210 218; /* #CAD2DA */
-    --input: 202 210 218;
-    --ring: 0 140 137;
+    --border: #CAD2DA; /* Neumorphic Shadow */
+    --input: #CAD2DA;
+    --ring: #008C89;
 
     --radius: 1rem;
 
     /* Neumorphism specific variables */
     --neu-distance: 8px;
     --neu-intensity: 0.15;
-    --neu-surface: 240 245 249; /* #F0F5F9 */
-    --neu-highlight: 255 255 255; /* #FFFFFF */
-    --neu-shadow: 202 210 218; /* #CAD2DA */
+    --neu-surface: #F0F5F9; /* Neumorphic Surface */
+    --neu-highlight: #FFFFFF; /* Neumorphic Light Source */
+    --neu-shadow: #CAD2DA; /* Neumorphic Shadow */
   }
 
   .dark {
     /* Dark Mode Colors */
-    --background: 31 41 51; /* #1F2933 */
-    --foreground: 224 230 236; /* #E0E6EC */
+    --background: #1F2933; /* Main Background Color Dark */
+    --foreground: #E0E6EC; /* Primary Text Color Dark */
 
-    --card: 39 49 58; /* #27313A */
-    --card-foreground: 224 230 236;
+    --card: #27313A; /* Neumorphic Surface Dark */
+    --card-foreground: #E0E6EC;
 
-    --popover: 39 49 58;
-    --popover-foreground: 224 230 236;
+    --popover: #27313A;
+    --popover-foreground: #E0E6EC;
 
-    --primary: 0 108 106; /* #006C6A */
-    --primary-foreground: 224 230 236;
+    --primary: #006C6A; /* Accent Dark */
+    --primary-foreground: #E0E6EC;
 
-    --secondary: 160 168 176; /* #A0A8B0 */
-    --secondary-foreground: 224 230 236;
+    --secondary: #A0A8B0; /* Secondary Text Color Dark */
+    --secondary-foreground: #E0E6EC;
 
-    --muted: 107 118 130; /* #6B7682 */
-    --muted-foreground: 160 168 176;
+    --muted: #6B7682;
+    --muted-foreground: #A0A8B0; /* Secondary Text Color Dark */
 
-    --accent: 0 169 165; /* #00A9A5 */
-    --accent-foreground: 31 41 51;
+    --accent: #00A9A5; /* Accent Light */
+    --accent-foreground: #1F2933;
 
-    --destructive: 239 154 154; /* #EF9A9A */
-    --destructive-foreground: 31 41 51;
+    --destructive: #EF9A9A; /* Error Dark */
+    --destructive-foreground: #1F2933;
 
-    --success: 102 187 106; /* #66BB6A */
-    --warning: 255 235 59; /* #FFEB3B */
+    --success: #66BB6A;
+    --warning: #FFEB3B;
 
-    --border: 20 24 29; /* #14181D */
-    --input: 20 24 29;
-    --ring: 0 169 165;
+    --border: #14181D; /* Neumorphic Shadow Dark */
+    --input: #14181D;
+    --ring: #00A9A5;
 
     /* Dark mode Neumorphism */
-    --neu-surface: 39 49 58; /* #27313A */
-    --neu-highlight: 44 55 66; /* #2C3742 */
-    --neu-shadow: 20 24 29; /* #14181D */
+    --neu-surface: #27313A; /* Neumorphic Surface Dark */
+    --neu-highlight: #2C3742; /* Neumorphic Light Source Dark */
+    --neu-shadow: #14181D; /* Neumorphic Shadow Dark */
   }
 }
 
@@ -96,7 +96,8 @@
 
   body {
     @apply bg-background text-foreground;
-    background: rgb(var(--background));
+    background-color: var(--background);
+    color: var(--foreground);
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     overflow-x: hidden;
   }
@@ -122,28 +123,28 @@
 /* Neumorphism Core Components */
 @layer utilities {
   .neu-flat {
-    background: rgb(var(--neu-surface));
+    background-color: var(--neu-surface);
     box-shadow: 
-      var(--neu-distance) var(--neu-distance) calc(var(--neu-distance) * 2) rgb(var(--neu-shadow) / var(--neu-intensity)),
-      calc(var(--neu-distance) * -1) calc(var(--neu-distance) * -1) calc(var(--neu-distance) * 2) rgb(var(--neu-highlight) / 0.7);
+      var(--neu-distance) var(--neu-distance) calc(var(--neu-distance) * 2) var(--neu-shadow),
+      calc(var(--neu-distance) * -1) calc(var(--neu-distance) * -1) calc(var(--neu-distance) * 2) var(--neu-highlight);
     border-radius: 16px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .neu-pressed {
-    background: rgb(var(--neu-surface));
+    background-color: var(--neu-surface);
     box-shadow: 
-      inset 4px 4px 8px rgb(var(--neu-shadow) / var(--neu-intensity)),
-      inset -4px -4px 8px rgb(var(--neu-highlight) / 0.7);
+      inset 4px 4px 8px var(--neu-shadow),
+      inset -4px -4px 8px var(--neu-highlight);
     border-radius: 16px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .neu-elevated {
-    background: rgb(var(--neu-surface));
+    background-color: var(--neu-surface);
     box-shadow: 
-      12px 12px 24px rgb(var(--neu-shadow) / 0.2),
-      -12px -12px 24px rgb(var(--neu-highlight) / 0.8);
+      12px 12px 24px var(--neu-shadow),
+      -12px -12px 24px var(--neu-highlight);
     border-radius: 20px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -156,31 +157,31 @@
   .neu-button:hover {
     transform: translateY(-2px);
     box-shadow: 
-      calc(var(--neu-distance) + 2px) calc(var(--neu-distance) + 2px) calc(var(--neu-distance) * 2.5) rgb(var(--neu-shadow) / 0.2),
-      calc(var(--neu-distance) * -1 - 2px) calc(var(--neu-distance) * -1 - 2px) calc(var(--neu-distance) * 2.5) rgb(var(--neu-highlight) / 0.8);
+      calc(var(--neu-distance) + 2px) calc(var(--neu-distance) + 2px) calc(var(--neu-distance) * 2.5) var(--neu-shadow),
+      calc(var(--neu-distance) * -1 - 2px) calc(var(--neu-distance) * -1 - 2px) calc(var(--neu-distance) * 2.5) var(--neu-highlight);
   }
 
   .neu-button:active {
     transform: translateY(1px);
     box-shadow: 
-      inset 2px 2px 6px rgb(var(--neu-shadow) / var(--neu-intensity)),
-      inset -2px -2px 6px rgb(var(--neu-highlight) / 0.7);
+      inset 2px 2px 6px var(--neu-shadow),
+      inset -2px -2px 6px var(--neu-highlight);
   }
 
   .neu-input {
     @apply neu-pressed;
     padding: 12px 16px;
-    background: rgb(var(--neu-surface));
+    background-color: var(--neu-surface);
     border: none;
     outline: none;
-    color: rgb(var(--foreground));
+    color: var(--foreground);
   }
 
   .neu-input:focus {
     box-shadow: 
-      inset 6px 6px 12px rgb(var(--neu-shadow) / 0.2),
-      inset -6px -6px 12px rgb(var(--neu-highlight) / 0.8),
-      0 0 0 2px rgb(var(--primary) / 0.3);
+      inset 6px 6px 12px var(--neu-shadow),
+      inset -6px -6px 12px var(--neu-highlight),
+      0 0 0 2px var(--primary);
   }
 
   .neu-card {
@@ -191,8 +192,8 @@
   .neu-card:hover {
     transform: translateY(-4px);
     box-shadow: 
-      16px 16px 32px rgb(var(--neu-shadow) / 0.25),
-      -16px -16px 32px rgb(var(--neu-highlight) / 0.9);
+      16px 16px 32px var(--neu-shadow),
+      -16px -16px 32px var(--neu-highlight);
   }
 
   /* Parallax utilities */
@@ -258,26 +259,26 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: rgb(var(--neu-surface));
+    background-color: var(--neu-surface);
     border-radius: 4px;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: rgb(var(--neu-shadow) / 0.3);
+    background-color: var(--neu-shadow);
     border-radius: 4px;
     box-shadow: 
-      inset 2px 2px 4px rgb(var(--neu-shadow) / 0.1),
-      inset -2px -2px 4px rgb(var(--neu-highlight) / 0.5);
+      inset 2px 2px 4px var(--neu-shadow),
+      inset -2px -2px 4px var(--neu-highlight);
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: rgb(var(--neu-shadow) / 0.4);
+    background-color: var(--primary);
   }
 
   /* Focus styles for accessibility */
   .neu-button:focus-visible,
   .neu-input:focus-visible {
-    outline: 2px solid rgb(var(--primary));
+    outline: 2px solid var(--primary);
     outline-offset: 2px;
   }
 
@@ -294,13 +295,13 @@
   @keyframes pulse-neu {
     0%, 100% {
       box-shadow: 
-        var(--neu-distance) var(--neu-distance) calc(var(--neu-distance) * 2) rgb(var(--neu-shadow) / var(--neu-intensity)),
-        calc(var(--neu-distance) * -1) calc(var(--neu-distance) * -1) calc(var(--neu-distance) * 2) rgb(var(--neu-highlight) / 0.7);
+        var(--neu-distance) var(--neu-distance) calc(var(--neu-distance) * 2) var(--neu-shadow),
+        calc(var(--neu-distance) * -1) calc(var(--neu-distance) * -1) calc(var(--neu-distance) * 2) var(--neu-highlight);
     }
     50% {
       box-shadow: 
-        calc(var(--neu-distance) * 1.5) calc(var(--neu-distance) * 1.5) calc(var(--neu-distance) * 3) rgb(var(--neu-shadow) / 0.2),
-        calc(var(--neu-distance) * -1.5) calc(var(--neu-distance) * -1.5) calc(var(--neu-distance) * 3) rgb(var(--neu-highlight) / 0.9);
+        calc(var(--neu-distance) * 1.5) calc(var(--neu-distance) * 1.5) calc(var(--neu-distance) * 3) var(--neu-shadow),
+        calc(var(--neu-distance) * -1.5) calc(var(--neu-distance) * -1.5) calc(var(--neu-distance) * 3) var(--neu-highlight);
     }
   }
 
