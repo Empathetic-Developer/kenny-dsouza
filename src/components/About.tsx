@@ -1,10 +1,10 @@
-
 import React from 'react';
 import { Code, Palette, Users, Zap } from 'lucide-react';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { useScrollAnimation, useParallax } from '../hooks/useScrollAnimation';
 
 const About = () => {
   const { ref: sectionRef, isVisible } = useScrollAnimation();
+  const parallaxRef = useParallax(0.3);
 
   const highlights = [
     {
@@ -58,10 +58,14 @@ const About = () => {
       ref={sectionRef}
       className="py-20 bg-background relative overflow-hidden parallax-container"
     >
-      {/* Parallax Background Elements */}
-      <div className="absolute inset-0 opacity-30">
+      {/* Enhanced Parallax Background Elements */}
+      <div 
+        ref={parallaxRef}
+        className="parallax-bg opacity-20"
+      >
         <div className="absolute top-20 left-10 w-40 h-40 neu-flat rounded-full animate-float"></div>
         <div className="absolute bottom-20 right-10 w-32 h-32 neu-flat rounded-full animate-float" style={{ animationDelay: '3s' }}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 neu-flat rounded-full opacity-10 animate-float" style={{ animationDelay: '1.5s' }}></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

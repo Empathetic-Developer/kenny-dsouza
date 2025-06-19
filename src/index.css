@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -17,7 +18,7 @@
     --popover-foreground: 52 61 70;
 
     --primary: 0 140 137; /* #008C89 */
-    --primary-foreground: 224 230 236;
+    --primary-foreground: 255 255 255;
 
     --secondary: 107 118 130; /* #6B7682 */
     --secondary-foreground: 52 61 70;
@@ -201,6 +202,16 @@
   }
 
   .parallax-element {
+    will-change: transform;
+  }
+
+  .parallax-bg {
+    position: absolute;
+    top: -20%;
+    left: -20%;
+    width: 140%;
+    height: 140%;
+    pointer-events: none;
     will-change: transform;
   }
 

@@ -1,10 +1,11 @@
 
 import React, { useState } from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { useScrollAnimation, useParallax } from '../hooks/useScrollAnimation';
 
 const Recommendations = () => {
   const { ref: sectionRef, isVisible } = useScrollAnimation();
+  const parallaxRef = useParallax(0.3);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const recommendations = [
@@ -52,12 +53,16 @@ const Recommendations = () => {
     <section 
       id="recommendations" 
       ref={sectionRef}
-      className="py-20 bg-secondary/30 relative overflow-hidden"
+      className="py-20 bg-secondary/10 relative overflow-hidden parallax-container"
     >
-      {/* Parallax Background */}
-      <div className="absolute inset-0 opacity-20">
+      {/* Enhanced Parallax Background */}
+      <div 
+        ref={parallaxRef}
+        className="parallax-bg opacity-15"
+      >
         <div className="absolute top-20 left-10 w-72 h-72 neu-flat rounded-full animate-float"></div>
         <div className="absolute bottom-20 right-10 w-48 h-48 neu-flat rounded-full animate-float" style={{ animationDelay: '3s' }}></div>
+        <div className="absolute top-1/2 right-1/3 w-36 h-36 neu-flat rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

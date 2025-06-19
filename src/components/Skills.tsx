@@ -1,9 +1,9 @@
-
 import React from 'react';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { useScrollAnimation, useParallax } from '../hooks/useScrollAnimation';
 
 const Skills = () => {
   const { ref: sectionRef, isVisible } = useScrollAnimation();
+  const parallaxRef = useParallax(0.4);
 
   const skillCategories = [
     {
@@ -40,12 +40,16 @@ const Skills = () => {
     <section 
       id="skills" 
       ref={sectionRef}
-      className="py-20 bg-secondary/30 relative overflow-hidden"
+      className="py-20 bg-secondary/10 relative overflow-hidden parallax-container"
     >
-      {/* Parallax Background */}
-      <div className="absolute inset-0 opacity-20">
+      {/* Enhanced Parallax Background */}
+      <div 
+        ref={parallaxRef}
+        className="parallax-bg opacity-15"
+      >
         <div className="absolute top-10 right-20 w-64 h-64 neu-flat rounded-full animate-float"></div>
         <div className="absolute bottom-10 left-20 w-48 h-48 neu-flat rounded-full animate-float" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/3 left-1/3 w-32 h-32 neu-flat rounded-full animate-float" style={{ animationDelay: '4s' }}></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
