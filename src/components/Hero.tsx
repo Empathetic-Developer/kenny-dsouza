@@ -1,30 +1,8 @@
 
-import React, { useEffect, useRef } from 'react';
-import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
+import React, { useEffect } from 'react';
+import { Github, Linkedin, Mail } from 'lucide-react';
 
 const Hero = () => {
-  const parallaxRef = useRef<HTMLDivElement>(null);
-  const backgroundRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (backgroundRef.current && contentRef.current) {
-        const scrollY = window.scrollY;
-        const speed = 0.5;
-        
-        // Parallax effect for background
-        backgroundRef.current.style.transform = `translate3d(0, ${scrollY * speed}px, 0)`;
-        
-        // Subtle parallax for content
-        contentRef.current.style.transform = `translate3d(0, ${scrollY * 0.2}px, 0)`;
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   useEffect(() => {
     // Entrance animations
     const timer = setTimeout(() => {
@@ -40,13 +18,9 @@ const Hero = () => {
   }, []);
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden parallax-container">
-      {/* Parallax Background */}
-      <div 
-        ref={backgroundRef}
-        className="absolute inset-0 parallax-element"
-        style={{ willChange: 'transform' }}
-      >
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Static Background */}
+      <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-secondary"></div>
         
         {/* Floating abstract shapes */}
@@ -57,18 +31,17 @@ const Hero = () => {
       </div>
 
       {/* Main Content */}
-      <div 
-        ref={contentRef}
-        className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center parallax-element"
-      >
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="space-y-12">
           {/* Profile Avatar */}
           <div className="flex justify-center mb-8 hero-animate fade-in-up">
             <div className="relative">
               <div className="w-48 h-48 neu-elevated p-4 rounded-full animate-pulse-neu">
-                <div className="w-full h-full rounded-full bg-gradient-to-br from-secondary to-muted flex items-center justify-center">
-                  <span className="text-6xl">👨‍💻</span>
-                </div>
+                <img 
+                  src="/lovable-uploads/00b371b1-f475-4090-bbe4-001a1e7a6d37.png"
+                  alt="Kenny Dsouza - Lead Frontend Developer"
+                  className="w-full h-full rounded-full object-cover"
+                />
               </div>
               {/* Floating decorative elements */}
               <div className="absolute -top-4 -right-4 w-8 h-8 neu-flat rounded-full animate-float" style={{ animationDelay: '0.5s' }}></div>
@@ -80,7 +53,7 @@ const Hero = () => {
           <div className="space-y-6 hero-animate fade-in-up">
             <h1 className="text-5xl md:text-7xl font-light text-foreground">
               Hi, I'm{' '}
-              <span className="font-medium bg-gradient-to-r from-primary to-foreground bg-clip-text text-transparent">
+              <span className="font-medium text-primary">
                 Kenny Dsouza
               </span>
             </h1>
@@ -88,7 +61,7 @@ const Hero = () => {
             <div className="neu-flat p-8 max-w-4xl mx-auto">
               <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed font-light">
                 <span className="text-foreground font-medium">Lead Frontend Developer</span> |{' '}
-                Architecting Scalable UIs, Driving Innovation, Elevating User Experiences
+                Leading Scalable UIs, Driving Innovation, Elevating User Experiences
               </p>
               <p className="text-lg text-muted-foreground mt-4">
                 React, Redux, TypeScript Expert | Built 20+ Apps for Millions of Users | 
@@ -97,25 +70,8 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-8 hero-animate fade-in-up">
-            <button className="neu-button px-10 py-4 text-foreground font-medium text-lg min-w-[200px]">
-              View My Work
-            </button>
-            <button className="neu-button px-10 py-4 text-foreground font-medium text-lg min-w-[200px]">
-              Let's Connect
-            </button>
-          </div>
-
           {/* Social Links */}
           <div className="flex justify-center space-x-8 pt-8 hero-animate fade-in-up">
-            <a 
-              href="https://github.com/kennydsouza" 
-              className="neu-button p-6 rounded-full text-muted-foreground hover:text-foreground"
-              aria-label="GitHub Profile"
-            >
-              <Github size={24} />
-            </a>
             <a 
               href="https://www.linkedin.com/in/kenny-dsouza/" 
               className="neu-button p-6 rounded-full text-muted-foreground hover:text-foreground"
@@ -130,13 +86,6 @@ const Hero = () => {
             >
               <Mail size={24} />
             </a>
-          </div>
-
-          {/* Scroll Indicator */}
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hero-animate fade-in-up">
-            <div className="neu-button p-4 rounded-full animate-bounce">
-              <ArrowDown className="text-muted-foreground" size={24} />
-            </div>
           </div>
         </div>
       </div>

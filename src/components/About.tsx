@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Code, Palette, Users, Zap } from 'lucide-react';
 import { useScrollAnimation, useParallax } from '../hooks/useScrollAnimation';
@@ -9,7 +10,7 @@ const About = () => {
   const highlights = [
     {
       icon: <Code className="w-8 h-8" />,
-      title: "Clean Code Architect",
+      title: "Clean Code Leader",
       description: "Writing maintainable, efficient, and scalable code with 6+ years of experience in modern web technologies"
     },
     {
@@ -47,8 +48,8 @@ const About = () => {
     },
     {
       year: "2025",
-      title: "Continuing Innovation",
-      description: "Leading frontend architecture decisions, building scalable solutions for millions of users"
+      title: "Promoted to Lead Frontend Developer",
+      description: "Leading frontend decisions, building scalable solutions for millions of users, mentoring teams"
     }
   ];
 

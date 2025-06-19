@@ -26,7 +26,7 @@ const Navbar = () => {
 
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      scrolled ? 'neu-flat backdrop-blur-md bg-background/80' : 'bg-transparent'
+      scrolled ? 'backdrop-blur-md bg-background/80 border-b border-border' : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
@@ -73,7 +73,7 @@ const Navbar = () => {
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <div className="md:hidden neu-flat mt-2 mx-4 rounded-2xl backdrop-blur-md bg-background/90">
+        <div className="md:hidden backdrop-blur-md bg-background/90 border-b border-border">
           <div className="px-4 pt-4 pb-6 space-y-2">
             {navItems.map((item) => (
               <a

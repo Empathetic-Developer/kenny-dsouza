@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useScrollAnimation, useParallax } from '../hooks/useScrollAnimation';
 
@@ -7,10 +8,24 @@ const Experience = () => {
 
   const experiences = [
     {
+      title: "Lead Frontend Developer",
+      company: "Brillio",
+      period: "Apr 2025 - Present",
+      duration: "Current",
+      location: "Bengaluru, India",
+      responsibilities: [
+        "Leading frontend architecture decisions for enterprise-scale applications",
+        "Mentoring team of 8+ developers in advanced React patterns and best practices",
+        "Driving technical strategy and innovation across multiple client projects",
+        "Establishing coding standards and development workflows for improved efficiency"
+      ],
+      clients: ["eBay", "Trader Joe's", "FBM", "Cartus"]
+    },
+    {
       title: "Senior Software Engineer",
       company: "Brillio",
-      period: "Jul 2021 - Apr 2025",
-      duration: "3 yrs 10 mos",
+      period: "Jul 2021 - Mar 2025",
+      duration: "3 yrs 9 mos",
       location: "Bengaluru, India",
       responsibilities: [
         "Developed application to manage warehouse pallet check-in, ie: scan a pallet, report discrepancies, add SKUs from your palm & most importantly eliminate the use of paper.",
@@ -43,23 +58,23 @@ const Experience = () => {
     {
       degree: "Bachelor of Engineering in Computer Science",
       institution: "Gogte Institute of Technology",
-      period: "2015 - 2019",
+      period: "2016 - 2019",
       location: "Belagavi, India",
-      grade: "First Class with Distinction"
+      grade: "8.84 CGPA"
     },
     {
-      degree: "Pre-University Course (PUC) - Science",
-      institution: "St. Aloysius PU College",
-      period: "2013 - 2015",
-      location: "Mangaluru, India",
+      degree: "High School Diploma in Computer Science",
+      institution: "K.L.S. Shri Vasantrao Potdar Polytechnic",
+      period: "2013 - 2016",
+      location: "Belagavi, India",
+      grade: "Distinction"
+    },
+    {
+      degree: "Schooling",
+      institution: "St. Paul's High School",
+      period: "2003 - 2013",
+      location: "Goa, India",
       grade: "First Class"
-    },
-    {
-      degree: "Secondary School Leaving Certificate (SSLC)",
-      institution: "Carmel High School",
-      period: "2012 - 2013",
-      location: "Nuvem, Goa",
-      grade: "First Class with Distinction"
     }
   ];
 

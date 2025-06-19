@@ -3,39 +3,39 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Enhanced Neumorphism Design System with Custom Color Palette */
+/* Enhanced Neumorphism Design System with Optimized Performance */
 
 @layer base {
   :root {
     /* Light Mode Colors */
-    --background: #EBF2F7; /* Main Background Color */
-    --foreground: #343D46; /* Primary Text Color */
+    --background: #EBF2F7;
+    --foreground: #343D46;
 
-    --card: #F0F5F9; /* Neumorphic Surface */
+    --card: #F0F5F9;
     --card-foreground: #343D46;
 
     --popover: #F0F5F9;
     --popover-foreground: #343D46;
 
-    --primary: #008C89; /* Accent Primary */
+    --primary: #008C89;
     --primary-foreground: #FFFFFF;
 
-    --secondary: #6B7682; /* Secondary Text Color */
+    --secondary: #6B7682;
     --secondary-foreground: #343D46;
 
     --muted: #A0A8B0;
-    --muted-foreground: #6B7682; /* Secondary Text Color */
+    --muted-foreground: #6B7682;
 
-    --accent: #00A9A5; /* Accent Light */
+    --accent: #00A9A5;
     --accent-foreground: #343D46;
 
-    --destructive: #EF5350; /* Error Light */
+    --destructive: #EF5350;
     --destructive-foreground: #FFFFFF;
 
     --success: #4CAF50;
     --warning: #FFCA28;
 
-    --border: #CAD2DA; /* Neumorphic Shadow */
+    --border: #CAD2DA;
     --input: #CAD2DA;
     --ring: #008C89;
 
@@ -44,48 +44,48 @@
     /* Neumorphism specific variables */
     --neu-distance: 8px;
     --neu-intensity: 0.15;
-    --neu-surface: #F0F5F9; /* Neumorphic Surface */
-    --neu-highlight: #FFFFFF; /* Neumorphic Light Source */
-    --neu-shadow: #CAD2DA; /* Neumorphic Shadow */
+    --neu-surface: #F0F5F9;
+    --neu-highlight: #FFFFFF;
+    --neu-shadow: #CAD2DA;
   }
 
   .dark {
     /* Dark Mode Colors */
-    --background: #1F2933; /* Main Background Color Dark */
-    --foreground: #E0E6EC; /* Primary Text Color Dark */
+    --background: #1F2933;
+    --foreground: #E0E6EC;
 
-    --card: #27313A; /* Neumorphic Surface Dark */
+    --card: #27313A;
     --card-foreground: #E0E6EC;
 
     --popover: #27313A;
     --popover-foreground: #E0E6EC;
 
-    --primary: #006C6A; /* Accent Dark */
+    --primary: #006C6A;
     --primary-foreground: #E0E6EC;
 
-    --secondary: #A0A8B0; /* Secondary Text Color Dark */
+    --secondary: #A0A8B0;
     --secondary-foreground: #E0E6EC;
 
     --muted: #6B7682;
-    --muted-foreground: #A0A8B0; /* Secondary Text Color Dark */
+    --muted-foreground: #A0A8B0;
 
-    --accent: #00A9A5; /* Accent Light */
+    --accent: #00A9A5;
     --accent-foreground: #1F2933;
 
-    --destructive: #EF9A9A; /* Error Dark */
+    --destructive: #EF9A9A;
     --destructive-foreground: #1F2933;
 
     --success: #66BB6A;
     --warning: #FFEB3B;
 
-    --border: #14181D; /* Neumorphic Shadow Dark */
+    --border: #14181D;
     --input: #14181D;
     --ring: #00A9A5;
 
     /* Dark mode Neumorphism */
-    --neu-surface: #27313A; /* Neumorphic Surface Dark */
-    --neu-highlight: #2C3742; /* Neumorphic Light Source Dark */
-    --neu-shadow: #14181D; /* Neumorphic Shadow Dark */
+    --neu-surface: #27313A;
+    --neu-highlight: #2C3742;
+    --neu-shadow: #14181D;
   }
 }
 
@@ -120,7 +120,7 @@
   }
 }
 
-/* Neumorphism Core Components */
+/* Neumorphism Core Components with Performance Optimizations */
 @layer utilities {
   .neu-flat {
     background-color: var(--neu-surface);
@@ -128,7 +128,7 @@
       var(--neu-distance) var(--neu-distance) calc(var(--neu-distance) * 2) var(--neu-shadow),
       calc(var(--neu-distance) * -1) calc(var(--neu-distance) * -1) calc(var(--neu-distance) * 2) var(--neu-highlight);
     border-radius: 16px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .neu-pressed {
@@ -137,7 +137,7 @@
       inset 4px 4px 8px var(--neu-shadow),
       inset -4px -4px 8px var(--neu-highlight);
     border-radius: 16px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .neu-elevated {
@@ -146,7 +146,7 @@
       12px 12px 24px var(--neu-shadow),
       -12px -12px 24px var(--neu-highlight);
     border-radius: 20px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .neu-button {
@@ -220,7 +220,7 @@
   .fade-in-up {
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
   }
 
   .fade-in-up.animate {
@@ -231,7 +231,7 @@
   .stagger-children > * {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
   }
 
   .stagger-children.animate > *:nth-child(1) { transition-delay: 0.1s; }
@@ -246,11 +246,11 @@
     transform: translateY(0);
   }
 
-  /* Smooth transitions for theme toggle */
+  /* Optimized transitions for theme toggle */
   * {
     transition-property: color, background-color, border-color, box-shadow;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 300ms;
+    transition-duration: 150ms;
   }
 
   /* Custom scrollbar with neumorphism */
