@@ -1,7 +1,12 @@
 
-import React from 'react';
+import React, { useState } from 'react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const Recommendations = () => {
+  const { ref: sectionRef, isVisible } = useScrollAnimation();
+  const [currentIndex, setCurrentIndex] = useState(0);
+
   const recommendations = [
     {
       name: "Soujanya Panda",
@@ -35,41 +40,94 @@ const Recommendations = () => {
     }
   ];
 
+  const nextRecommendation = () => {
+    setCurrentIndex((prev) => (prev + 1) % recommendations.length);
+  };
+
+  const prevRecommendation = () => {
+    setCurrentIndex((prev) => (prev - 1 + recommendations.length) % recommendations.length);
+  };
+
   return (
-    <section id="recommendations" className="py-20 bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-black dark:to-gray-950">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl lg:text-5xl font-light text-black dark:text-white mb-6">
-            What People Say
+    <section 
+      id="recommendations" 
+      ref={sectionRef}
+      className="py-20 bg-secondary/30 relative overflow-hidden"
+    >
+      {/* Parallax Background */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-20 left-10 w-72 h-72 neu-flat rounded-full animate-float"></div>
+        <div className="absolute bottom-20 right-10 w-48 h-48 neu-flat rounded-full animate-float" style={{ animationDelay: '3s' }}></div>
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className={`text-center mb-16 fade-in-up ${isVisible ? 'animate' : ''}`}>
+          <h2 className="text-4xl lg:text-5xl font-light text-foreground mb-6">
+            Voices of Collaboration
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            Testimonials from colleagues and industry professionals
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            Testimonials from colleagues and industry professionals who've experienced my work firsthand
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {recommendations.map((recommendation, index) => (
-            <div 
-              key={index}
-              className="glass-card rounded-2xl p-8 hover:bg-white/30 dark:hover:bg-black/30 transition-all duration-300 animate-fade-in h-full flex flex-col"
-              style={{ animationDelay: `${index * 100}ms` }}
+        {/* Carousel Container */}
+        <div className={`neu-elevated p-8 md:p-12 max-w-4xl mx-auto fade-in-up ${isVisible ? 'animate' : ''}`}>
+          {/* Navigation */}
+          <div className="flex justify-between items-center mb-8">
+            <button 
+              onClick={prevRecommendation}
+              className="neu-button p-4 rounded-full text-muted-foreground hover:text-foreground"
+              aria-label="Previous recommendation"
             >
-              <div className="flex-grow">
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6 font-light">
-                  "{recommendation.text}"
-                </p>
-              </div>
-              
-              <div className="border-t border-gray-200 dark:border-gray-800 pt-6">
-                <h4 className="text-lg font-medium text-black dark:text-white mb-1">
-                  {recommendation.name}
-                </h4>
-                <p className="text-sm text-gray-500 dark:text-gray-500">
-                  {recommendation.position}
-                </p>
-              </div>
+              <ArrowLeft size={24} />
+            </button>
+            
+            <div className="flex space-x-2">
+              {recommendations.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentIndex(index)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    index === currentIndex 
+                      ? 'neu-pressed' 
+                      : 'neu-flat opacity-50'
+                  }`}
+                  aria-label={`Go to recommendation ${index + 1}`}
+                />
+              ))}
             </div>
-          ))}
+
+            <button 
+              onClick={nextRecommendation}
+              className="neu-button p-4 rounded-full text-muted-foreground hover:text-foreground"
+              aria-label="Next recommendation"
+            >
+              <ArrowRight size={24} />
+            </button>
+          </div>
+
+          {/* Recommendation Card */}
+          <div className="neu-flat p-8 text-center min-h-[300px] flex flex-col justify-between">
+            <div className="flex-grow flex items-center justify-center">
+              <blockquote className="text-lg text-muted-foreground leading-relaxed italic">
+                "{recommendations[currentIndex].text}"
+              </blockquote>
+            </div>
+            
+            <div className="mt-8 pt-6 border-t border-border">
+              <h4 className="text-xl font-medium text-foreground mb-2">
+                {recommendations[currentIndex].name}
+              </h4>
+              <p className="text-sm text-primary font-medium">
+                {recommendations[currentIndex].position}
+              </p>
+            </div>
+          </div>
+
+          {/* Recommendation Counter */}
+          <div className="text-center mt-6 text-sm text-muted-foreground">
+            {currentIndex + 1} of {recommendations.length}
+          </div>
         </div>
       </div>
     </section>

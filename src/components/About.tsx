@@ -1,96 +1,142 @@
 
 import React from 'react';
 import { Code, Palette, Users, Zap } from 'lucide-react';
-import { ScrollArea } from './ui/scroll-area';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const About = () => {
+  const { ref: sectionRef, isVisible } = useScrollAnimation();
+
   const highlights = [
     {
-      icon: <Code className="w-6 h-6" />,
-      title: "Clean Code",
-      description: "Writing maintainable, efficient, and scalable code with 6+ years of experience"
+      icon: <Code className="w-8 h-8" />,
+      title: "Clean Code Architect",
+      description: "Writing maintainable, efficient, and scalable code with 6+ years of experience in modern web technologies"
     },
     {
-      icon: <Palette className="w-6 h-6" />,
-      title: "UX Focused",
-      description: "Google UX Design certified, creating intuitive user experiences"
+      icon: <Palette className="w-8 h-8" />,
+      title: "UX-Focused Engineer", 
+      description: "Google UX Design certified, bridging the gap between technical excellence and intuitive user experiences"
     },
     {
-      icon: <Users className="w-6 h-6" />,
+      icon: <Users className="w-8 h-8" />,
       title: "Agile Leader",
-      description: "Certified Scrum Master & SAFe® Product Owner/Manager"
+      description: "Certified Scrum Master & SAFe® Product Owner, leading cross-functional teams to deliver impactful solutions"
     },
     {
-      icon: <Zap className="w-6 h-6" />,
+      icon: <Zap className="w-8 h-8" />,
       title: "Performance Expert",
-      description: "Optimizing applications with code splitting, lazy loading, and caching strategies"
+      description: "Optimizing applications with advanced techniques: code splitting, lazy loading, caching strategies, and Lighthouse audits"
+    }
+  ];
+
+  const journey = [
+    {
+      year: "2019",
+      title: "Started as Software Engineer",
+      description: "Joined Brillio, began journey in frontend development with React and modern web technologies"
+    },
+    {
+      year: "2021", 
+      title: "Promoted to Senior Software Engineer",
+      description: "Led development of complex applications, mentored junior developers, obtained key certifications"
+    },
+    {
+      year: "2023",
+      title: "Achieved Leadership Excellence", 
+      description: "Became certified Scrum Master and SAFe® Product Owner, driving innovation and team success"
+    },
+    {
+      year: "2025",
+      title: "Continuing Innovation",
+      description: "Leading frontend architecture decisions, building scalable solutions for millions of users"
     }
   ];
 
   return (
-    <section id="about" className="py-20 bg-white dark:bg-slate-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
-            About Me
+    <section 
+      id="about" 
+      ref={sectionRef}
+      className="py-20 bg-background relative overflow-hidden parallax-container"
+    >
+      {/* Parallax Background Elements */}
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute top-20 left-10 w-40 h-40 neu-flat rounded-full animate-float"></div>
+        <div className="absolute bottom-20 right-10 w-32 h-32 neu-flat rounded-full animate-float" style={{ animationDelay: '3s' }}></div>
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className={`text-center mb-16 fade-in-up ${isVisible ? 'animate' : ''}`}>
+          <h2 className="text-4xl md:text-5xl font-light text-foreground mb-6">
+            My Journey & Philosophy
           </h2>
-          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
-            Senior Software Engineer passionate about creating scalable, user-focused solutions
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            Transforming ideas into scalable, user-focused solutions through technical excellence and collaborative leadership
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Column - Story */}
-          <div className="space-y-6">
-            <ScrollArea className="h-auto max-h-96 md:max-h-none pr-4">
-              <div className="prose prose-lg text-slate-600 dark:text-slate-300 space-y-4">
-                <p>
-                  I'm a Senior Software Engineer with 6+ years of experience, specializing in Frontend Development, 
-                  Cloud Technologies, and Agile Leadership. I've led the development of scalable, user-focused 
-                  solutions and have successfully delivered 20+ applications for clients such as eBay, Trader Joe's, FBM and Cartus.
-                </p>
-                
-                <p>
-                  My technical expertise spans React.js, Redux/Redux Toolkit, TypeScript, and modern CSS frameworks. 
-                  I'm passionate about performance optimization, implementing code splitting, lazy loading, and 
-                  conducting Lighthouse audits to improve accessibility and SEO.
-                </p>
-
-                <p>
-                  As a Certified Scrum Master and SAFe® Product Owner/Manager, I bring strong leadership skills 
-                  to cross-functional teams. My goal is to create impactful software that drives business success 
-                  while mentoring new engineers and fostering innovation.
-                </p>
-              </div>
-            </ScrollArea>
-
-            <div className="flex flex-wrap gap-3">
-              <span className="px-4 py-2 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full text-sm font-medium">
-                Certified Scrum Master
-              </span>
-              <span className="px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full text-sm font-medium">
-                SAFe® Product Owner
-              </span>
-              <span className="px-4 py-2 bg-cyan-100 dark:bg-cyan-900/30 text-cyan-800 dark:text-cyan-300 rounded-full text-sm font-medium">
-                UX Design Certified
-              </span>
-            </div>
+        {/* Philosophy Statement */}
+        <div className={`neu-elevated p-8 md:p-12 mb-16 fade-in-up ${isVisible ? 'animate' : ''}`}>
+          <div className="prose prose-lg max-w-4xl mx-auto text-center">
+            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+              I believe that exceptional frontend development goes beyond writing clean code—it's about creating 
+              intuitive experiences that solve real problems. My approach combines technical expertise with 
+              user-centered design principles, ensuring every application I build is both performant and delightful to use.
+            </p>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              As a leader, I foster innovation through collaboration, mentorship, and continuous learning. 
+              I'm passionate about building not just great software, but great teams that deliver lasting impact.
+            </p>
           </div>
+        </div>
 
-          {/* Right Column - Highlights */}
-          <div className="grid grid-cols-2 gap-6">
-            {highlights.map((item, index) => (
-              <div 
-                key={index}
-                className="bg-gradient-to-br from-purple-50 to-cyan-50 dark:from-purple-900/20 dark:to-cyan-900/20 p-6 rounded-xl hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl border border-purple-200/20 dark:border-purple-700/20"
-              >
-                <div className="text-purple-600 dark:text-purple-400 mb-3">
-                  {item.icon}
+        {/* Journey Timeline */}
+        <div className="mb-16">
+          <h3 className={`text-2xl font-medium text-foreground mb-8 text-center fade-in-up ${isVisible ? 'animate' : ''}`}>
+            Professional Journey
+          </h3>
+          
+          <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 stagger-children ${isVisible ? 'animate' : ''}`}>
+            {journey.map((item, index) => (
+              <div key={index} className="neu-card p-6 text-center">
+                <div className="neu-flat w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-lg font-bold text-foreground">{item.year}</span>
                 </div>
-                <h3 className="font-semibold text-slate-900 dark:text-white mb-2">{item.title}</h3>
-                <p className="text-sm text-slate-600 dark:text-slate-300">{item.description}</p>
+                <h4 className="font-medium text-foreground mb-3">{item.title}</h4>
+                <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* Highlights Grid */}
+        <div className="grid lg:grid-cols-2 gap-8">
+          {highlights.map((item, index) => (
+            <div 
+              key={index}
+              className={`neu-card p-8 fade-in-up ${isVisible ? 'animate' : ''}`}
+              style={{ animationDelay: `${index * 0.2}s` }}
+            >
+              <div className="neu-flat w-16 h-16 rounded-full flex items-center justify-center text-primary mb-6">
+                {item.icon}
+              </div>
+              <h3 className="font-semibold text-foreground mb-4 text-xl">{item.title}</h3>
+              <p className="text-muted-foreground leading-relaxed">{item.description}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Certifications */}
+        <div className={`mt-16 text-center fade-in-up ${isVisible ? 'animate' : ''}`}>
+          <div className="flex flex-wrap justify-center gap-4">
+            <span className="neu-button px-6 py-3 text-primary font-medium">
+              Certified Scrum Master
+            </span>
+            <span className="neu-button px-6 py-3 text-primary font-medium">
+              SAFe® Product Owner
+            </span>
+            <span className="neu-button px-6 py-3 text-primary font-medium">
+              Google UX Design Certified
+            </span>
           </div>
         </div>
       </div>

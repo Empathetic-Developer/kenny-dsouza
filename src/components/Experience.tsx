@@ -1,7 +1,10 @@
 
 import React from 'react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const Experience = () => {
+  const { ref: sectionRef, isVisible } = useScrollAnimation();
+
   const experiences = [
     {
       title: "Senior Software Engineer",
@@ -61,108 +64,119 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-20 bg-gradient-to-br from-white via-gray-50 to-white dark:from-black dark:via-gray-950 dark:to-black">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl lg:text-5xl font-light text-black dark:text-white mb-6">
+    <section 
+      id="experience" 
+      ref={sectionRef}
+      className="py-20 bg-background relative overflow-hidden"
+    >
+      {/* Parallax Background */}
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute top-40 left-20 w-56 h-56 neu-flat rounded-full animate-float"></div>
+        <div className="absolute bottom-40 right-20 w-40 h-40 neu-flat rounded-full animate-float" style={{ animationDelay: '4s' }}></div>
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className={`text-center mb-16 fade-in-up ${isVisible ? 'animate' : ''}`}>
+          <h2 className="text-4xl lg:text-5xl font-light text-foreground mb-6">
             Professional Experience
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            6+ years of building scalable web applications and leading technical teams
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            6+ years of building scalable web applications and leading technical teams at Brillio
           </p>
         </div>
 
-        <div className="space-y-8 mb-20">
+        {/* Experience Timeline */}
+        <div className="space-y-12 mb-20">
           {experiences.map((exp, index) => (
             <div 
               key={index} 
-              className="glass-card rounded-2xl p-8 hover:bg-white/30 dark:hover:bg-black/30 transition-all duration-300 animate-fade-in"
-              style={{ animationDelay: `${index * 200}ms` }}
+              className={`neu-elevated p-8 md:p-12 fade-in-up ${isVisible ? 'animate' : ''}`}
+              style={{ animationDelay: `${index * 0.3}s` }}
             >
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                {/* Job Details */}
                 <div className="lg:col-span-1">
-                  <h3 className="text-xl font-medium text-black dark:text-white mb-2">
-                    {exp.title}
-                  </h3>
-                  <p className="text-lg text-gray-700 dark:text-gray-300 mb-2">
-                    {exp.company}
-                  </p>
-                  <p className="text-sm text-gray-500 dark:text-gray-500 mb-1">
-                    {exp.period}
-                  </p>
-                  <p className="text-sm text-gray-500 dark:text-gray-500 mb-1">
-                    {exp.duration}
-                  </p>
-                  <p className="text-sm text-gray-500 dark:text-gray-500 mb-4">
-                    {exp.location}
-                  </p>
-                  
-                  {exp.clients && (
-                    <div className="mt-4">
-                      <p className="text-sm text-gray-600 dark:text-gray-400 mb-2 font-medium">
-                        Key Clients:
-                      </p>
-                      <div className="flex flex-wrap gap-2">
-                        {exp.clients.map((client, clientIndex) => (
-                          <span 
-                            key={clientIndex}
-                            className="px-3 py-1 glass-button text-xs text-gray-600 dark:text-gray-400 rounded-full"
-                          >
-                            {client}
-                          </span>
-                        ))}
-                      </div>
+                  <div className="neu-flat p-6 text-center">
+                    <h3 className="text-xl font-medium text-foreground mb-3">
+                      {exp.title}
+                    </h3>
+                    <p className="text-lg text-primary font-medium mb-3">
+                      {exp.company}
+                    </p>
+                    <div className="space-y-2 text-sm text-muted-foreground">
+                      <p className="font-medium">{exp.period}</p>
+                      <p>{exp.duration}</p>
+                      <p>{exp.location}</p>
                     </div>
-                  )}
+                    
+                    {exp.clients && (
+                      <div className="mt-6">
+                        <p className="text-sm text-foreground font-medium mb-3">
+                          Key Clients:
+                        </p>
+                        <div className="flex flex-wrap gap-2 justify-center">
+                          {exp.clients.map((client, clientIndex) => (
+                            <span 
+                              key={clientIndex}
+                              className="neu-button px-3 py-1 text-xs text-primary"
+                            >
+                              {client}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 </div>
                 
+                {/* Responsibilities */}
                 <div className="lg:col-span-2">
-                  <h4 className="text-lg font-medium text-black dark:text-white mb-4">
-                    Key Responsibilities
+                  <h4 className="text-lg font-medium text-foreground mb-6">
+                    Key Responsibilities & Achievements
                   </h4>
-                  <ul className="space-y-3">
+                  <div className="space-y-4">
                     {exp.responsibilities.map((responsibility, respIndex) => (
-                      <li 
+                      <div 
                         key={respIndex}
-                        className="flex items-start text-gray-600 dark:text-gray-400"
+                        className="neu-flat p-4 flex items-start"
                       >
-                        <span className="text-gray-400 dark:text-gray-600 mr-3 mt-1">⦿</span>
-                        <span>{responsibility}</span>
-                      </li>
+                        <span className="text-primary mr-4 mt-1 text-lg">⦿</span>
+                        <span className="text-muted-foreground leading-relaxed">{responsibility}</span>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
                 </div>
               </div>
             </div>
           ))}
         </div>
 
+        {/* Education Section */}
         <div>
-          <h3 className="text-3xl font-light text-black dark:text-white mb-8 text-center">
+          <h3 className={`text-3xl font-light text-foreground mb-12 text-center fade-in-up ${isVisible ? 'animate' : ''}`}>
             Education
           </h3>
           
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className={`grid md:grid-cols-3 gap-8 stagger-children ${isVisible ? 'animate' : ''}`}>
             {education.map((edu, index) => (
               <div 
                 key={index}
-                className="glass-card rounded-2xl p-6 hover:bg-white/30 dark:hover:bg-black/30 transition-all duration-300 text-center"
+                className="neu-card p-6 text-center h-full"
               >
-                <h4 className="text-lg font-medium text-black dark:text-white mb-3">
+                <div className="neu-flat w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl">🎓</span>
+                </div>
+                <h4 className="text-lg font-medium text-foreground mb-4">
                   {edu.degree}
                 </h4>
-                <p className="text-md text-gray-700 dark:text-gray-300 mb-2">
+                <p className="text-md text-primary font-medium mb-3">
                   {edu.institution}
                 </p>
-                <p className="text-sm text-gray-500 dark:text-gray-500 mb-1">
-                  {edu.period}
-                </p>
-                <p className="text-sm text-gray-500 dark:text-gray-500 mb-2">
-                  {edu.location}
-                </p>
-                <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">
-                  {edu.grade}
-                </p>
+                <div className="space-y-2 text-sm text-muted-foreground">
+                  <p>{edu.period}</p>
+                  <p>{edu.location}</p>
+                  <p className="font-medium text-foreground">{edu.grade}</p>
+                </div>
               </div>
             ))}
           </div>

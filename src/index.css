@@ -3,87 +3,81 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Minimalist Glass Morphism Design System */
+/* Enhanced Neumorphism Design System with Parallax Support */
 
 @layer base {
   :root {
-    --background: 255 255 255;
-    --foreground: 0 0 0;
+    --background: 240 240 245;
+    --foreground: 30 30 40;
 
-    --card: 255 255 255;
-    --card-foreground: 0 0 0;
+    --card: 240 240 245;
+    --card-foreground: 30 30 40;
 
-    --popover: 255 255 255;
-    --popover-foreground: 0 0 0;
+    --popover: 240 240 245;
+    --popover-foreground: 30 30 40;
 
-    --primary: 0 0 0;
-    --primary-foreground: 255 255 255;
+    --primary: 30 30 40;
+    --primary-foreground: 240 240 245;
 
-    --secondary: 245 245 245;
-    --secondary-foreground: 0 0 0;
+    --secondary: 230 230 235;
+    --secondary-foreground: 30 30 40;
 
-    --muted: 245 245 245;
-    --muted-foreground: 115 115 115;
+    --muted: 230 230 235;
+    --muted-foreground: 115 115 125;
 
-    --accent: 245 245 245;
-    --accent-foreground: 0 0 0;
+    --accent: 230 230 235;
+    --accent-foreground: 30 30 40;
 
     --destructive: 239 68 68;
     --destructive-foreground: 255 255 255;
 
-    --border: 229 229 229;
-    --input: 229 229 229;
-    --ring: 0 0 0;
+    --border: 220 220 225;
+    --input: 220 220 225;
+    --ring: 30 30 40;
 
     --radius: 1rem;
 
-    --sidebar-background: 255 255 255;
-    --sidebar-foreground: 0 0 0;
-    --sidebar-primary: 0 0 0;
-    --sidebar-primary-foreground: 255 255 255;
-    --sidebar-accent: 245 245 245;
-    --sidebar-accent-foreground: 0 0 0;
-    --sidebar-border: 229 229 229;
-    --sidebar-ring: 0 0 0;
+    /* Neumorphism specific variables */
+    --neu-distance: 8px;
+    --neu-intensity: 0.15;
+    --neu-surface: 240 240 245;
+    --neu-highlight: 255 255 255;
+    --neu-shadow: 200 200 210;
   }
 
   .dark {
-    --background: 0 0 0;
-    --foreground: 255 255 255;
+    --background: 25 25 35;
+    --foreground: 240 240 250;
 
-    --card: 0 0 0;
-    --card-foreground: 255 255 255;
+    --card: 25 25 35;
+    --card-foreground: 240 240 250;
 
-    --popover: 0 0 0;
-    --popover-foreground: 255 255 255;
+    --popover: 25 25 35;
+    --popover-foreground: 240 240 250;
 
-    --primary: 255 255 255;
-    --primary-foreground: 0 0 0;
+    --primary: 240 240 250;
+    --primary-foreground: 25 25 35;
 
-    --secondary: 39 39 42;
-    --secondary-foreground: 255 255 255;
+    --secondary: 35 35 45;
+    --secondary-foreground: 240 240 250;
 
-    --muted: 39 39 42;
+    --muted: 35 35 45;
     --muted-foreground: 161 161 170;
 
-    --accent: 39 39 42;
-    --accent-foreground: 255 255 255;
+    --accent: 35 35 45;
+    --accent-foreground: 240 240 250;
 
     --destructive: 239 68 68;
     --destructive-foreground: 255 255 255;
 
-    --border: 39 39 42;
-    --input: 39 39 42;
-    --ring: 255 255 255;
+    --border: 45 45 55;
+    --input: 45 45 55;
+    --ring: 240 240 250;
 
-    --sidebar-background: 0 0 0;
-    --sidebar-foreground: 255 255 255;
-    --sidebar-primary: 255 255 255;
-    --sidebar-primary-foreground: 0 0 0;
-    --sidebar-accent: 39 39 42;
-    --sidebar-accent-foreground: 255 255 255;
-    --sidebar-border: 39 39 42;
-    --sidebar-ring: 255 255 255;
+    /* Dark mode Neumorphism */
+    --neu-surface: 25 25 35;
+    --neu-highlight: 45 45 55;
+    --neu-shadow: 15 15 25;
   }
 }
 
@@ -94,93 +88,209 @@
 
   body {
     @apply bg-background text-foreground;
-    background: linear-gradient(135deg, rgb(255 255 255 / 0.1), rgb(255 255 255 / 0.05));
+    background: rgb(var(--background));
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    overflow-x: hidden;
   }
 
-  .dark body {
-    background: linear-gradient(135deg, rgb(0 0 0 / 0.1), rgb(0 0 0 / 0.05));
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Reduce motion for accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    
+    .parallax-element {
+      transform: none !important;
+    }
   }
 }
 
-/* Glass Morphism Utilities - Always Visible */
+/* Neumorphism Core Components */
 @layer utilities {
-  .glass {
-    @apply backdrop-blur-md bg-white/20 dark:bg-black/20 border border-white/30 dark:border-white/20;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  .neu-flat {
+    background: rgb(var(--neu-surface));
+    box-shadow: 
+      var(--neu-distance) var(--neu-distance) calc(var(--neu-distance) * 2) rgb(var(--neu-shadow) / var(--neu-intensity)),
+      calc(var(--neu-distance) * -1) calc(var(--neu-distance) * -1) calc(var(--neu-distance) * 2) rgb(var(--neu-highlight) / 0.7);
+    border-radius: 16px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .glass-card {
-    @apply backdrop-blur-xl bg-white/25 dark:bg-black/25 border border-white/40 dark:border-white/30;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  .neu-pressed {
+    background: rgb(var(--neu-surface));
+    box-shadow: 
+      inset 4px 4px 8px rgb(var(--neu-shadow) / var(--neu-intensity)),
+      inset -4px -4px 8px rgb(var(--neu-highlight) / 0.7);
+    border-radius: 16px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .glass-button {
-    @apply backdrop-blur-md bg-white/30 dark:bg-black/30 border border-white/50 dark:border-white/40;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.2);
-    transition: all 0.3s ease;
+  .neu-elevated {
+    background: rgb(var(--neu-surface));
+    box-shadow: 
+      12px 12px 24px rgb(var(--neu-shadow) / 0.2),
+      -12px -12px 24px rgb(var(--neu-highlight) / 0.8);
+    border-radius: 20px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .glass-button:hover {
-    @apply bg-white/40 dark:bg-black/40;
+  .neu-button {
+    @apply neu-flat cursor-pointer select-none;
+    will-change: transform, box-shadow;
+  }
+
+  .neu-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.3);
+    box-shadow: 
+      calc(var(--neu-distance) + 2px) calc(var(--neu-distance) + 2px) calc(var(--neu-distance) * 2.5) rgb(var(--neu-shadow) / 0.2),
+      calc(var(--neu-distance) * -1 - 2px) calc(var(--neu-distance) * -1 - 2px) calc(var(--neu-distance) * 2.5) rgb(var(--neu-highlight) / 0.8);
   }
 
-  .animate-fade-in {
-    animation: fadeIn 1s ease-out;
+  .neu-button:active {
+    transform: translateY(1px);
+    box-shadow: 
+      inset 2px 2px 6px rgb(var(--neu-shadow) / var(--neu-intensity)),
+      inset -2px -2px 6px rgb(var(--neu-highlight) / 0.7);
+  }
+
+  .neu-input {
+    @apply neu-pressed;
+    padding: 12px 16px;
+    background: rgb(var(--neu-surface));
+    border: none;
+    outline: none;
+    color: rgb(var(--foreground));
+  }
+
+  .neu-input:focus {
+    box-shadow: 
+      inset 6px 6px 12px rgb(var(--neu-shadow) / 0.2),
+      inset -6px -6px 12px rgb(var(--neu-highlight) / 0.8),
+      0 0 0 2px rgb(var(--primary) / 0.3);
+  }
+
+  .neu-card {
+    @apply neu-flat;
+    will-change: transform, box-shadow;
+  }
+
+  .neu-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 
+      16px 16px 32px rgb(var(--neu-shadow) / 0.25),
+      -16px -16px 32px rgb(var(--neu-highlight) / 0.9);
+  }
+
+  /* Parallax utilities */
+  .parallax-container {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .parallax-element {
+    will-change: transform;
+  }
+
+  /* Narrative journey animations */
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .fade-in-up.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .stagger-children > * {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .stagger-children.animate > *:nth-child(1) { transition-delay: 0.1s; }
+  .stagger-children.animate > *:nth-child(2) { transition-delay: 0.2s; }
+  .stagger-children.animate > *:nth-child(3) { transition-delay: 0.3s; }
+  .stagger-children.animate > *:nth-child(4) { transition-delay: 0.4s; }
+  .stagger-children.animate > *:nth-child(5) { transition-delay: 0.5s; }
+  .stagger-children.animate > *:nth-child(6) { transition-delay: 0.6s; }
+
+  .stagger-children.animate > * {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Smooth transitions for theme toggle */
+  * {
+    transition-property: color, background-color, border-color, box-shadow;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+  }
+
+  /* Custom scrollbar with neumorphism */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgb(var(--neu-surface));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgb(var(--neu-shadow) / 0.3);
+    border-radius: 4px;
+    box-shadow: 
+      inset 2px 2px 4px rgb(var(--neu-shadow) / 0.1),
+      inset -2px -2px 4px rgb(var(--neu-highlight) / 0.5);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(var(--neu-shadow) / 0.4);
+  }
+
+  /* Focus styles for accessibility */
+  .neu-button:focus-visible,
+  .neu-input:focus-visible {
+    outline: 2px solid rgb(var(--primary));
+    outline-offset: 2px;
+  }
+
+  /* Animation keyframes */
+  @keyframes float {
+    0%, 100% { 
+      transform: translateY(0px) translateZ(0); 
+    }
+    50% { 
+      transform: translateY(-10px) translateZ(0); 
+    }
+  }
+
+  @keyframes pulse-neu {
+    0%, 100% {
+      box-shadow: 
+        var(--neu-distance) var(--neu-distance) calc(var(--neu-distance) * 2) rgb(var(--neu-shadow) / var(--neu-intensity)),
+        calc(var(--neu-distance) * -1) calc(var(--neu-distance) * -1) calc(var(--neu-distance) * 2) rgb(var(--neu-highlight) / 0.7);
+    }
+    50% {
+      box-shadow: 
+        calc(var(--neu-distance) * 1.5) calc(var(--neu-distance) * 1.5) calc(var(--neu-distance) * 3) rgb(var(--neu-shadow) / 0.2),
+        calc(var(--neu-distance) * -1.5) calc(var(--neu-distance) * -1.5) calc(var(--neu-distance) * 3) rgb(var(--neu-highlight) / 0.9);
+    }
   }
 
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
 
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-  }
-
-  /* Smooth scrolling */
-  html {
-    scroll-behavior: smooth;
-  }
-
-  /* Custom scrollbar */
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.1);
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 4px;
-  }
-
-  .dark ::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1);
-  }
-
-  .dark ::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.3);
-  }
-
-  /* Theme transitions */
-  * {
-    transition-property: color, background-color, border-color;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 300ms;
+  .animate-pulse-neu {
+    animation: pulse-neu 2s ease-in-out infinite;
   }
 }
