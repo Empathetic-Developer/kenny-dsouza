@@ -31,7 +31,7 @@ export const useScrollAnimation = (threshold = 0.1) => {
 };
 
 export const useParallax = (speed = 0.5) => {
-  const ref = useRef<HTMLElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
