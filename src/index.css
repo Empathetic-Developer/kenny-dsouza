@@ -1,83 +1,90 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Enhanced Neumorphism Design System with Parallax Support */
+/* Enhanced Neumorphism Design System with Custom Color Palette */
 
 @layer base {
   :root {
-    --background: 240 240 245;
-    --foreground: 30 30 40;
+    /* Light Mode Colors */
+    --background: 235 242 247; /* #EBF2F7 */
+    --foreground: 52 61 70; /* #343D46 */
 
-    --card: 240 240 245;
-    --card-foreground: 30 30 40;
+    --card: 240 245 249; /* #F0F5F9 */
+    --card-foreground: 52 61 70;
 
-    --popover: 240 240 245;
-    --popover-foreground: 30 30 40;
+    --popover: 240 245 249;
+    --popover-foreground: 52 61 70;
 
-    --primary: 30 30 40;
-    --primary-foreground: 240 240 245;
+    --primary: 0 140 137; /* #008C89 */
+    --primary-foreground: 224 230 236;
 
-    --secondary: 230 230 235;
-    --secondary-foreground: 30 30 40;
+    --secondary: 107 118 130; /* #6B7682 */
+    --secondary-foreground: 52 61 70;
 
-    --muted: 230 230 235;
-    --muted-foreground: 115 115 125;
+    --muted: 160 168 176; /* #A0A8B0 */
+    --muted-foreground: 107 118 130;
 
-    --accent: 230 230 235;
-    --accent-foreground: 30 30 40;
+    --accent: 0 169 165; /* #00A9A5 */
+    --accent-foreground: 52 61 70;
 
-    --destructive: 239 68 68;
+    --destructive: 239 83 80; /* #EF5350 */
     --destructive-foreground: 255 255 255;
 
-    --border: 220 220 225;
-    --input: 220 220 225;
-    --ring: 30 30 40;
+    --success: 76 175 80; /* #4CAF50 */
+    --warning: 255 202 40; /* #FFCA28 */
+
+    --border: 202 210 218; /* #CAD2DA */
+    --input: 202 210 218;
+    --ring: 0 140 137;
 
     --radius: 1rem;
 
     /* Neumorphism specific variables */
     --neu-distance: 8px;
     --neu-intensity: 0.15;
-    --neu-surface: 240 240 245;
-    --neu-highlight: 255 255 255;
-    --neu-shadow: 200 200 210;
+    --neu-surface: 240 245 249; /* #F0F5F9 */
+    --neu-highlight: 255 255 255; /* #FFFFFF */
+    --neu-shadow: 202 210 218; /* #CAD2DA */
   }
 
   .dark {
-    --background: 25 25 35;
-    --foreground: 240 240 250;
+    /* Dark Mode Colors */
+    --background: 31 41 51; /* #1F2933 */
+    --foreground: 224 230 236; /* #E0E6EC */
 
-    --card: 25 25 35;
-    --card-foreground: 240 240 250;
+    --card: 39 49 58; /* #27313A */
+    --card-foreground: 224 230 236;
 
-    --popover: 25 25 35;
-    --popover-foreground: 240 240 250;
+    --popover: 39 49 58;
+    --popover-foreground: 224 230 236;
 
-    --primary: 240 240 250;
-    --primary-foreground: 25 25 35;
+    --primary: 0 108 106; /* #006C6A */
+    --primary-foreground: 224 230 236;
 
-    --secondary: 35 35 45;
-    --secondary-foreground: 240 240 250;
+    --secondary: 160 168 176; /* #A0A8B0 */
+    --secondary-foreground: 224 230 236;
 
-    --muted: 35 35 45;
-    --muted-foreground: 161 161 170;
+    --muted: 107 118 130; /* #6B7682 */
+    --muted-foreground: 160 168 176;
 
-    --accent: 35 35 45;
-    --accent-foreground: 240 240 250;
+    --accent: 0 169 165; /* #00A9A5 */
+    --accent-foreground: 31 41 51;
 
-    --destructive: 239 68 68;
-    --destructive-foreground: 255 255 255;
+    --destructive: 239 154 154; /* #EF9A9A */
+    --destructive-foreground: 31 41 51;
 
-    --border: 45 45 55;
-    --input: 45 45 55;
-    --ring: 240 240 250;
+    --success: 102 187 106; /* #66BB6A */
+    --warning: 255 235 59; /* #FFEB3B */
+
+    --border: 20 24 29; /* #14181D */
+    --input: 20 24 29;
+    --ring: 0 169 165;
 
     /* Dark mode Neumorphism */
-    --neu-surface: 25 25 35;
-    --neu-highlight: 45 45 55;
-    --neu-shadow: 15 15 25;
+    --neu-surface: 39 49 58; /* #27313A */
+    --neu-highlight: 44 55 66; /* #2C3742 */
+    --neu-shadow: 20 24 29; /* #14181D */
   }
 }
 
