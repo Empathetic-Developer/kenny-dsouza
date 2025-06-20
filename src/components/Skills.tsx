@@ -13,7 +13,6 @@ const Skills = () => {
       ref={sectionRef}
       className="py-20 bg-secondary/10 relative overflow-hidden parallax-container"
     >
-      {/* Enhanced Parallax Background */}
       <div 
         ref={parallaxRef}
         className="parallax-bg opacity-15"
@@ -30,7 +29,6 @@ const Skills = () => {
           </p>
         </div>
 
-        {/* Skills Grid */}
         <div className={`grid grid-cols-1 md:grid-cols-2 gap-8 stagger-children ${isVisible ? 'animate' : ''}`}>
           {skillsData.skillCategories.map((category, categoryIndex) => (
             <div 
@@ -63,8 +61,7 @@ const Skills = () => {
           ))}
         </div>
 
-        {/* Awards Section */}
-        <div className={`mt-16 fade-in-up ${isVisible ? 'animate' : ''}`}>
+        <div className={`mt-16 scale-in ${isVisible ? 'animate' : ''}`}>
           <h3 className="text-2xl font-light text-foreground mb-8 text-center">
             Recognition & Awards
           </h3>

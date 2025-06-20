@@ -33,7 +33,6 @@ const About = () => {
       ref={sectionRef}
       className="py-20 bg-background relative overflow-hidden parallax-container"
     >
-      {/* Parallax Background */}
       <div 
         ref={parallaxRef}
         className="parallax-bg opacity-10"
@@ -51,8 +50,7 @@ const About = () => {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          {/* Personal Story */}
-          <div className={`space-y-8 fade-in-up ${isVisible ? 'animate' : ''}`}>
+          <div className={`space-y-8 fade-in-left ${isVisible ? 'animate' : ''}`}>
             <div className="neu-elevated p-8">
               <h3 className="text-2xl font-medium text-foreground mb-6">
                 About Me
@@ -76,7 +74,6 @@ const About = () => {
               </div>
             </div>
 
-            {/* Key Stats */}
             <div className="grid grid-cols-2 gap-4">
               <div className="neu-card p-6 text-center">
                 <div className="text-3xl font-light text-primary mb-2">6+</div>
@@ -89,8 +86,7 @@ const About = () => {
             </div>
           </div>
 
-          {/* Education Timeline */}
-          <div className={`fade-in-up ${isVisible ? 'animate' : ''}`} style={{ animationDelay: '0.2s' }}>
+          <div className={`fade-in-right ${isVisible ? 'animate' : ''}`} style={{ animationDelay: '0.2s' }}>
             <div className="neu-elevated p-8">
               <h3 className="text-2xl font-medium text-foreground mb-8">
                 Education

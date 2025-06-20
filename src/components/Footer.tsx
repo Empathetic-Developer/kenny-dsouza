@@ -1,28 +1,21 @@
 
 import React, { useEffect, useState } from 'react';
-import { Heart, ArrowUp, Eye } from 'lucide-react';
+import { Heart, Eye } from 'lucide-react';
 
 const Footer = () => {
   const [visitCount, setVisitCount] = useState(0);
 
   useEffect(() => {
-    // Get current visit count from localStorage
     const currentCount = localStorage.getItem('websiteVisitCount');
     const count = currentCount ? parseInt(currentCount) + 1 : 1;
     
-    // Update localStorage
     localStorage.setItem('websiteVisitCount', count.toString());
     setVisitCount(count);
   }, []);
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   return (
     <footer className="bg-background border-t border-border py-12 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Visit Counter */}
         <div className="text-center mb-8">
           <div className="neu-flat p-4 inline-flex items-center space-x-2">
             <Eye size={16} className="text-primary" />
@@ -32,7 +25,6 @@ const Footer = () => {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-8">
-          {/* About */}
           <div className="neu-flat p-6">
             <h3 className="text-2xl font-light text-foreground mb-4">
               Kenny Dsouza
@@ -44,10 +36,9 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Quick Links */}
           <div className="neu-flat p-6">
             <h4 className="text-lg font-medium text-foreground mb-4">Quick Links</h4>
-            <ul className="space-y-3">
+            <div className="flex flex-wrap gap-2">
               {[
                 { name: 'Journey', href: '#about' },
                 { name: 'Skills', href: '#skills' },
@@ -55,19 +46,17 @@ const Footer = () => {
                 { name: 'Recommendations', href: '#recommendations' },
                 { name: 'Contact', href: '#contact' }
               ].map((link, index) => (
-                <li key={index}>
-                  <a 
-                    href={link.href}
-                    className="text-muted-foreground hover:text-primary transition-colors duration-300 neu-button px-3 py-1 inline-block"
-                  >
-                    {link.name}
-                  </a>
-                </li>
+                <a 
+                  key={index}
+                  href={link.href}
+                  className="neu-button px-3 py-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-300"
+                >
+                  {link.name}
+                </a>
               ))}
-            </ul>
+            </div>
           </div>
 
-          {/* Contact Info */}
           <div className="neu-flat p-6">
             <h4 className="text-lg font-medium text-foreground mb-4">Let's Connect</h4>
             <div className="space-y-3 text-muted-foreground">
@@ -102,7 +91,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Section */}
         <div className="neu-pressed p-6 flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center space-x-2 text-muted-foreground mb-4 md:mb-0">
             <span>Made with</span>
@@ -110,19 +98,9 @@ const Footer = () => {
             <span>by Kenny Dsouza</span>
           </div>
           
-          <div className="flex items-center space-x-6">
-            <span className="text-muted-foreground">
-              © {new Date().getFullYear()} All rights reserved.
-            </span>
-            
-            <button
-              onClick={scrollToTop}
-              className="neu-button p-3 rounded-full hover:scale-110 transition-all duration-300 group"
-              aria-label="Scroll to top"
-            >
-              <ArrowUp size={16} className="text-muted-foreground group-hover:text-primary transition-colors" />
-            </button>
-          </div>
+          <span className="text-muted-foreground">
+            © {new Date().getFullYear()} All rights reserved.
+          </span>
         </div>
       </div>
     </footer>

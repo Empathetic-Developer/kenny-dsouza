@@ -13,10 +13,8 @@ const CustomCursor = () => {
     const handleMouseEnter = () => setIsHovered(true);
     const handleMouseLeave = () => setIsHovered(false);
 
-    // Add event listeners for mouse movement
     document.addEventListener('mousemove', updatePosition);
 
-    // Add hover listeners to interactive elements
     const interactiveElements = document.querySelectorAll('a, button, [role="button"], input, textarea, select');
     interactiveElements.forEach(el => {
       el.addEventListener('mouseenter', handleMouseEnter);
@@ -34,7 +32,7 @@ const CustomCursor = () => {
 
   return (
     <div
-      className={`cursor-arrow ${isHovered ? 'hover' : ''}`}
+      className={`cursor-wand ${isHovered ? 'hover' : ''}`}
       style={{
         left: `${position.x}px`,
         top: `${position.y}px`,

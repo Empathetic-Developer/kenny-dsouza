@@ -13,7 +13,6 @@ const Hero = () => {
   const textArray = ["Kenny Dsouza", "a hustler", "a dreamer"];
 
   useEffect(() => {
-    // Parallax effect
     const handleScroll = () => {
       if (parallaxRef.current) {
         const scrollY = window.scrollY;
@@ -31,21 +30,17 @@ const Hero = () => {
     
     const typeInterval = setInterval(() => {
       if (!isDeleting) {
-        // Typing
         if (currentIndex < currentText.length) {
           setDisplayedText(currentText.slice(0, currentIndex + 1));
           setCurrentIndex(prev => prev + 1);
         } else {
-          // Wait a bit before starting to delete
           setTimeout(() => setIsDeleting(true), 2000);
         }
       } else {
-        // Deleting
         if (currentIndex > 0) {
           setDisplayedText(currentText.slice(0, currentIndex - 1));
           setCurrentIndex(prev => prev - 1);
         } else {
-          // Move to next text and start typing again
           setIsDeleting(false);
           setTextArrayIndex(prev => (prev + 1) % textArray.length);
         }
@@ -57,18 +52,14 @@ const Hero = () => {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden parallax-container">
-      {/* Parallax Background */}
       <div ref={parallaxRef} className="hero-parallax"></div>
 
-      {/* Static Background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-secondary/10"></div>
       </div>
 
-      {/* Main Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="space-y-12">
-          {/* Name and Title */}
           <div className="space-y-6 hero-animate fade-in-up animate">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-foreground">
               Hi, I'm{' '}
@@ -79,11 +70,14 @@ const Hero = () => {
             </h1>
             
             <h2 className="text-xl md:text-2xl lg:text-3xl text-muted-foreground font-light mt-8">
-              My Journey In Tech
+              Crafting Digital Experiences That Matter
             </h2>
+            
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Lead Frontend Developer with 6+ years of experience building scalable applications for millions of users
+            </p>
           </div>
 
-          {/* Social Links */}
           <div className="flex justify-center space-x-8 pt-8 hero-animate fade-in-up animate">
             <a 
               href={personalData.profile.linkedin}

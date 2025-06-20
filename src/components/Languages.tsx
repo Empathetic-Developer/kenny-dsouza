@@ -5,7 +5,6 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 const Languages = () => {
   const { ref: sectionRef, isVisible } = useScrollAnimation();
   const [currentLanguageIndex, setCurrentLanguageIndex] = useState(0);
-  const [animatingOut, setAnimatingOut] = useState(false);
 
   const languages = [
     { 
@@ -51,18 +50,13 @@ const Languages = () => {
       const sectionTop = rect.top;
       const sectionHeight = rect.height;
       
-      // Only update when section is in view
       if (sectionTop <= 0 && sectionTop > -sectionHeight) {
         const scrollProgress = Math.abs(sectionTop) / sectionHeight;
         const newIndex = Math.floor(scrollProgress * languages.length);
         const clampedIndex = Math.max(0, Math.min(languages.length - 1, newIndex));
         
         if (clampedIndex !== currentLanguageIndex) {
-          setAnimatingOut(true);
-          setTimeout(() => {
-            setCurrentLanguageIndex(clampedIndex);
-            setAnimatingOut(false);
-          }, 300);
+          setCurrentLanguageIndex(clampedIndex);
         }
       }
     };
@@ -74,8 +68,6 @@ const Languages = () => {
     window.addEventListener('scroll', throttledScroll);
     return () => window.removeEventListener('scroll', throttledScroll);
   }, [isVisible, currentLanguageIndex, languages.length]);
-
-  const currentLanguage = languages[currentLanguageIndex];
 
   return (
     <section 
@@ -95,65 +87,50 @@ const Languages = () => {
             </p>
           </div>
 
-          {/* Current Language Display */}
-          <div className="flex justify-center items-center">
-            <div 
-              className={`neu-elevated p-12 text-center max-w-lg w-full transition-all duration-500 ${
-                animatingOut ? 'slide-out-up' : 'slide-in-up'
-              }`}
-              key={currentLanguageIndex}
-            >
-              {/* Flag Icon */}
-              <div className="neu-flat w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6 transform transition-transform duration-300 hover:scale-110">
-                <span className="text-4xl">{currentLanguage.flag}</span>
+          {/* Language Boxes Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-12">
+            {languages.map((language, index) => (
+              <div
+                key={index}
+                className={`neu-button p-4 text-center transition-all duration-500 transform ${
+                  index === currentLanguageIndex 
+                    ? 'scale-110 bg-primary/10 border-2 border-primary' 
+                    : 'scale-95 opacity-60'
+                }`}
+              >
+                <div className="text-2xl mb-2">{language.flag}</div>
+                <div className="text-sm font-medium text-foreground">{language.lang}</div>
+                <div className="text-xs text-muted-foreground mt-1">{language.level}</div>
               </div>
+            ))}
+          </div>
 
-              {/* Language Info */}
-              <h3 className="text-3xl font-medium text-foreground mb-4">
-                {currentLanguage.lang}
+          {/* Current Language Details */}
+          <div className="flex justify-center items-center">
+            <div className="neu-elevated p-8 text-center max-w-lg w-full">
+              <div className="neu-flat w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-3xl">{languages[currentLanguageIndex].flag}</span>
+              </div>
+              
+              <h3 className="text-2xl font-medium text-foreground mb-2">
+                {languages[currentLanguageIndex].lang}
               </h3>
-              <p className="text-primary font-medium mb-6 text-lg">
-                {currentLanguage.level}
+              <p className="text-primary font-medium mb-4">
+                {languages[currentLanguageIndex].level}
               </p>
 
-              {/* Proficiency Bar */}
-              <div className="neu-pressed h-4 rounded-full overflow-hidden mb-4">
+              <div className="neu-pressed h-3 rounded-full overflow-hidden mb-2">
                 <div 
                   className="h-full bg-gradient-to-r from-primary to-accent transition-all duration-1000 ease-out rounded-full"
                   style={{ 
-                    width: `${currentLanguage.proficiency}%`,
+                    width: `${languages[currentLanguageIndex].proficiency}%`,
                   }}
                 />
               </div>
               <p className="text-sm text-muted-foreground">
-                {currentLanguage.proficiency}% Proficiency
+                {languages[currentLanguageIndex].proficiency}% Proficiency
               </p>
-
-              {/* Progress Indicator */}
-              <div className="flex justify-center space-x-2 mt-8">
-                {languages.map((_, index) => (
-                  <div
-                    key={index}
-                    className={`w-2 h-2 rounded-full transition-colors duration-300 ${
-                      index === currentLanguageIndex ? 'bg-primary' : 'bg-muted'
-                    }`}
-                  />
-                ))}
-              </div>
             </div>
-          </div>
-
-          {/* Communication Philosophy */}
-          <div className={`mt-16 neu-elevated p-8 text-center max-w-4xl mx-auto fade-in-up ${isVisible ? 'animate' : ''}`}>
-            <h3 className="text-xl font-medium text-foreground mb-4">
-              Global Communication Philosophy
-            </h3>
-            <p className="text-muted-foreground leading-relaxed">
-              Language is more than communication—it's about understanding diverse perspectives, 
-              building inclusive teams, and creating products that resonate across cultures. 
-              My multilingual abilities enable me to collaborate effectively with global teams 
-              and understand user needs from various cultural contexts.
-            </p>
           </div>
         </div>
       </div>
