@@ -1,21 +1,39 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Github, Linkedin, Mail } from 'lucide-react';
 import personalData from '../data/personalData.json';
 
 const Hero = () => {
-  const [displayedName, setDisplayedName] = useState('');
+  const [displayedText, setDisplayedText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [textArrayIndex, setTextArrayIndex] = useState(0);
+  const parallaxRef = useRef<HTMLDivElement>(null);
+
+  const textArray = ["Kenny Dsouza", "a hustler", "a dreamer"];
 
   useEffect(() => {
-    const fullName = personalData.profile.name;
+    // Parallax effect
+    const handleScroll = () => {
+      if (parallaxRef.current) {
+        const scrollY = window.scrollY;
+        const rate = scrollY * -0.5;
+        parallaxRef.current.style.transform = `translate3d(0, ${rate}px, 0)`;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const currentText = textArray[textArrayIndex];
     
     const typeInterval = setInterval(() => {
       if (!isDeleting) {
         // Typing
-        if (currentIndex < fullName.length) {
-          setDisplayedName(fullName.slice(0, currentIndex + 1));
+        if (currentIndex < currentText.length) {
+          setDisplayedText(currentText.slice(0, currentIndex + 1));
           setCurrentIndex(prev => prev + 1);
         } else {
           // Wait a bit before starting to delete
@@ -24,20 +42,24 @@ const Hero = () => {
       } else {
         // Deleting
         if (currentIndex > 0) {
-          setDisplayedName(fullName.slice(0, currentIndex - 1));
+          setDisplayedText(currentText.slice(0, currentIndex - 1));
           setCurrentIndex(prev => prev - 1);
         } else {
-          // Start typing again
+          // Move to next text and start typing again
           setIsDeleting(false);
+          setTextArrayIndex(prev => (prev + 1) % textArray.length);
         }
       }
     }, isDeleting ? 100 : 150);
 
     return () => clearInterval(typeInterval);
-  }, [currentIndex, isDeleting]);
+  }, [currentIndex, isDeleting, textArrayIndex]);
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden parallax-container">
+      {/* Parallax Background */}
+      <div ref={parallaxRef} className="hero-parallax"></div>
+
       {/* Static Background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-secondary/10"></div>
@@ -47,22 +69,22 @@ const Hero = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="space-y-12">
           {/* Name and Title */}
-          <div className="space-y-6 hero-animate fade-in-up">
-            <h1 className="text-5xl md:text-7xl font-light text-foreground">
+          <div className="space-y-6 hero-animate fade-in-up animate">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-foreground">
               Hi, I'm{' '}
-              <span className="font-medium text-primary">
-                {displayedName}
+              <span className="font-medium text-primary block mt-4">
+                {displayedText}
                 <span className="animate-pulse text-primary">|</span>
               </span>
             </h1>
             
-            <h2 className="text-2xl md:text-3xl text-foreground font-light">
-              {personalData.profile.tagline}
+            <h2 className="text-xl md:text-2xl lg:text-3xl text-muted-foreground font-light mt-8">
+              My Journey In Tech
             </h2>
           </div>
 
           {/* Social Links */}
-          <div className="flex justify-center space-x-8 pt-8 hero-animate fade-in-up">
+          <div className="flex justify-center space-x-8 pt-8 hero-animate fade-in-up animate">
             <a 
               href={personalData.profile.linkedin}
               className="neu-button p-6 rounded-full text-muted-foreground hover:text-foreground transition-colors duration-200"

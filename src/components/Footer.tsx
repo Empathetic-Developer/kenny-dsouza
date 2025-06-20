@@ -1,8 +1,20 @@
 
-import React from 'react';
-import { Heart, ArrowUp } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { Heart, ArrowUp, Eye } from 'lucide-react';
 
 const Footer = () => {
+  const [visitCount, setVisitCount] = useState(0);
+
+  useEffect(() => {
+    // Get current visit count from localStorage
+    const currentCount = localStorage.getItem('websiteVisitCount');
+    const count = currentCount ? parseInt(currentCount) + 1 : 1;
+    
+    // Update localStorage
+    localStorage.setItem('websiteVisitCount', count.toString());
+    setVisitCount(count);
+  }, []);
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -10,6 +22,15 @@ const Footer = () => {
   return (
     <footer className="bg-background border-t border-border py-12 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Visit Counter */}
+        <div className="text-center mb-8">
+          <div className="neu-flat p-4 inline-flex items-center space-x-2">
+            <Eye size={16} className="text-primary" />
+            <span className="text-muted-foreground">Website Visits:</span>
+            <span className="text-primary font-medium">{visitCount.toLocaleString()}</span>
+          </div>
+        </div>
+
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* About */}
           <div className="neu-flat p-6">

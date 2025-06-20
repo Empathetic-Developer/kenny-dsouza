@@ -34,10 +34,10 @@ const CustomCursor = () => {
 
   return (
     <div
-      className={`cursor-neu ${isHovered ? 'hover' : ''}`}
+      className={`cursor-arrow ${isHovered ? 'hover' : ''}`}
       style={{
-        left: `${position.x - 10}px`,
-        top: `${position.y - 10}px`,
+        left: `${position.x}px`,
+        top: `${position.y}px`,
       }}
     />
   );

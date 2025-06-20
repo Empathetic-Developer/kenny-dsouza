@@ -16,6 +16,14 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleContactClick = () => {
+    const footer = document.querySelector('footer');
+    if (footer) {
+      footer.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsOpen(false);
+  };
+
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
       scrolled ? 'backdrop-blur-md bg-background/80 border-b border-border' : 'bg-transparent'
@@ -40,8 +48,8 @@ const Navbar = () => {
               <a
                 key={item.name}
                 href={item.href}
+                onClick={item.name === 'Contact' ? handleContactClick : undefined}
                 className="neu-button px-4 py-2 text-muted-foreground hover:text-foreground text-sm font-medium transition-colors duration-200"
-                onClick={() => setIsOpen(false)}
               >
                 {item.name}
               </a>
@@ -75,8 +83,8 @@ const Navbar = () => {
               <a
                 key={item.name}
                 href={item.href}
+                onClick={item.name === 'Contact' ? handleContactClick : () => setIsOpen(false)}
                 className="block neu-button px-4 py-3 text-muted-foreground hover:text-foreground font-medium w-full text-left"
-                onClick={() => setIsOpen(false)}
               >
                 {item.name}
               </a>
