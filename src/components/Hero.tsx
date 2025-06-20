@@ -40,7 +40,7 @@ const Hero = () => {
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Static Background */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-secondary"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-secondary/10"></div>
       </div>
 
       {/* Main Content */}
@@ -52,7 +52,7 @@ const Hero = () => {
               Hi, I'm{' '}
               <span className="font-medium text-primary">
                 {displayedName}
-                <span className="animate-pulse">|</span>
+                <span className="animate-pulse text-primary">|</span>
               </span>
             </h1>
             
@@ -65,14 +65,16 @@ const Hero = () => {
           <div className="flex justify-center space-x-8 pt-8 hero-animate fade-in-up">
             <a 
               href={personalData.profile.linkedin}
-              className="neu-button p-6 rounded-full text-muted-foreground hover:text-foreground"
+              className="neu-button p-6 rounded-full text-muted-foreground hover:text-foreground transition-colors duration-200"
               aria-label="LinkedIn Profile"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <Linkedin size={24} />
             </a>
             <a 
               href={`mailto:${personalData.profile.email}`}
-              className="neu-button p-6 rounded-full text-muted-foreground hover:text-foreground"
+              className="neu-button p-6 rounded-full text-muted-foreground hover:text-foreground transition-colors duration-200"
               aria-label="Send Email"
             >
               <Mail size={24} />

@@ -54,30 +54,6 @@ const Experience = () => {
     }
   ];
 
-  const education = [
-    {
-      degree: "Bachelor of Engineering in Computer Science",
-      institution: "Gogte Institute of Technology",
-      period: "2016 - 2019",
-      location: "Belagavi, India",
-      grade: "8.84 CGPA"
-    },
-    {
-      degree: "High School Diploma in Computer Science",
-      institution: "K.L.S. Shri Vasantrao Potdar Polytechnic",
-      period: "2013 - 2016",
-      location: "Belagavi, India",
-      grade: "Distinction"
-    },
-    {
-      degree: "Schooling",
-      institution: "St. Paul's High School",
-      period: "2003 - 2013",
-      location: "Goa, India",
-      grade: "First Class"
-    }
-  ];
-
   return (
     <section 
       id="experience" 
@@ -87,7 +63,7 @@ const Experience = () => {
       {/* Enhanced Parallax Background */}
       <div 
         ref={parallaxRef}
-        className="parallax-bg opacity-20"
+        className="parallax-bg opacity-10"
       >
         <div className="absolute top-40 left-20 w-56 h-56 neu-flat rounded-full animate-float"></div>
         <div className="absolute bottom-40 right-20 w-40 h-40 neu-flat rounded-full animate-float" style={{ animationDelay: '4s' }}></div>
@@ -105,7 +81,7 @@ const Experience = () => {
         </div>
 
         {/* Experience Timeline */}
-        <div className="space-y-12 mb-20">
+        <div className="space-y-12">
           {experiences.map((exp, index) => (
             <div 
               key={index} 
@@ -168,37 +144,6 @@ const Experience = () => {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Education Section */}
-        <div>
-          <h3 className={`text-3xl font-light text-foreground mb-12 text-center fade-in-up ${isVisible ? 'animate' : ''}`}>
-            Education
-          </h3>
-          
-          <div className={`grid md:grid-cols-3 gap-8 stagger-children ${isVisible ? 'animate' : ''}`}>
-            {education.map((edu, index) => (
-              <div 
-                key={index}
-                className="neu-card p-6 text-center h-full"
-              >
-                <div className="neu-flat w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">🎓</span>
-                </div>
-                <h4 className="text-lg font-medium text-foreground mb-4">
-                  {edu.degree}
-                </h4>
-                <p className="text-md text-primary font-medium mb-3">
-                  {edu.institution}
-                </p>
-                <div className="space-y-2 text-sm text-muted-foreground">
-                  <p>{edu.period}</p>
-                  <p>{edu.location}</p>
-                  <p className="font-medium text-foreground">{edu.grade}</p>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>

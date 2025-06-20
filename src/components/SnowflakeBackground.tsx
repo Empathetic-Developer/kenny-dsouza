@@ -47,14 +47,14 @@ const SnowflakeBackground = () => {
       {snowflakes.map(flake => (
         <div
           key={flake.id}
-          className="absolute rounded-full bg-white dark:bg-gray-200"
+          className="absolute rounded-full bg-gray-600 dark:bg-gray-200"
           style={{
             left: `${flake.x}px`,
             top: `${flake.y}px`,
             width: `${flake.size}px`,
             height: `${flake.size}px`,
             opacity: flake.opacity,
-            boxShadow: '0 0 6px rgba(255, 255, 255, 0.5)',
+            boxShadow: '0 0 6px rgba(128, 128, 128, 0.3)',
           }}
         />
       ))}

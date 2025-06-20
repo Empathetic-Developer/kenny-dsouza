@@ -7,13 +7,15 @@ import Skills from '../components/Skills';
 import Experience from '../components/Experience';
 import Recommendations from '../components/Recommendations';
 import Languages from '../components/Languages';
-import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import SnowflakeBackground from '../components/SnowflakeBackground';
+import ScrollToTop from '../components/ScrollToTop';
+import CustomCursor from '../components/CustomCursor';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background cursor-custom">
+    <div className="min-h-screen bg-background">
+      <CustomCursor />
       <SnowflakeBackground />
       <Navbar />
       <Hero />
@@ -22,8 +24,8 @@ const Index = () => {
       <Experience />
       <Recommendations />
       <Languages />
-      <Contact />
       <Footer />
+      <ScrollToTop />
     </div>
   );
 };
