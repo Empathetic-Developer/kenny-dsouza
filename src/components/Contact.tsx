@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Github, Linkedin, Send } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { toast } from 'sonner';
+import { sendEmail } from '../services/emailService';
+import personalData from '../data/personalData.json';
 
 const Contact = () => {
   const { ref: sectionRef, isVisible } = useScrollAnimation();
@@ -18,19 +20,19 @@ const Contact = () => {
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email",
-      value: "kenny5dsouza@gmail.com",
-      link: "mailto:kenny5dsouza@gmail.com"
+      value: personalData.profile.email,
+      link: `mailto:${personalData.profile.email}`
     },
     {
       icon: <Phone className="w-6 h-6" />,
       title: "Phone",
-      value: "+91 8217589141",
-      link: "tel:+918217589141"
+      value: personalData.profile.phone,
+      link: `tel:${personalData.profile.phone}`
     },
     {
       icon: <MapPin className="w-6 h-6" />,
       title: "Location",
-      value: "Bengaluru, Karnataka, India",
+      value: personalData.profile.location,
       link: null
     }
   ];
@@ -39,12 +41,12 @@ const Contact = () => {
     {
       icon: <Github className="w-6 h-6" />,
       name: "GitHub",
-      url: "https://github.com/kennydsouza"
+      url: personalData.profile.github
     },
     {
       icon: <Linkedin className="w-6 h-6" />,
       name: "LinkedIn", 
-      url: "https://www.linkedin.com/in/kenny-dsouza/"
+      url: personalData.profile.linkedin
     }
   ];
 
@@ -60,28 +62,23 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      // Create mailto link with form data
-      const subject = encodeURIComponent(formData.subject);
-      const body = encodeURIComponent(
-        `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-      );
-      const mailtoLink = `mailto:kenny5dsouza@gmail.com?subject=${subject}&body=${body}`;
+      const result = await sendEmail(formData);
       
-      // Open default email client
-      window.location.href = mailtoLink;
-      
-      // Show success message
-      toast.success('Email client opened! Your message is ready to send.', {
-        description: 'Please send the email from your email client to complete the process.',
-      });
-      
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-      });
+      if (result.success) {
+        toast.success('Message sent successfully!', {
+          description: 'Thank you for reaching out. I will get back to you soon.',
+        });
+        
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: ''
+        });
+      } else {
+        toast.error(result.message);
+      }
     } catch (error) {
       toast.error('Something went wrong. Please try again or contact directly.');
     } finally {
@@ -93,7 +90,7 @@ const Contact = () => {
     <section 
       id="contact" 
       ref={sectionRef}
-      className="py-20 bg-secondary/30 relative overflow-hidden"
+      className="py-20 bg-secondary/30 relative overflow-hidden parallax-container"
     >
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`text-center mb-16 fade-in-up ${isVisible ? 'animate' : ''}`}>
@@ -184,7 +181,7 @@ const Contact = () => {
                 className="neu-button w-full py-4 text-foreground font-medium flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <Send size={20} />
-                <span>{isSubmitting ? 'Preparing...' : 'Send Message'}</span>
+                <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
               </button>
             </form>
           </div>

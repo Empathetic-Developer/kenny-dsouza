@@ -8,6 +8,7 @@ interface Snowflake {
   size: number;
   speed: number;
   opacity: number;
+  drift: number;
 }
 
 const SnowflakeBackground = () => {
@@ -16,14 +17,15 @@ const SnowflakeBackground = () => {
   useEffect(() => {
     // Create initial snowflakes
     const initialSnowflakes: Snowflake[] = [];
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 80; i++) {
       initialSnowflakes.push({
         id: i,
         x: Math.random() * window.innerWidth,
         y: Math.random() * window.innerHeight,
-        size: Math.random() * 3 + 1,
-        speed: Math.random() * 1 + 0.5,
-        opacity: Math.random() * 0.3 + 0.1,
+        size: Math.random() * 4 + 2,
+        speed: Math.random() * 2 + 1,
+        opacity: Math.random() * 0.6 + 0.3,
+        drift: Math.random() * 0.5 - 0.25,
       });
     }
     setSnowflakes(initialSnowflakes);
@@ -31,8 +33,8 @@ const SnowflakeBackground = () => {
     const animateSnowflakes = () => {
       setSnowflakes(prev => prev.map(flake => ({
         ...flake,
-        y: flake.y > window.innerHeight ? -10 : flake.y + flake.speed,
-        x: flake.x + Math.sin(flake.y * 0.01) * 0.5,
+        y: flake.y > window.innerHeight + 10 ? -10 : flake.y + flake.speed,
+        x: flake.x + flake.drift + Math.sin(flake.y * 0.01) * 0.5,
       })));
     };
 
@@ -45,13 +47,14 @@ const SnowflakeBackground = () => {
       {snowflakes.map(flake => (
         <div
           key={flake.id}
-          className="absolute rounded-full bg-foreground"
+          className="absolute rounded-full bg-white dark:bg-gray-200"
           style={{
             left: `${flake.x}px`,
             top: `${flake.y}px`,
             width: `${flake.size}px`,
             height: `${flake.size}px`,
             opacity: flake.opacity,
+            boxShadow: '0 0 6px rgba(255, 255, 255, 0.5)',
           }}
         />
       ))}

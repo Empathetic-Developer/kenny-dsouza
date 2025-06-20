@@ -1,39 +1,40 @@
 
 import React, { useEffect, useState } from 'react';
 import { Github, Linkedin, Mail } from 'lucide-react';
+import personalData from '../data/personalData.json';
 
 const Hero = () => {
   const [displayedName, setDisplayedName] = useState('');
-  const fullName = 'Kenny Dsouza';
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    // Typewriter effect for name
-    let currentIndex = 0;
+    const fullName = personalData.profile.name;
+    
     const typeInterval = setInterval(() => {
-      if (currentIndex <= fullName.length) {
-        setDisplayedName(fullName.slice(0, currentIndex));
-        currentIndex++;
+      if (!isDeleting) {
+        // Typing
+        if (currentIndex < fullName.length) {
+          setDisplayedName(fullName.slice(0, currentIndex + 1));
+          setCurrentIndex(prev => prev + 1);
+        } else {
+          // Wait a bit before starting to delete
+          setTimeout(() => setIsDeleting(true), 2000);
+        }
       } else {
-        clearInterval(typeInterval);
+        // Deleting
+        if (currentIndex > 0) {
+          setDisplayedName(fullName.slice(0, currentIndex - 1));
+          setCurrentIndex(prev => prev - 1);
+        } else {
+          // Start typing again
+          setIsDeleting(false);
+        }
       }
-    }, 150);
+    }, isDeleting ? 100 : 150);
 
     return () => clearInterval(typeInterval);
-  }, []);
-
-  useEffect(() => {
-    // Entrance animations
-    const timer = setTimeout(() => {
-      const elements = document.querySelectorAll('.hero-animate');
-      elements.forEach((el, index) => {
-        setTimeout(() => {
-          el.classList.add('animate');
-        }, index * 200);
-      });
-    }, 100);
-
-    return () => clearTimeout(timer);
-  }, []);
+  }, [currentIndex, isDeleting]);
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -55,29 +56,22 @@ const Hero = () => {
               </span>
             </h1>
             
-            <div className="neu-flat p-8 max-w-4xl mx-auto">
-              <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed font-light">
-                <span className="text-foreground font-medium">Lead Frontend Developer</span> |{' '}
-                Leading Scalable UIs, Driving Innovation, Elevating User Experiences
-              </p>
-              <p className="text-lg text-muted-foreground mt-4">
-                React, Redux, TypeScript Expert | Built 20+ Apps for Millions of Users | 
-                Certified Scrum Master, SAFe® Product Owner
-              </p>
-            </div>
+            <h2 className="text-2xl md:text-3xl text-foreground font-light">
+              {personalData.profile.tagline}
+            </h2>
           </div>
 
           {/* Social Links */}
           <div className="flex justify-center space-x-8 pt-8 hero-animate fade-in-up">
             <a 
-              href="https://www.linkedin.com/in/kenny-dsouza/" 
+              href={personalData.profile.linkedin}
               className="neu-button p-6 rounded-full text-muted-foreground hover:text-foreground"
               aria-label="LinkedIn Profile"
             >
               <Linkedin size={24} />
             </a>
             <a 
-              href="mailto:kenny5dsouza@gmail.com" 
+              href={`mailto:${personalData.profile.email}`}
               className="neu-button p-6 rounded-full text-muted-foreground hover:text-foreground"
               aria-label="Send Email"
             >

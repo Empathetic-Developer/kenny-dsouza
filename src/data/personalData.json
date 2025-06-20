@@ -1,0 +1,21 @@
+
+{
+  "profile": {
+    "name": "Kenny Dsouza",
+    "title": "Lead Frontend Developer",
+    "tagline": "My Journey In Tech",
+    "email": "kenny5dsouza@gmail.com",
+    "phone": "+91 8217589141",
+    "location": "Bengaluru, Karnataka, India",
+    "linkedin": "https://www.linkedin.com/in/kenny-dsouza/",
+    "github": "https://github.com/kennydsouza"
+  },
+  "navigation": [
+    { "name": "Home", "href": "#hero" },
+    { "name": "Journey", "href": "#about" },
+    { "name": "Skills", "href": "#skills" },
+    { "name": "Experience", "href": "#experience" },
+    { "name": "Recommendations", "href": "#recommendations" },
+    { "name": "Contact", "href": "#contact" }
+  ]
+}

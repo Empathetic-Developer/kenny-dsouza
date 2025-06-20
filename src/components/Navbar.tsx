@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
+import personalData from '../data/personalData.json';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,15 +16,6 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = [
-    { name: 'Home', href: '#hero' },
-    { name: 'Journey', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Recommendations', href: '#recommendations' },
-    { name: 'Contact', href: '#contact' },
-  ];
-
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
       scrolled ? 'backdrop-blur-md bg-background/80 border-b border-border' : 'bg-transparent'
@@ -31,8 +23,8 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           
-          {/* Logo/Brand with Profile Image */}
-          <div className="hidden md:flex items-center space-x-3">
+          {/* Logo/Brand with Profile Image Only */}
+          <div className="flex items-center">
             <div className="w-10 h-10 rounded-full overflow-hidden neu-flat p-1">
               <img 
                 src="/lovable-uploads/00b371b1-f475-4090-bbe4-001a1e7a6d37.png"
@@ -40,17 +32,11 @@ const Navbar = () => {
                 className="w-full h-full rounded-full object-cover"
               />
             </div>
-            <a href="#hero" className="text-foreground font-medium">
-              <div>
-                <div className="text-lg font-semibold">Kenny Dsouza</div>
-                <div className="text-xs text-muted-foreground italic">Lead Frontend Developer</div>
-              </div>
-            </a>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-2">
-            {navItems.map((item) => (
+            {personalData.navigation.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
@@ -85,7 +71,7 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden backdrop-blur-md bg-background/90 border-b border-border">
           <div className="px-4 pt-4 pb-6 space-y-2">
-            {navItems.map((item) => (
+            {personalData.navigation.map((item) => (
               <a
                 key={item.name}
                 href={item.href}

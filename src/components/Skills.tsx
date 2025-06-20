@@ -1,66 +1,11 @@
 
 import React from 'react';
 import { useScrollAnimation, useParallax } from '../hooks/useScrollAnimation';
+import skillsData from '../data/skillsData.json';
 
 const Skills = () => {
   const { ref: sectionRef, isVisible } = useScrollAnimation();
   const parallaxRef = useParallax(0.4);
-
-  const skillCategories = [
-    {
-      title: "Frontend Mastery",
-      skills: [
-        { name: "React.js", logo: "⚛️" },
-        { name: "TypeScript", logo: "🔷" },
-        { name: "JavaScript ES6+", logo: "🟨" },
-        { name: "HTML5", logo: "🟧" },
-        { name: "CSS3", logo: "🔵" },
-        { name: "Tailwind CSS", logo: "🎨" },
-        { name: "Styled Components", logo: "💅" },
-        { name: "Redux/RTK", logo: "🟣" },
-        { name: "React Query", logo: "🔄" }
-      ]
-    },
-    {
-      title: "Development Excellence", 
-      skills: [
-        { name: "Git/GitHub", logo: "🐙" },
-        { name: "Jest/Testing", logo: "🧪" },
-        { name: "Webpack", logo: "📦" },
-        { name: "Vite", logo: "⚡" },
-        { name: "ESLint", logo: "🔍" },
-        { name: "Prettier", logo: "✨" },
-        { name: "CI/CD", logo: "🔄" },
-        { name: "Performance Optimization", logo: "🚀" },
-        { name: "Accessibility", logo: "♿" }
-      ]
-    },
-    {
-      title: "Leadership & Process",
-      skills: [
-        { name: "Scrum Master", logo: "🏃" },
-        { name: "SAFe® Product Owner", logo: "📋" },
-        { name: "Team Leadership", logo: "👥" },
-        { name: "Mentoring", logo: "🎓" },
-        { name: "Code Review", logo: "👀" },
-        { name: "Architecture Design", logo: "🏗️" },
-        { name: "Project Management", logo: "📊" }
-      ]
-    },
-    {
-      title: "Design & UX",
-      skills: [
-        { name: "UX Design", logo: "🎨" },
-        { name: "Responsive Design", logo: "📱" },
-        { name: "Design Systems", logo: "🧩" },
-        { name: "Figma", logo: "🎭" },
-        { name: "User Research", logo: "🔬" },
-        { name: "Prototyping", logo: "📐" },
-        { name: "WCAG Compliance", logo: "✅" },
-        { name: "SEO", logo: "🔍" }
-      ]
-    }
-  ];
 
   return (
     <section 
@@ -87,7 +32,7 @@ const Skills = () => {
 
         {/* Skills Grid */}
         <div className={`grid grid-cols-1 md:grid-cols-2 gap-8 stagger-children ${isVisible ? 'animate' : ''}`}>
-          {skillCategories.map((category, categoryIndex) => (
+          {skillsData.skillCategories.map((category, categoryIndex) => (
             <div 
               key={categoryIndex} 
               className="neu-card p-8 h-full"
@@ -102,7 +47,14 @@ const Skills = () => {
                     key={skillIndex}
                     className="neu-button px-4 py-2 text-muted-foreground hover:text-foreground text-sm font-medium transition-colors duration-200 flex items-center space-x-2"
                   >
-                    <span className="text-lg">{skill.logo}</span>
+                    <img 
+                      src={skill.logo} 
+                      alt={skill.name}
+                      className="w-5 h-5"
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none';
+                      }}
+                    />
                     <span>{skill.name}</span>
                   </span>
                 ))}
@@ -118,13 +70,7 @@ const Skills = () => {
           </h3>
           <div className="neu-elevated p-8 text-center">
             <div className="flex flex-wrap justify-center gap-4">
-              {[
-                "Employee of the Month",
-                "Employee of the Quarter (4x)", 
-                "Brillio CSR Star Volunteer",
-                "Customer Success Excellence",
-                "High Impact Team Award (2x)"
-              ].map((award, index) => (
+              {skillsData.awards.map((award, index) => (
                 <div 
                   key={index}
                   className="neu-button px-6 py-3 font-medium text-primary"

@@ -1,0 +1,65 @@
+
+{
+  "skillCategories": [
+    {
+      "title": "Frontend Mastery",
+      "skills": [
+        { "name": "React.js", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+        { "name": "TypeScript", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+        { "name": "JavaScript ES6+", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+        { "name": "HTML5", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+        { "name": "CSS3", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+        { "name": "Tailwind CSS", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" },
+        { "name": "Styled Components", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+        { "name": "Redux/RTK", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" },
+        { "name": "React Query", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" }
+      ]
+    },
+    {
+      "title": "Development Excellence",
+      "skills": [
+        { "name": "Git/GitHub", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+        { "name": "Jest/Testing", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg" },
+        { "name": "Webpack", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/webpack/webpack-original.svg" },
+        { "name": "Vite", "logo": "https://vitejs.dev/logo.svg" },
+        { "name": "ESLint", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/eslint/eslint-original.svg" },
+        { "name": "Prettier", "logo": "https://prettier.io/icon.png" },
+        { "name": "CI/CD", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
+        { "name": "Performance Optimization", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/chrome/chrome-original.svg" },
+        { "name": "Accessibility", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" }
+      ]
+    },
+    {
+      "title": "Leadership & Process",
+      "skills": [
+        { "name": "Scrum Master", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" },
+        { "name": "SAFe® Product Owner", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/confluence/confluence-original.svg" },
+        { "name": "Team Leadership", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/slack/slack-original.svg" },
+        { "name": "Mentoring", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
+        { "name": "Code Review", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg" },
+        { "name": "Architecture Design", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
+        { "name": "Project Management", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/trello/trello-plain.svg" }
+      ]
+    },
+    {
+      "title": "Design & UX",
+      "skills": [
+        { "name": "UX Design", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
+        { "name": "Responsive Design", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+        { "name": "Design Systems", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/storybook/storybook-original.svg" },
+        { "name": "Figma", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
+        { "name": "User Research", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" },
+        { "name": "Prototyping", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sketch/sketch-original.svg" },
+        { "name": "WCAG Compliance", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+        { "name": "SEO", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" }
+      ]
+    }
+  ],
+  "awards": [
+    "Employee of the Month",
+    "Employee of the Quarter (4x)",
+    "Brillio CSR Star Volunteer",
+    "Customer Success Excellence",
+    "High Impact Team Award (2x)"
+  ]
+}

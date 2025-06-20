@@ -22,13 +22,13 @@ const ThemeToggle = () => {
         {/* Thumb */}
         <div className={`relative w-6 h-6 rounded-full transition-all duration-300 transform ${
           isDark ? 'translate-x-8 bg-primary' : 'translate-x-0 bg-secondary'
-        } flex items-center justify-center`}>
+        } flex items-center justify-center shadow-lg`}>
           <Sun 
             className={`absolute w-4 h-4 transition-all duration-300 ${
               !isDark 
                 ? 'rotate-0 scale-100 opacity-100' 
                 : 'rotate-90 scale-0 opacity-0'
-            } text-white`} 
+            } ${!isDark ? 'text-yellow-600' : 'text-white'}`} 
           />
           <Moon 
             className={`absolute w-4 h-4 transition-all duration-300 ${
