@@ -9,10 +9,12 @@ import Recommendations from '../components/Recommendations';
 import Languages from '../components/Languages';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
+import SnowflakeBackground from '../components/SnowflakeBackground';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background cursor-custom">
+      <SnowflakeBackground />
       <Navbar />
       <Hero />
       <About />

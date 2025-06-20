@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useScrollAnimation, useParallax } from '../hooks/useScrollAnimation';
 
@@ -9,29 +10,54 @@ const Skills = () => {
     {
       title: "Frontend Mastery",
       skills: [
-        "React.js", "TypeScript", "JavaScript ES6+", "HTML5", "CSS3", 
-        "Tailwind CSS", "Styled Components", "Redux/RTK", "React Query"
+        { name: "React.js", logo: "⚛️" },
+        { name: "TypeScript", logo: "🔷" },
+        { name: "JavaScript ES6+", logo: "🟨" },
+        { name: "HTML5", logo: "🟧" },
+        { name: "CSS3", logo: "🔵" },
+        { name: "Tailwind CSS", logo: "🎨" },
+        { name: "Styled Components", logo: "💅" },
+        { name: "Redux/RTK", logo: "🟣" },
+        { name: "React Query", logo: "🔄" }
       ]
     },
     {
       title: "Development Excellence", 
       skills: [
-        "Git/GitHub", "Jest/Testing", "Webpack", "Vite", "ESLint", 
-        "Prettier", "CI/CD", "Performance Optimization", "Accessibility"
+        { name: "Git/GitHub", logo: "🐙" },
+        { name: "Jest/Testing", logo: "🧪" },
+        { name: "Webpack", logo: "📦" },
+        { name: "Vite", logo: "⚡" },
+        { name: "ESLint", logo: "🔍" },
+        { name: "Prettier", logo: "✨" },
+        { name: "CI/CD", logo: "🔄" },
+        { name: "Performance Optimization", logo: "🚀" },
+        { name: "Accessibility", logo: "♿" }
       ]
     },
     {
       title: "Leadership & Process",
       skills: [
-        "Scrum Master", "SAFe® Product Owner", "Team Leadership", "Mentoring",
-        "Code Review", "Architecture Design", "Project Management"
+        { name: "Scrum Master", logo: "🏃" },
+        { name: "SAFe® Product Owner", logo: "📋" },
+        { name: "Team Leadership", logo: "👥" },
+        { name: "Mentoring", logo: "🎓" },
+        { name: "Code Review", logo: "👀" },
+        { name: "Architecture Design", logo: "🏗️" },
+        { name: "Project Management", logo: "📊" }
       ]
     },
     {
       title: "Design & UX",
       skills: [
-        "UX Design", "Responsive Design", "Design Systems", "Figma", 
-        "User Research", "Prototyping", "WCAG Compliance", "SEO"
+        { name: "UX Design", logo: "🎨" },
+        { name: "Responsive Design", logo: "📱" },
+        { name: "Design Systems", logo: "🧩" },
+        { name: "Figma", logo: "🎭" },
+        { name: "User Research", logo: "🔬" },
+        { name: "Prototyping", logo: "📐" },
+        { name: "WCAG Compliance", logo: "✅" },
+        { name: "SEO", logo: "🔍" }
       ]
     }
   ];
@@ -47,9 +73,6 @@ const Skills = () => {
         ref={parallaxRef}
         className="parallax-bg opacity-15"
       >
-        <div className="absolute top-10 right-20 w-64 h-64 neu-flat rounded-full animate-float"></div>
-        <div className="absolute bottom-10 left-20 w-48 h-48 neu-flat rounded-full animate-float" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-1/3 left-1/3 w-32 h-32 neu-flat rounded-full animate-float" style={{ animationDelay: '4s' }}></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -77,9 +100,10 @@ const Skills = () => {
                 {category.skills.map((skill, skillIndex) => (
                   <span 
                     key={skillIndex}
-                    className="neu-button px-4 py-2 text-muted-foreground hover:text-foreground text-sm font-medium transition-colors duration-200"
+                    className="neu-button px-4 py-2 text-muted-foreground hover:text-foreground text-sm font-medium transition-colors duration-200 flex items-center space-x-2"
                   >
-                    {skill}
+                    <span className="text-lg">{skill.logo}</span>
+                    <span>{skill.name}</span>
                   </span>
                 ))}
               </div>

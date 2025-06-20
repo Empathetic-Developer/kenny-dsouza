@@ -31,10 +31,20 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           
-          {/* Logo/Brand */}
-          <div className="hidden md:block">
-            <a href="#hero" className="neu-button px-6 py-2 text-foreground font-medium">
-              Kenny Dsouza
+          {/* Logo/Brand with Profile Image */}
+          <div className="hidden md:flex items-center space-x-3">
+            <div className="w-10 h-10 rounded-full overflow-hidden neu-flat p-1">
+              <img 
+                src="/lovable-uploads/00b371b1-f475-4090-bbe4-001a1e7a6d37.png"
+                alt="Kenny Dsouza"
+                className="w-full h-full rounded-full object-cover"
+              />
+            </div>
+            <a href="#hero" className="text-foreground font-medium">
+              <div>
+                <div className="text-lg font-semibold">Kenny Dsouza</div>
+                <div className="text-xs text-muted-foreground italic">Lead Frontend Developer</div>
+              </div>
             </a>
           </div>
 

@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Github, Linkedin, Send } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { toast } from 'sonner';
 
 const Contact = () => {
   const { ref: sectionRef, isVisible } = useScrollAnimation();
@@ -11,6 +12,7 @@ const Contact = () => {
     subject: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const contactInfo = [
     {
@@ -53,10 +55,38 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+
+    try {
+      // Create mailto link with form data
+      const subject = encodeURIComponent(formData.subject);
+      const body = encodeURIComponent(
+        `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+      );
+      const mailtoLink = `mailto:kenny5dsouza@gmail.com?subject=${subject}&body=${body}`;
+      
+      // Open default email client
+      window.location.href = mailtoLink;
+      
+      // Show success message
+      toast.success('Email client opened! Your message is ready to send.', {
+        description: 'Please send the email from your email client to complete the process.',
+      });
+      
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+      });
+    } catch (error) {
+      toast.error('Something went wrong. Please try again or contact directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -65,12 +95,6 @@ const Contact = () => {
       ref={sectionRef}
       className="py-20 bg-secondary/30 relative overflow-hidden"
     >
-      {/* Parallax Background */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-20 left-20 w-60 h-60 neu-flat rounded-full animate-float"></div>
-        <div className="absolute bottom-20 right-20 w-44 h-44 neu-flat rounded-full animate-float" style={{ animationDelay: '4s' }}></div>
-      </div>
-
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`text-center mb-16 fade-in-up ${isVisible ? 'animate' : ''}`}>
           <h2 className="text-4xl md:text-5xl font-light text-foreground mb-6">
@@ -156,10 +180,11 @@ const Contact = () => {
 
               <button
                 type="submit"
-                className="neu-button w-full py-4 text-foreground font-medium flex items-center justify-center space-x-2"
+                disabled={isSubmitting}
+                className="neu-button w-full py-4 text-foreground font-medium flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <Send size={20} />
-                <span>Send Message</span>
+                <span>{isSubmitting ? 'Preparing...' : 'Send Message'}</span>
               </button>
             </form>
           </div>
