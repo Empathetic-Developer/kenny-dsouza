@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -84,22 +85,23 @@
 
 /* Custom Cursor Styles */
 .cursor-professional {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  border: 1px solid theme('colors.primary');
-  background-color: rgba(theme('colors.primary'), 0.1);
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+  border: 2px solid hsl(var(--primary));
+  background-color: rgba(34, 92, 223, 0.1);
   position: fixed;
   transform: translate(-50%, -50%);
   pointer-events: none;
-  transition: transform 0.2s ease, width 0.3s ease, height 0.3s ease;
+  transition: transform 0.1s ease, width 0.2s ease, height 0.2s ease, border-radius 0.2s ease;
   z-index: 1000;
 }
 
 .cursor-professional.hover {
-  width: 40px;
-  height: 40px;
-  background-color: rgba(theme('colors.primary'), 0.3);
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  background-color: rgba(34, 92, 223, 0.2);
 }
 
 /* Neumorphism Styles */
