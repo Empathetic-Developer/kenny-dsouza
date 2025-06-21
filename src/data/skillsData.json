@@ -6,10 +6,11 @@
       "skills": [
         { "name": "React.js", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
         { "name": "TypeScript", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
-        { "name": "JavaScript ES6+", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+        { "name": "JavaScript", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
         { "name": "HTML5", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
         { "name": "CSS3", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
-        { "name": "Tailwind CSS", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" },
+        { "name": "jQuery", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg" },
+        { "name": "Tailwind CSS", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
         { "name": "Styled Components", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
         { "name": "Redux/RTK", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" },
         { "name": "React Query", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" }
@@ -56,10 +57,12 @@
     }
   ],
   "awards": [
-    "Employee of the Month",
     "Employee of the Quarter (4x)",
-    "Brillio CSR Star Volunteer",
+    "Value Champion of the Quarter",
+    "CSR Star Volunteer (2x)",
+    "Group Excellence (2x)",
+    "Employee of the Month",
     "Customer Success Excellence",
-    "High Impact Team Award (2x)"
+    "High Impact Team Award"
   ]
 }
