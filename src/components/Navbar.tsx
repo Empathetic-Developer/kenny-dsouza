@@ -1,12 +1,15 @@
 
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import ThemeToggle from './ThemeToggle';
 import personalData from '../data/personalData.json';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,10 +19,27 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleContactClick = () => {
-    const footer = document.querySelector('footer');
-    if (footer) {
-      footer.scrollIntoView({ behavior: 'smooth' });
+  const handleNavClick = (href: string, name: string) => {
+    if (href.startsWith('/')) {
+      // Navigate to different page
+      navigate(href);
+    } else if (href.startsWith('#')) {
+      // Handle anchor links - only if we're on the home page
+      if (location.pathname !== '/') {
+        navigate('/' + href);
+      } else {
+        if (name === 'Contact') {
+          const footer = document.querySelector('footer');
+          if (footer) {
+            footer.scrollIntoView({ behavior: 'smooth' });
+          }
+        } else {
+          const element = document.querySelector(href);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      }
     }
     setIsOpen(false);
   };
@@ -32,10 +52,10 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           
           {/* Logo/Brand with Profile Image Only */}
-          <div className="flex items-center">
+          <div className="flex items-center cursor-pointer" onClick={() => navigate('/')}>
             <div className="w-10 h-10 rounded-full overflow-hidden neu-flat p-1">
               <img 
-                src="./assets/kenny.png"
+                src="/kenny-dsouza/assets/kenny.png"
                 alt="Kenny Dsouza"
                 className="w-full h-full rounded-full object-cover"
               />
@@ -45,14 +65,13 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-2">
             {personalData.navigation.map((item) => (
-              <a
+              <button
                 key={item.name}
-                href={item.href}
-                onClick={item.name === 'Contact' ? handleContactClick : undefined}
+                onClick={() => handleNavClick(item.href, item.name)}
                 className="neu-button px-4 py-2 text-muted-foreground hover:text-foreground text-sm font-medium transition-colors duration-200"
               >
                 {item.name}
-              </a>
+              </button>
             ))}
           </div>
 
@@ -80,14 +99,13 @@ const Navbar = () => {
         <div className="md:hidden backdrop-blur-md bg-background/90 border-b border-border">
           <div className="px-4 pt-4 pb-6 space-y-2">
             {personalData.navigation.map((item) => (
-              <a
+              <button
                 key={item.name}
-                href={item.href}
-                onClick={item.name === 'Contact' ? handleContactClick : () => setIsOpen(false)}
+                onClick={() => handleNavClick(item.href, item.name)}
                 className="block neu-button px-4 py-3 text-muted-foreground hover:text-foreground font-medium w-full text-left"
               >
                 {item.name}
-              </a>
+              </button>
             ))}
           </div>
         </div>

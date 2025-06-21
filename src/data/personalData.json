@@ -1,21 +1,49 @@
 
 {
-  "profile": {
-    "name": "Kenny Dsouza",
-    "title": "Lead Frontend Developer",
-    "tagline": "My Journey In Tech",
-    "email": "kenny5dsouza@gmail.com",
-    "phone": "+91 8217589141",
-    "location": "Bengaluru, Karnataka, India",
-    "linkedin": "https://www.linkedin.com/in/kenny-dsouza/",
-    "github": "https://github.com/kennydsouza"
-  },
+  "name": "Kenny Dsouza",
+  "title": "Lead Software Engineer",
+  "tagline": "Building exceptional digital experiences with precision and innovation",
+  "location": "Available for Remote Opportunities",
+  "email": "kenny5dsouza@gmail.com",
+  "phone": "+91 9739357806",
+  "linkedin": "https://www.linkedin.com/in/kenny-dsouza/",
+  "github": "https://github.com/kennyd5",
+  "resumeUrl": "/kenny-dsouza/assets/kenny-resume.pdf",
+  "availability": "Available for new opportunities",
   "navigation": [
-    { "name": "Home", "href": "#hero" },
-    { "name": "Journey", "href": "#about" },
+    { "name": "About", "href": "#about" },
     { "name": "Skills", "href": "#skills" },
     { "name": "Experience", "href": "#experience" },
     { "name": "Recommendations", "href": "#recommendations" },
+    { "name": "Languages", "href": "#languages" },
+    { "name": "How I Built This", "href": "/how-to-use-lovable" },
     { "name": "Contact", "href": "#contact" }
-  ]
+  ],
+  "social": [
+    {
+      "platform": "LinkedIn",
+      "url": "https://www.linkedin.com/in/kenny-dsouza/",
+      "icon": "linkedin"
+    },
+    {
+      "platform": "GitHub", 
+      "url": "https://github.com/kennyd5",
+      "icon": "github"
+    }
+  ],
+  "hero": {
+    "titles": [
+      "Lead Software Engineer",
+      "Frontend Architect", 
+      "React.js Specialist",
+      "Technical Leader",
+      "Full-Stack Developer"
+    ],
+    "description": "Passionate about creating robust, user-centric web applications that solve real-world problems and deliver exceptional user experiences.",
+    "stats": [
+      { "number": "10+", "label": "Years Experience" },
+      { "number": "50+", "label": "Projects Delivered" },
+      { "number": "25K+", "label": "Hours Coded" }
+    ]
+  }
 }
