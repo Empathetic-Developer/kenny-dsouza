@@ -87,8 +87,8 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  border: 1px solid theme('colors.primary');
-  background-color: rgba(theme('colors.primary'), 0.1);
+  border: 1px solid theme('colors.primary.DEFAULT');
+  background-color: rgba(theme('colors.primary.DEFAULT'), 0.1);
   position: fixed;
   transform: translate(-50%, -50%);
   pointer-events: none;
@@ -99,7 +99,7 @@
 .cursor-professional.hover {
   width: 40px;
   height: 40px;
-  background-color: rgba(theme('colors.primary'), 0.3);
+  background-color: rgba(theme('colors.primary.DEFAULT'), 0.3);
 }
 
 /* Neumorphism Styles */
