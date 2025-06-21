@@ -85,7 +85,7 @@ const Hero = () => {
 
           <div className="flex justify-center space-x-8 pt-8 hero-animate fade-in-up animate">
             <a 
-              href={personalData.profile.linkedin}
+              href={personalData.linkedin}
               className="neu-button p-6 rounded-full text-muted-foreground hover:text-foreground transition-colors duration-200"
               aria-label="LinkedIn Profile"
               target="_blank"
@@ -94,7 +94,7 @@ const Hero = () => {
               <Linkedin size={24} />
             </a>
             <a 
-              href={`mailto:${personalData.profile.email}`}
+              href={`mailto:${personalData.email}`}
               className="neu-button p-6 rounded-full text-muted-foreground hover:text-foreground transition-colors duration-200"
               aria-label="Send Email"
             >

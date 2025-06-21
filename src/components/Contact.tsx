@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Github, Linkedin, Send } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
@@ -20,19 +19,19 @@ const Contact = () => {
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email",
-      value: personalData.profile.email,
-      link: `mailto:${personalData.profile.email}`
+      value: personalData.email,
+      link: `mailto:${personalData.email}`
     },
     {
       icon: <Phone className="w-6 h-6" />,
       title: "Phone",
-      value: personalData.profile.phone,
-      link: `tel:${personalData.profile.phone}`
+      value: personalData.phone,
+      link: `tel:${personalData.phone}`
     },
     {
       icon: <MapPin className="w-6 h-6" />,
       title: "Location",
-      value: personalData.profile.location,
+      value: personalData.location,
       link: null
     }
   ];
@@ -41,12 +40,12 @@ const Contact = () => {
     {
       icon: <Github className="w-6 h-6" />,
       name: "GitHub",
-      url: personalData.profile.github
+      url: personalData.github
     },
     {
       icon: <Linkedin className="w-6 h-6" />,
       name: "LinkedIn", 
-      url: personalData.profile.linkedin
+      url: personalData.linkedin
     }
   ];
 
