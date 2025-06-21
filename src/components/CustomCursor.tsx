@@ -32,7 +32,7 @@ const CustomCursor = () => {
 
   return (
     <div
-      className={`cursor-wand ${isHovered ? 'hover' : ''}`}
+      className={`cursor-professional ${isHovered ? 'hover' : ''}`}
       style={{
         left: `${position.x}px`,
         top: `${position.y}px`,
