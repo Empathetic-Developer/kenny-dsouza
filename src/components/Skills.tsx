@@ -25,7 +25,7 @@ const Skills = () => {
             Skills & Expertise
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            A comprehensive toolkit built over 6+ years of frontend development and team leadership
+            A comprehensive skillset built over 6+ years of software development and team leadership
           </p>
         </div>
 

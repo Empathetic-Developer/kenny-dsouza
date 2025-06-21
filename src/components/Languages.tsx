@@ -61,11 +61,11 @@ const Languages = () => {
               key={index}
               className="neu-card p-6 text-center hover:scale-105 transition-all duration-300"
             >
-              <div className="text-3xl mb-3">{language.flag}</div>
+              {/* <div className="text-3xl mb-3">{language.flag}</div> */}
               <div className="text-sm font-medium text-foreground mb-1">{language.lang}</div>
               <div className="text-xs text-muted-foreground mb-3">{language.level}</div>
               
-              <div className="neu-pressed h-2 rounded-full overflow-hidden mb-2">
+              {/* <div className="neu-pressed h-2 rounded-full overflow-hidden mb-2">
                 <div 
                   className="h-full bg-gradient-to-r from-primary to-accent transition-all duration-1000 ease-out rounded-full"
                   style={{ 
@@ -75,7 +75,7 @@ const Languages = () => {
               </div>
               <p className="text-xs text-muted-foreground">
                 {language.proficiency}%
-              </p>
+              </p> */}
             </div>
           ))}
         </div>

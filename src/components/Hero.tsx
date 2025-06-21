@@ -79,7 +79,7 @@ const Hero = () => {
             </h2>
             
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Lead Frontend Developer with 6+ years of experience building scalable applications for millions of users
+              Lead Software Engineer with 6+ years of experience building scalable applications used by millions of users.
             </p>
           </div>
 

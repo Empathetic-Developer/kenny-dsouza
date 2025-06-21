@@ -8,18 +8,18 @@ const Experience = () => {
 
   const experiences = [
     {
-      title: "Lead Frontend Developer",
+      title: "Lead Software Engineer",
       company: "Brillio",
       period: "Apr 2025 - Present",
       duration: "Current",
       location: "Bengaluru, India",
       responsibilities: [
-        "Leading frontend architecture decisions for enterprise-scale applications",
-        "Mentoring team of 8+ developers in advanced React patterns and best practices",
-        "Driving technical strategy and innovation across multiple client projects",
+        "Mentored a team of developers in adopting advanced frontend patterns while integrating AI tools to accelerate learning and development cycles.",
+        "Elevated code quality standards and review efficiency through a combination of stringent peer reviews and AI-assisted analysis.",
+        "Developing high-performance React applications, enhancing scalability and maintainability",
         "Establishing coding standards and development workflows for improved efficiency"
       ],
-      clients: ["eBay", "Trader Joe's", "FBM", "Cartus"]
+      clients: [ "Foundational Building Materials"]
     },
     {
       title: "Senior Software Engineer",
@@ -31,9 +31,10 @@ const Experience = () => {
         "Developed application to manage warehouse pallet check-in, ie: scan a pallet, report discrepancies, add SKUs from your palm & most importantly eliminate the use of paper.",
         "Designed & developed a feedback application to capture feedback from crew members using several devices daily.",
         "Developed Mate Assessment application which helps in the annual performance review of 40000+ employees with ease.",
-        "Mentoring new joiners in the team."
+        "Developed Missed Meal Acknowledgement application, which helps 50000+ employees manage time efficiently from anywhere.",
+        "Developed Quick Item Lookup, which reduced product search time & trend research significantly.",
       ],
-      clients: ["eBay", "Trader Joe's", "FBM", "Cartus"]
+      clients: ["eBay", "Trader Joe's"]
     },
     {
       title: "Software Engineer",
@@ -44,13 +45,11 @@ const Experience = () => {
       responsibilities: [
         "Developed Brillio Solutions website which exhibits a DevOps Jumpstart Kit aimed to increase customer acquisition.",
         "Worked on adding Jira & Bitbucket insights into Brillio BOLT, an analytical one-stop application for projects.",
-        "Developed Quick Item Lookup, which reduced product search time & trend research significantly.",
         "Intuitive search suggestions, spell checker & precise product filters.",
-        "Developed Missed Meal Acknowledgement application, which helps 50000+ employees manage time efficiently from anywhere.",
         "Developed a palm-sized application to scan the barcode of a product & view delivery/product details on the go.",
         "Developed a Store Order Guide Application which provides product trends, previous order details which helped ease the process of ordering SKU daily."
       ],
-      clients: ["eBay", "Trader Joe's"]
+      clients: ["Cartus", "Trader Joe's"]
     }
   ];
 
