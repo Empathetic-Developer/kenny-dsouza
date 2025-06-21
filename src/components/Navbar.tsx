@@ -35,7 +35,7 @@ const Navbar = () => {
           <div className="flex items-center">
             <div className="w-10 h-10 rounded-full overflow-hidden neu-flat p-1">
               <img 
-                src="/assets/profile.png"
+                src="/lovable-uploads/00b371b1-f475-4090-bbe4-001a1e7a6d37.png"
                 alt="Kenny Dsouza"
                 className="w-full h-full rounded-full object-cover"
               />

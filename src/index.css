@@ -1,72 +1,91 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Enhanced Neumorphism Design System with Optimized Performance */
+
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 47.4% 11.2%;
+    /* Light Mode Colors */
+    --background: #EBF2F7;
+    --foreground: #343D46;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --card: #F0F5F9;
+    --card-foreground: #343D46;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 47.4% 11.2%;
+    --popover: #F0F5F9;
+    --popover-foreground: #343D46;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 47.4% 11.2%;
- 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
+    --primary: #008C89;
+    --primary-foreground: #FFFFFF;
 
-    --primary: 222.1 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
+    --secondary: #6B7682;
+    --secondary-foreground: #343D46;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: #A0A8B0;
+    --muted-foreground: #6B7682;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: #00A9A5;
+    --accent-foreground: #343D46;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: #EF5350;
+    --destructive-foreground: #FFFFFF;
 
-    --ring: 222.1 83.2% 53.3%;
+    --success: #4CAF50;
+    --warning: #FFCA28;
 
-    --radius: 0.5rem;
+    --border: #CAD2DA;
+    --input: #CAD2DA;
+    --ring: #008C89;
+
+    --radius: 1rem;
+
+    /* Neumorphism specific variables */
+    --neu-distance: 8px;
+    --neu-intensity: 0.15;
+    --neu-surface: #F0F5F9;
+    --neu-highlight: #FFFFFF;
+    --neu-shadow: #CAD2DA;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Dark Mode Colors */
+    --background: #1F2933;
+    --foreground: #E0E6EC;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --card: #27313A;
+    --card-foreground: #E0E6EC;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: #27313A;
+    --popover-foreground: #E0E6EC;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
- 
-    --border: 216 34% 17%;
-    --input: 216 34% 17%;
+    --primary: #006C6A;
+    --primary-foreground: #E0E6EC;
 
-    --primary: 222.1 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
+    --secondary: #A0A8B0;
+    --secondary-foreground: #E0E6EC;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --muted: #6B7682;
+    --muted-foreground: #A0A8B0;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: #00A9A5;
+    --accent-foreground: #1F2933;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: #EF9A9A;
+    --destructive-foreground: #1F2933;
 
-    --ring: 222.1 83.2% 53.3%;
+    --success: #66BB6A;
+    --warning: #FFEB3B;
 
-    --radius: 0.5rem;
+    --border: #14181D;
+    --input: #14181D;
+    --ring: #00A9A5;
+
+    /* Dark mode Neumorphism */
+    --neu-surface: #27313A;
+    --neu-highlight: #2C3742;
+    --neu-shadow: #14181D;
   }
 }
 
@@ -74,199 +93,351 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
-    font-feature-settings:
-      "rlig" 1,
-      "calt" 1;
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Professional sleek custom cursor */
+  .cursor-professional {
+    position: fixed;
+    width: 12px;
+    height: 12px;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-6px, -6px);
+    transition: all 0.05s ease-out;
+    background: var(--primary);
+    border-radius: 50%;
+    box-shadow: 
+      0 0 8px var(--primary),
+      0 0 16px rgba(0, 140, 137, 0.3);
+  }
+
+  .cursor-professional::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--primary);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.5;
+    transition: all 0.2s ease-out;
+  }
+
+  .cursor-professional.hover {
+    transform: translate(-6px, -6px) scale(1.5);
+    background: var(--accent);
+    box-shadow: 
+      0 0 12px var(--accent),
+      0 0 24px rgba(0, 169, 165, 0.4);
+  }
+
+  .cursor-professional.hover::before {
+    width: 30px;
+    height: 30px;
+    border-color: var(--accent);
+    opacity: 0.8;
+  }
+
+  /* Reduce motion for accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    
+    .parallax-element {
+      transform: none !important;
+    }
   }
 }
 
-/* Custom Cursor Styles */
-.cursor-professional {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  border: 1px solid theme('colors.primary');
-  background-color: rgba(theme('colors.primary'), 0.1);
-  position: fixed;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  transition: transform 0.2s ease, width 0.3s ease, height 0.3s ease;
-  z-index: 1000;
-}
+/* ... keep existing code (Neumorphism Core Components, utilities, animations) the same ... */
 
-.cursor-professional.hover {
-  width: 40px;
-  height: 40px;
-  background-color: rgba(theme('colors.primary'), 0.3);
-}
+/* Neumorphism Core Components with Performance Optimizations */
+@layer utilities {
+  .neu-flat {
+    background-color: var(--neu-surface);
+    box-shadow: 
+      var(--neu-distance) var(--neu-distance) calc(var(--neu-distance) * 2) var(--neu-shadow),
+      calc(var(--neu-distance) * -1) calc(var(--neu-distance) * -1) calc(var(--neu-distance) * 2) var(--neu-highlight);
+    border-radius: 16px;
+    transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+  }
 
-/* Neumorphism Styles */
-.neu-button {
-  @apply bg-background text-muted-foreground shadow-neu rounded-md inline-flex items-center justify-center whitespace-nowrap transition-all duration-200;
-}
+  .neu-pressed {
+    background-color: var(--neu-surface);
+    box-shadow: 
+      inset 4px 4px 8px var(--neu-shadow),
+      inset -4px -4px 8px var(--neu-highlight);
+    border-radius: 16px;
+    transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+  }
 
-.neu-button:hover {
-  @apply shadow-neu-hover text-primary;
-}
+  .neu-elevated {
+    background-color: var(--neu-surface);
+    box-shadow: 
+      12px 12px 24px var(--neu-shadow),
+      -12px -12px 24px var(--neu-highlight);
+    border-radius: 20px;
+    transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+  }
 
-.neu-card {
-  @apply bg-background shadow-neu rounded-md;
-}
+  .neu-button {
+    @apply neu-flat cursor-pointer select-none;
+    will-change: transform, box-shadow;
+  }
 
-.neu-flat {
-  @apply bg-background shadow-neu-flat rounded-md;
-}
+  .neu-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+      calc(var(--neu-distance) + 2px) calc(var(--neu-distance) + 2px) calc(var(--neu-distance) * 2.5) var(--neu-shadow),
+      calc(var(--neu-distance) * -1 - 2px) calc(var(--neu-distance) * -1 - 2px) calc(var(--neu-distance) * 2.5) var(--neu-highlight);
+  }
 
-.neu-pressed {
-  @apply bg-background shadow-neu-pressed rounded-md;
-}
+  .neu-button:active {
+    transform: translateY(1px);
+    box-shadow: 
+      inset 2px 2px 6px var(--neu-shadow),
+      inset -2px -2px 6px var(--neu-highlight);
+  }
 
-/* Custom Shadows */
-.shadow-neu {
-  box-shadow:  6px 6px 12px #c5c5c5,
-             -6px -6px 12px #ffffff;
-}
+  .neu-input {
+    @apply neu-pressed;
+    padding: 12px 16px;
+    background-color: var(--neu-surface);
+    border: none;
+    outline: none;
+    color: var(--foreground);
+  }
 
-.shadow-neu-hover {
-  box-shadow:  4px 4px 8px #c5c5c5,
-             -4px -4px 8px #ffffff;
-}
+  .neu-input:focus {
+    box-shadow: 
+      inset 6px 6px 12px var(--neu-shadow),
+      inset -6px -6px 12px var(--neu-highlight),
+      0 0 0 2px var(--primary);
+  }
 
-.shadow-neu-flat {
-  box-shadow:  inset 6px 6px 10px #c5c5c5,
-            inset -6px -6px 10px #ffffff;
-}
+  .neu-card {
+    @apply neu-flat;
+    will-change: transform, box-shadow;
+  }
 
-.shadow-neu-pressed {
-    box-shadow:  inset 4px 4px 6px #c5c5c5,
-             inset -4px -4px 6px #ffffff;
-}
+  .neu-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 
+      16px 16px 32px var(--neu-shadow),
+      -16px -16px 32px var(--neu-highlight);
+  }
 
-/* Animation Keyframes */
-@keyframes fadeInUp {
-  from {
+  /* Parallax utilities */
+  .parallax-container {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .parallax-element {
+    will-change: transform;
+  }
+
+  .parallax-bg {
+    position: absolute;
+    top: -20%;
+    left: -20%;
+    width: 140%;
+    height: 140%;
+    pointer-events: none;
+    will-change: transform;
+  }
+
+  /* Hero parallax background */
+  .hero-parallax {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    background: linear-gradient(45deg, var(--primary) 0%, var(--accent) 50%, var(--background) 100%);
+    opacity: 0.05;
+    will-change: transform;
+  }
+
+  /* Enhanced scroll animations with performance optimization */
+  .fade-in-up {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(60px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  to {
+
+  .fade-in-up.animate {
     opacity: 1;
     transform: translateY(0);
   }
-}
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes pulseNeu {
-  0% {
-    box-shadow:  6px 6px 12px #c5c5c5,
-               -6px -6px 12px #ffffff;
+  .fade-in-left {
+    opacity: 0;
+    transform: translateX(-60px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  50% {
-    box-shadow:  4px 4px 8px #c5c5c5,
-               -4px -4px 8px #ffffff;
+
+  .fade-in-left.animate {
+    opacity: 1;
+    transform: translateX(0);
   }
-  100% {
-    box-shadow:  6px 6px 12px #c5c5c5,
-               -6px -6px 12px #ffffff;
+
+  .fade-in-right {
+    opacity: 0;
+    transform: translateX(60px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   }
-}
 
-/* Animation Classes */
-.fade-in-up {
-  opacity: 0; /* Initially hidden */
-}
+  .fade-in-right.animate {
+    opacity: 1;
+    transform: translateX(0);
+  }
 
-.fade-in-up.animate {
-  animation: fadeInUp 0.5s ease forwards;
-}
+  .scale-in {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
 
-.fade-in {
-  animation: fadeIn 0.5s ease forwards;
-}
+  .scale-in.animate {
+    opacity: 1;
+    transform: scale(1);
+  }
 
-.stagger-children > * {
-  opacity: 0;
-  transform: translateY(20px);
-}
+  .stagger-children > * {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
 
-.stagger-children.animate > *:nth-child(1) {
-  animation: fadeInUp 0.3s ease forwards 0.1s;
-}
+  .stagger-children.animate > *:nth-child(1) { transition-delay: 0.1s; }
+  .stagger-children.animate > *:nth-child(2) { transition-delay: 0.2s; }
+  .stagger-children.animate > *:nth-child(3) { transition-delay: 0.3s; }
+  .stagger-children.animate > *:nth-child(4) { transition-delay: 0.4s; }
+  .stagger-children.animate > *:nth-child(5) { transition-delay: 0.5s; }
+  .stagger-children.animate > *:nth-child(6) { transition-delay: 0.6s; }
 
-.stagger-children.animate > *:nth-child(2) {
-  animation: fadeInUp 0.3s ease forwards 0.2s;
-}
+  .stagger-children.animate > * {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
-.stagger-children.animate > *:nth-child(3) {
-  animation: fadeInUp 0.3s ease forwards 0.3s;
-}
+  /* Optimized transitions for theme toggle */
+  * {
+    transition-property: color, background-color, border-color, box-shadow;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 100ms;
+  }
 
-.stagger-children.animate > *:nth-child(4) {
-  animation: fadeInUp 0.3s ease forwards 0.4s;
-}
+  /* Custom scrollbar with neumorphism */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
 
-.stagger-children.animate > *:nth-child(5) {
-  animation: fadeInUp 0.3s ease forwards 0.5s;
-}
+  ::-webkit-scrollbar-track {
+    background-color: var(--neu-surface);
+    border-radius: 4px;
+  }
 
-.stagger-children.animate > *:nth-child(6) {
-  animation: fadeInUp 0.3s ease forwards 0.6s;
-}
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--neu-shadow);
+    border-radius: 4px;
+    box-shadow: 
+      inset 2px 2px 4px var(--neu-shadow),
+      inset -2px -2px 4px var(--neu-highlight);
+  }
 
-.stagger-children.animate > *:nth-child(7) {
-  animation: fadeInUp 0.3s ease forwards 0.7s;
-}
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--primary);
+  }
 
-.stagger-children.animate > *:nth-child(8) {
-  animation: fadeInUp 0.3s ease forwards 0.8s;
-}
+  /* Focus styles for accessibility */
+  .neu-button:focus-visible,
+  .neu-input:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+  }
 
-.stagger-children.animate > *:nth-child(9) {
-  animation: fadeInUp 0.3s ease forwards 0.9s;
-}
+  /* Animation keyframes */
+  @keyframes pulse-neu {
+    0%, 100% {
+      box-shadow: 
+        var(--neu-distance) var(--neu-distance) calc(var(--neu-distance) * 2) var(--neu-shadow),
+        calc(var(--neu-distance) * -1) calc(var(--neu-distance) * -1) calc(var(--neu-distance) * 2) var(--neu-highlight);
+    }
+    50% {
+      box-shadow: 
+        calc(var(--neu-distance) * 1.5) calc(var(--neu-distance) * 1.5) calc(var(--neu-distance) * 3) var(--neu-shadow),
+        calc(var(--neu-distance) * -1.5) calc(var(--neu-distance) * -1.5) calc(var(--neu-distance) * 3) var(--neu-highlight);
+    }
+  }
 
-.stagger-children.animate > *:nth-child(10) {
-  animation: fadeInUp 0.3s ease forwards 1.0s;
-}
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
 
-.animate-pulse-neu {
-  animation: pulseNeu 2s infinite;
-}
+  .animate-pulse-neu {
+    animation: pulse-neu 2s ease-in-out infinite;
+  }
 
-/* Snowflake Styles */
-.snowflake {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  background: white;
-  border-radius: 50%;
-  opacity: 0.7;
-  user-select: none;
-  pointer-events: none;
-  z-index: 10; /* Ensure snowflakes are above the background but below other content */
-}
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
 
-/* Scroll to top button animations */
-.scroll-to-top {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  z-index: 40;
-  transition: all 0.3s ease;
-}
+  /* Language animation keyframes */
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(100px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
-.scroll-to-top.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+  @keyframes slideOutUp {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-100px);
+    }
+  }
 
-.scroll-to-top:not(.visible) {
-  opacity: 0;
-  transform: translateY(1rem);
-  pointer-events: none;
+  .slide-in-up {
+    animation: slideInUp 0.8s ease-out forwards;
+  }
+
+  .slide-out-up {
+    animation: slideOutUp 0.8s ease-out forwards;
+  }
+
+  /* Languages sticky section */
+  .languages-sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+  }
 }
