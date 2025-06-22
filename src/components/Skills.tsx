@@ -78,6 +78,23 @@ const Skills = () => {
             </div>
           </div>
         </div>
+        <div className={`mt-16 scale-in ${isVisible ? 'animate' : ''}`}>
+          <h3 className="text-2xl font-light text-foreground mb-8 text-center">
+            Certifications & Licences
+          </h3>
+          <div className="neu-elevated p-8 text-center">
+            <div className="flex flex-wrap justify-center gap-4">
+              {skillsData.certificates.map((award, index) => (
+                <div 
+                  key={index}
+                  className="neu-button px-6 py-3 font-medium text-primary"
+                >
+                  {award}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

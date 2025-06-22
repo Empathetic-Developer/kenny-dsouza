@@ -64,5 +64,10 @@
     "Employee of the Month",
     "Customer Success Excellence",
     "High Impact Team Award"
+  ],
+  "certificates": [
+    "Certified Scrum Master (CSM)",
+    "Certified SAFe Product Owner/Manager (CSPO)",
+    "Cambridge Business English (B1)"
   ]
 }
