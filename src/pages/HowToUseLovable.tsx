@@ -1,3 +1,4 @@
+
 import React from "react";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 import {
@@ -13,6 +14,11 @@ import {
   Brain,
   Lightbulb,
   Target,
+  GitBranch,
+  Database,
+  Key,
+  Settings,
+  ExternalLink,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import CustomCursor from "../components/CustomCursor";
@@ -25,6 +31,7 @@ const HowToUseLovable = () => {
   const { ref: errorsRef, isVisible: errorsVisible } = useScrollAnimation();
   const { ref: aiRef, isVisible: aiVisible } = useScrollAnimation();
   const { ref: lovableRef, isVisible: lovableVisible } = useScrollAnimation();
+  const { ref: integrationRef, isVisible: integrationVisible } = useScrollAnimation();
 
   const techStack = [
     { name: "React 18 with TypeScript", icon: <Code className="w-6 h-6" /> },
@@ -153,7 +160,7 @@ const HowToUseLovable = () => {
         "Two way sync with GitHub for code ownership and collaboration",
     },
     {
-      title: "Live Side by Side Previewa",
+      title: "Live Side by Side Preview",
       description:
         "Ability to preview changes in real time with a sharable url",
     },
@@ -170,6 +177,77 @@ const HowToUseLovable = () => {
     "Connect Supabase After Front-End is Stable: Focus on UI/UX first to avoid complex database errors",
     "Leverage Version Control (GitHub): For tracking changes, rolling back, and collaboration",
     "Patience and Precision: Take your time with prompts; the more precise the input, the better the output",
+  ];
+
+  const githubIntegrationSteps = [
+    {
+      title: "Initial Setup",
+      description: "Click GitHub → Connect to GitHub in the Lovable editor",
+      icon: <GitBranch className="w-6 h-6" />,
+    },
+    {
+      title: "Authorization",
+      description: "Authorize the Lovable GitHub App on GitHub",
+      icon: <Key className="w-6 h-6" />,
+    },
+    {
+      title: "Repository Creation",
+      description: "Select GitHub account/organization and create repository in Lovable",
+      icon: <Database className="w-6 h-6" />,
+    },
+    {
+      title: "Bidirectional Sync",
+      description: "Changes in Lovable auto-push to GitHub, GitHub changes auto-sync to Lovable",
+      icon: <ExternalLink className="w-6 h-6" />,
+    },
+  ];
+
+  const supabaseIntegrationSteps = [
+    {
+      title: "Connect Database",
+      description: "Connect your Supabase project through the Lovable interface for instant backend capabilities",
+      icon: <Database className="w-6 h-6" />,
+    },
+    {
+      title: "Database Schema",
+      description: "Create tables, set up RLS policies, and define relationships using SQL migrations",
+      icon: <Settings className="w-6 h-6" />,
+    },
+    {
+      title: "Authentication Setup",
+      description: "Enable user authentication with email/password or social providers",
+      icon: <Shield className="w-6 h-6" />,
+    },
+    {
+      title: "Edge Functions",
+      description: "Create serverless functions for API endpoints and backend logic",
+      icon: <Code className="w-6 h-6" />,
+    },
+  ];
+
+  const integrationBenefits = [
+    {
+      category: "GitHub Integration",
+      benefits: [
+        "Professional version control with Git history",
+        "Code ownership and collaboration capabilities",
+        "Deploy anywhere using standard web technologies",
+        "Parallel development with local IDEs and Lovable",
+        "GitHub Actions for CI/CD workflows",
+        "Pull request reviews and branch management",
+      ],
+    },
+    {
+      category: "Supabase Integration",
+      benefits: [
+        "Instant backend with PostgreSQL database",
+        "Built-in authentication and user management",
+        "Real-time subscriptions and live updates",
+        "File storage and CDN capabilities",
+        "Edge Functions for serverless backend logic",
+        "Row Level Security for data protection",
+      ],
+    },
   ];
 
   return (
@@ -209,6 +287,201 @@ const HowToUseLovable = () => {
                 This portfolio showcases modern web development practices with a
                 sleek neumorphism design, smooth animations, and responsive
                 layout - all built collaboratively with AI assistance.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* GitHub & Supabase Integration Section */}
+      <section ref={integrationRef} className="py-16 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            className={`text-center mb-12 fade-in-up ${
+              integrationVisible ? "animate" : ""
+            }`}
+          >
+            <h2 className="text-3xl lg:text-4xl font-light text-foreground mb-6">
+              <GitBranch className="w-8 h-8 text-primary inline mr-3" />
+              GitHub & Supabase Integration
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-4xl mx-auto">
+              Learn how to seamlessly integrate GitHub for version control and Supabase for backend functionality while developing with Lovable
+            </p>
+          </div>
+
+          {/* GitHub Integration */}
+          <div
+            className={`mb-16 fade-in-up ${integrationVisible ? "animate" : ""}`}
+          >
+            <h3 className="text-2xl font-semibold text-foreground mb-8 text-center flex items-center justify-center">
+              <GitBranch className="w-6 h-6 text-primary mr-2" />
+              GitHub Integration: Professional Version Control
+            </h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+              {githubIntegrationSteps.map((step, index) => (
+                <div
+                  key={index}
+                  className="neu-card p-6 text-center hover:scale-105 transition-all duration-300"
+                >
+                  <div className="text-primary mb-4 flex justify-center">
+                    {step.icon}
+                  </div>
+                  <h4 className="text-lg font-medium text-foreground mb-3">
+                    {step.title}
+                  </h4>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {step.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div className="neu-card p-8">
+              <h4 className="text-xl font-semibold text-foreground mb-4">
+                Key GitHub Integration Features
+              </h4>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <h5 className="text-lg font-medium text-foreground mb-3">Bidirectional Sync</h5>
+                  <ul className="space-y-2 text-muted-foreground">
+                    <li>• Real-time sync between Lovable and GitHub</li>
+                    <li>• Changes in Lovable automatically push to GitHub</li>
+                    <li>• GitHub commits automatically sync to Lovable</li>
+                    <li>• No manual pulls or pushes required</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5 className="text-lg font-medium text-foreground mb-3">Professional Workflow</h5>
+                  <ul className="space-y-2 text-muted-foreground">
+                    <li>• Standard Git version control</li>
+                    <li>• Branch management and pull requests</li>
+                    <li>• Code ownership and collaboration</li>
+                    <li>• Deploy anywhere with standard web code</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Supabase Integration */}
+          <div
+            className={`mb-16 fade-in-up ${integrationVisible ? "animate" : ""}`}
+          >
+            <h3 className="text-2xl font-semibold text-foreground mb-8 text-center flex items-center justify-center">
+              <Database className="w-6 h-6 text-primary mr-2" />
+              Supabase Integration: Instant Backend Power
+            </h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+              {supabaseIntegrationSteps.map((step, index) => (
+                <div
+                  key={index}
+                  className="neu-card p-6 text-center hover:scale-105 transition-all duration-300"
+                >
+                  <div className="text-primary mb-4 flex justify-center">
+                    {step.icon}
+                  </div>
+                  <h4 className="text-lg font-medium text-foreground mb-3">
+                    {step.title}
+                  </h4>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {step.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div className="neu-card p-8">
+              <h4 className="text-xl font-semibold text-foreground mb-4">
+                Setting Up Supabase in Lovable
+              </h4>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div>
+                  <h5 className="text-lg font-medium text-foreground mb-3">Database Setup</h5>
+                  <div className="space-y-3">
+                    <div className="p-4 rounded-lg bg-background/50">
+                      <p className="text-sm text-muted-foreground mb-2">
+                        <strong>1. Connect Project:</strong> Use "Connect Supabase" in Lovable
+                      </p>
+                    </div>
+                    <div className="p-4 rounded-lg bg-background/50">
+                      <p className="text-sm text-muted-foreground mb-2">
+                        <strong>2. Create Tables:</strong> Use SQL migrations for database schema
+                      </p>
+                    </div>
+                    <div className="p-4 rounded-lg bg-background/50">
+                      <p className="text-sm text-muted-foreground mb-2">
+                        <strong>3. Setup RLS:</strong> Configure Row Level Security policies
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <h5 className="text-lg font-medium text-foreground mb-3">Authentication & APIs</h5>
+                  <div className="space-y-3">
+                    <div className="p-4 rounded-lg bg-background/50">
+                      <p className="text-sm text-muted-foreground mb-2">
+                        <strong>4. Auth Setup:</strong> Enable email/password or social auth
+                      </p>
+                    </div>
+                    <div className="p-4 rounded-lg bg-background/50">
+                      <p className="text-sm text-muted-foreground mb-2">
+                        <strong>5. Edge Functions:</strong> Create serverless API endpoints
+                      </p>
+                    </div>
+                    <div className="p-4 rounded-lg bg-background/50">
+                      <p className="text-sm text-muted-foreground mb-2">
+                        <strong>6. Real-time:</strong> Enable live data subscriptions
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Integration Benefits */}
+          <div
+            className={`neu-card p-8 fade-in-up ${integrationVisible ? "animate" : ""}`}
+          >
+            <h3 className="text-2xl font-semibold text-foreground mb-8 text-center">
+              Why Integrate Both GitHub and Supabase?
+            </h3>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {integrationBenefits.map((section, index) => (
+                <div key={index}>
+                  <h4 className="text-xl font-medium text-foreground mb-4 flex items-center">
+                    {section.category === "GitHub Integration" ? (
+                      <GitBranch className="w-6 h-6 text-primary mr-2" />
+                    ) : (
+                      <Database className="w-6 h-6 text-primary mr-2" />
+                    )}
+                    {section.category}
+                  </h4>
+                  <ul className="space-y-3">
+                    {section.benefits.map((benefit, benefitIndex) => (
+                      <li
+                        key={benefitIndex}
+                        className="text-muted-foreground leading-relaxed flex items-start"
+                      >
+                        <span className="text-primary font-medium mr-2">•</span>
+                        {benefit}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+            
+            <div className="mt-8 p-6 rounded-lg bg-primary/5 border border-primary/20">
+              <h5 className="text-lg font-medium text-foreground mb-3 flex items-center">
+                <Lightbulb className="w-5 h-5 text-primary mr-2" />
+                Pro Tip: Development Workflow
+              </h5>
+              <p className="text-muted-foreground">
+                Start with frontend development in Lovable, connect GitHub for version control, then integrate Supabase for backend features. This approach ensures stable UI before adding complex database interactions, making debugging easier and development more efficient.
               </p>
             </div>
           </div>
@@ -476,66 +749,6 @@ const HowToUseLovable = () => {
           </div>
         </div>
       </section>
-
-      {/* Development Workflow */}
-      {/* <section className="py-16 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="neu-card p-8">
-            <h2 className="text-3xl font-light text-foreground mb-8 text-center">
-              Development Workflow with Lovable
-            </h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div>
-                <h3 className="text-xl font-semibold text-foreground mb-4">
-                  AI-Assisted Development
-                </h3>
-                <ul className="space-y-3 text-muted-foreground">
-                  <li>
-                    • <strong>Component-First:</strong> Built reusable
-                    components before pages
-                  </li>
-                  <li>
-                    • <strong>Design System First:</strong> Established design
-                    tokens early
-                  </li>
-                  <li>
-                    • <strong>Iterative Refinement:</strong> Continuous
-                    improvement through conversation
-                  </li>
-                  <li>
-                    • <strong>Real-time Preview:</strong> Instant feedback on
-                    changes
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-semibold text-foreground mb-4">
-                  Best Practices
-                </h3>
-                <ul className="space-y-3 text-muted-foreground">
-                  <li>
-                    • <strong>Mobile-First:</strong> Started with mobile layouts
-                  </li>
-                  <li>
-                    • <strong>Performance Monitoring:</strong> Optimized
-                    throughout development
-                  </li>
-                  <li>
-                    • <strong>Accessibility Testing:</strong> Regular testing
-                    with screen readers
-                  </li>
-                  <li>
-                    • <strong>Version Control:</strong> GitHub integration for
-                    deployment
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
 
       {/* AI in Web Development Section */}
       <section ref={aiRef} className="py-16 bg-background">
