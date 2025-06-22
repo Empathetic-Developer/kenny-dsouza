@@ -1,11 +1,10 @@
-
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Heart, Eye } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
-
+import { useVisitorCount } from '../hooks/useVisitorCount';
 
 const Footer = () => {
-  const [visitCount, setVisitCount] = useState(0);
+  const { visitCount, isLoading } = useVisitorCount();
   const navigate = useNavigate();
 
   const handleNavClick = (href: string, name: string) => {
@@ -32,14 +31,6 @@ const Footer = () => {
     }
   };
 
-  useEffect(() => {
-    const currentCount = localStorage.getItem('websiteVisitCount');
-    const count = currentCount ? parseInt(currentCount) + 1 : 1;
-    
-    localStorage.setItem('websiteVisitCount', count.toString());
-    setVisitCount(count);
-  }, []);
-
   return (
     <footer className="bg-background border-t border-border py-12 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -47,7 +38,9 @@ const Footer = () => {
           <div className="neu-flat p-4 inline-flex items-center space-x-2">
             <Eye size={16} className="text-primary" />
             <span className="text-muted-foreground">Website Visits:</span>
-            <span className="text-primary font-medium">{visitCount.toLocaleString()}</span>
+            <span className="text-primary font-medium">
+              {isLoading ? 'Loading...' : visitCount.toLocaleString()}
+            </span>
           </div>
         </div>
 
