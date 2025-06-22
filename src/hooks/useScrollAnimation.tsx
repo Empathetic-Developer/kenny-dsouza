@@ -15,7 +15,7 @@ export const useScrollAnimation = (threshold = 0.15) => {
       },
       { 
         threshold,
-        rootMargin: '0px 0px -100px 0px' // Trigger animation before element is fully visible
+        rootMargin: '0px 0px 0px 0px' // Trigger animation before element is fully visible
       }
     );
 
