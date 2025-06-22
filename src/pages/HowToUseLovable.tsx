@@ -297,9 +297,7 @@ const HowToUseLovable = () => {
       <section ref={integrationRef} className="py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
-            className={`text-center mb-12 fade-in-up ${
-              integrationVisible ? "animate" : ""
-            }`}
+            className={`text-center mb-12`}
           >
             <h2 className="text-3xl lg:text-4xl font-light text-foreground mb-6">
               <GitBranch className="w-8 h-8 text-primary inline mr-3" />
@@ -310,9 +308,9 @@ const HowToUseLovable = () => {
             </p>
           </div>
 
-          {/* GitHub Integration */}
+          {/* GitHub Integration fade-in-up ${integrationVisible ? "animate" : ""} */}
           <div
-            className={`mb-16 fade-in-up ${integrationVisible ? "animate" : ""}`}
+            className={`mb-16 `}
           >
             <h3 className="text-2xl font-semibold text-foreground mb-8 text-center flex items-center justify-center">
               <GitBranch className="w-6 h-6 text-primary mr-2" />
