@@ -1,9 +1,36 @@
 
 import React, { useEffect, useState } from 'react';
 import { Heart, Eye } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
+
 
 const Footer = () => {
   const [visitCount, setVisitCount] = useState(0);
+  const navigate = useNavigate();
+
+  const handleNavClick = (href: string, name: string) => {
+    if (href.startsWith('/')) {
+      // Navigate to different page
+      navigate(href);
+    } else if (href.startsWith('#')) {
+      // Handle anchor links - only if we're on the home page
+      if (location.pathname !== '/') {
+        navigate('/' + href);
+      } else {
+        if (name === 'Contact') {
+          const footer = document.querySelector('footer');
+          if (footer) {
+            footer.scrollIntoView({ behavior: 'smooth' });
+          }
+        } else {
+          const element = document.querySelector(href);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      }
+    }
+  };
 
   useEffect(() => {
     const currentCount = localStorage.getItem('websiteVisitCount');
@@ -40,19 +67,20 @@ const Footer = () => {
             <h4 className="text-lg font-medium text-foreground mb-4">Quick Links</h4>
             <div className="flex flex-wrap gap-2">
               {[
-                { name: 'Journey', href: '#about' },
-                { name: 'Skills', href: '#skills' },
-                { name: 'Experience', href: '#experience' },
-                { name: 'Recommendations', href: '#recommendations' },
-                { name: 'Contact', href: '#contact' }
+                // { name: 'Journey', href: '#about' },
+                // { name: 'Skills', href: '#skills' },
+                // { name: 'Experience', href: '#experience' },
+                // { name: 'Recommendations', href: '#recommendations' },
+                // { name: 'Contact', href: '#contact' },
+                { name: "How I Built This Website", href: "/how-to-use-lovable" },
               ].map((link, index) => (
-                <a 
-                  key={index}
-                  href={link.href}
-                  className="neu-button px-3 py-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-300"
-                >
-                  {link.name}
-                </a>
+                <button
+                key={link.name}
+                onClick={() => handleNavClick(link.href, link.name)}
+                className="neu-button px-4 py-2 text-muted-foreground hover:text-foreground text-sm font-medium transition-colors duration-200"
+              >
+                {link.name}
+              </button>
               ))}
             </div>
           </div>

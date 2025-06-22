@@ -16,7 +16,6 @@
     { "name": "Experience", "href": "#experience" },
     { "name": "Recommendations", "href": "#recommendations" },
     { "name": "Languages", "href": "#languages" },
-    { "name": "How I Built This", "href": "/how-to-use-lovable" },
     { "name": "Contact", "href": "#contact" }
   ],
   "social": [
