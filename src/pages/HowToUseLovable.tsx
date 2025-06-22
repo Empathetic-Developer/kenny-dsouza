@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import CustomCursor from "../components/CustomCursor";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const HowToUseLovable = () => {
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
@@ -174,6 +175,7 @@ const HowToUseLovable = () => {
   return (
     <div className="min-h-screen bg-background">
       <CustomCursor />
+      <ScrollToTop />
 
       {/* Header with Back Button */}
       <div className="fixed top-0 w-full z-50 backdrop-blur-md bg-background/80 border-b border-border">

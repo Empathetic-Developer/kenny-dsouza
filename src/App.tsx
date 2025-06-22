@@ -8,6 +8,7 @@ import { ThemeProvider } from "./components/ThemeProvider";
 import Index from "./pages/Index";
 import HowToUseLovable from "./pages/HowToUseLovable";
 import NotFound from "./pages/NotFound";
+import RouteChangeScrollToTop from "./components/RouteChangeScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +20,7 @@ const App = () => (
         <Sonner />
         {/* basename="/kenny-dsouza/"> */}
         <HashRouter>
+        <RouteChangeScrollToTop />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/how-to-use-lovable" element={<HowToUseLovable />} />
