@@ -365,7 +365,7 @@ const HowToUseLovable = () => {
 
           {/* Supabase Integration */}
           <div
-            className={`mb-16 fade-in-up ${integrationVisible ? "animate" : ""}`}
+            className={`mb-16`}
           >
             <h3 className="text-2xl font-semibold text-foreground mb-8 text-center flex items-center justify-center">
               <Database className="w-6 h-6 text-primary mr-2" />
@@ -442,7 +442,7 @@ const HowToUseLovable = () => {
 
           {/* Integration Benefits */}
           <div
-            className={`neu-card p-8 fade-in-up ${integrationVisible ? "animate" : ""}`}
+            className={`neu-card p-8`}
           >
             <h3 className="text-2xl font-semibold text-foreground mb-8 text-center">
               Why Integrate Both GitHub and Supabase?
