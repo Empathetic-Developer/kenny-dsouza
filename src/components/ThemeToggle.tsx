@@ -5,7 +5,7 @@ import { useTheme } from './ThemeProvider';
 
 const ThemeToggle = () => {
   const { theme, setTheme } = useTheme();
-  const isDark = theme === 'dark';
+  const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
 
   return (
     <div className="relative">
