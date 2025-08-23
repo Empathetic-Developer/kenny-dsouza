@@ -10,12 +10,12 @@ import Languages from '../components/Languages';
 import Footer from '../components/Footer';
 import SnowflakeBackground from '../components/SnowflakeBackground';
 import ScrollToTop from '../components/ScrollToTop';
-import CustomCursor from '../components/CustomCursor';
+
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-      <CustomCursor />
+      
       <SnowflakeBackground />
       <Navbar />
       <Hero />

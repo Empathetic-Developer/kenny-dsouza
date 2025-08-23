@@ -21,7 +21,7 @@ import {
   ExternalLink,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import CustomCursor from "../components/CustomCursor";
+
 import ScrollToTop from "@/components/ScrollToTop";
 
 const HowToUseLovable = () => {
@@ -252,7 +252,7 @@ const HowToUseLovable = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <CustomCursor />
+      
       <ScrollToTop />
 
       {/* Header with Back Button */}
