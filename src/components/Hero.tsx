@@ -100,7 +100,8 @@ const Hero = () => {
             >
               <Mail size={24} />
             </a>
-            <button
+            {/* Uncomment after resume */}
+            {/* <button
               onClick={handleResumeClick}
               className="neu-button p-6 rounded-full text-muted-foreground hover:text-foreground transition-colors duration-200"
               aria-label="Download Resume"
@@ -121,7 +122,7 @@ const Hero = () => {
                 <line x1="16" y1="17" x2="8" y2="17"></line>
                 <polyline points="10,9 9,9 8,9"></polyline>
               </svg>
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

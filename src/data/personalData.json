@@ -14,7 +14,7 @@
     { "name": "About", "href": "#about" },
     { "name": "Skills", "href": "#skills" },
     { "name": "Experience", "href": "#experience" },
-    { "name": "Recommendations", "href": "#recommendations" },
+    { "name": "Recommendations", "href": "/recommendations" },
     { "name": "Languages", "href": "#languages" },
     { "name": "Contact", "href": "#contact" }
   ],

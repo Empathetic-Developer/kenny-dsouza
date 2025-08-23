@@ -22,7 +22,7 @@ const Index = () => {
       <About />
       <Skills />
       <Experience />
-      <Recommendations />
+      {/* <Recommendations /> */}
       <Languages />
       <Footer />
       <ScrollToTop />
