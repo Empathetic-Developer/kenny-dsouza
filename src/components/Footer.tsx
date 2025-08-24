@@ -50,9 +50,8 @@ const Footer = () => {
               Kenny Dsouza
             </h3>
             <p className="text-muted-foreground leading-relaxed">
-              Lead Frontend Engineer passionate about creating scalable, user-focused solutions. 
-              Specialized in React, Redux, and TypeScript with 6+ years of experience 
-              building applications for millions of users.
+              Lead, Front-End Engineering, Leveraging AI | Next.js, React, Tailwind | Performance, Accessibility, Scalability. \n
+              6+ years of experience building applications for millions of users.
             </p>
           </div>
 

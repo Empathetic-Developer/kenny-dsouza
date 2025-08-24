@@ -3,6 +3,7 @@ import ScrollToTop from "./ScrollToTop";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import BackToPortfolio from "./BackToPortfolio";
+import skillsData from '../data/skillsData.json';
 
 const Awards = () => {
   return (
@@ -155,12 +156,24 @@ const AwardsSection = () => {
   return (
     <div className="container mx-auto max-w-7xl space-y-12">
       <div className="text-center space-y-4 mt-4">
-        <h1 className="text-4xl font-bold">My Awards and Recognitions</h1>
+        <h1 className="text-4xl font-bold">Recognitions</h1>
         <p className="text-lg text-gray-600 dark:text-gray-400">
-          A collection of my professional achievements and accolades from
-          various organizations.
+          A collection of all my awards and accolades.
         </p>
       </div>
+
+      <div className="neu-elevated p-8 text-center">
+            <div className="flex flex-wrap justify-center gap-4">
+              {skillsData.awards.map((award, index) => (
+                <div 
+                  key={index}
+                  className="neu-button px-6 py-3 font-medium text-primary !cursor-default"
+                >
+                  🏆 {award}
+                </div>
+              ))}
+            </div>
+          </div>
 
       <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-8">
         {awards.reverse().map((award) => (
