@@ -50,7 +50,7 @@ const Footer = () => {
               Kenny Dsouza
             </h3>
             <p className="text-muted-foreground leading-relaxed">
-              Lead, Front-End Engineering, Leveraging AI | Next.js, React, Tailwind | Performance, Accessibility, Scalability. \n
+              Lead, Front-End Engineering, Leveraging AI | Next.js, React, Tailwind | Performance, Accessibility, Scalability.
               6+ years of experience building applications for millions of users.
             </p>
           </div>
