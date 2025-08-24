@@ -60,7 +60,7 @@ const Recommendations = () => {
     >
       <ScrollToTop />
       <BackToPortfolio />
-      
+
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-light text-foreground mb-6">
@@ -90,7 +90,7 @@ const Recommendations = () => {
 // Component for an individual recommendation card
 const RecommendationCard = ({ name, position, text }) => {
   return (
-    <div className="relative p-6 rounded-2xl shadow-xl backdrop-blur-md bg-white/20 dark:bg-gray-800/20 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-gray-200/50 dark:border-gray-700/50">
+    <div className="neu-card relative p-6 rounded-2xl shadow-xl backdrop-blur-md bg-white/20 dark:bg-gray-800/20 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-gray-200/50 dark:border-gray-700/50">
       <div className="flex flex-col space-y-1 pl-6">
         <p className="text-base font-semibold text-gray-900 dark:text-gray-100">
           {name}

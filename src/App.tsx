@@ -10,6 +10,7 @@ import NotFound from "./pages/NotFound";
 import RouteChangeScrollToTop from "./components/RouteChangeScrollToTop";
 import ClickSpark from "../src/reactbits/ClickSpark/ClickSpark.jsx";
 import Recommendations from "./components/Recommendations.js";
+import Awards from "./components/Awards.js";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +35,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/recommendations" element={<Recommendations />} />
+            <Route path="/awards" element={<Awards />} />
             <Route path="/how-to-use-lovable" element={<HowToUseLovable />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
