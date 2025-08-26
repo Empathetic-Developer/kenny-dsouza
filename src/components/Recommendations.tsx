@@ -7,6 +7,11 @@ import BackToPortfolio from './BackToPortfolio';
 const Recommendations = () => {
   const recommendations = [
     {
+      name: "Kenrick Vaz",
+      position: "Principal Architect",
+      text: "I’ve had the privilege of working with Kenny for over three years, and during this time, I’ve seen him grow tremendously as an engineer and as a professional. \n Kenny has a keen technical mind and a natural curiosity that drives him to pick up new technologies with ease. He’s passionate about doing things the right way, never cutting corners, always striving for quality and scalability in his work. \n One of Kenny’s standout strengths is his ability to communicate effectively with clients, ensuring clarity and confidence in every interaction. He handles pressure with remarkable composure, staying focused on delivering results even in challenging situations. \n Kenny is not just a great engineer; he’s a dependable team player who brings both technical excellence and professionalism to the table."
+    },
+    {
       name: "Sumit Chakraborty",
       position: "Director - HiTech",
       text: "Kenny is a terrific engineer who just does not gets the work done , but will end up delivering the outcomes at scale .. he was part of my fast paced team at a tech major and while other engineers were looking to solve the immediate problem , Kenny was identifying patterns and writing framework level code to fix those patterns . As a person he is top of his craft and loved working with him to deliver outcomes for customers. You will do good, Kenny ."
@@ -64,7 +69,7 @@ const Recommendations = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-light text-foreground mb-6">
-            Recommendations (9+)
+            Recommendations (10+)
           </h2>
           <p className="text-lg text-muted-foreground max-w-4xl mx-auto">
           Recommendations / Testimonials from colleagues and industry professionals who've experienced my work firsthand.
@@ -89,6 +94,13 @@ const Recommendations = () => {
 
 // Component for an individual recommendation card
 const RecommendationCard = ({ name, position, text }) => {
+  const formattedText = text.split("\n").map((line, index) => (
+    <React.Fragment key={index}>
+      {line}
+      <br />
+    </React.Fragment>
+  ));
+
   return (
     <div className="neu-card relative p-6 rounded-2xl shadow-xl backdrop-blur-md bg-white/20 dark:bg-gray-800/20 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-gray-200/50 dark:border-gray-700/50">
       <div className="flex flex-col space-y-1 pl-6">
@@ -101,7 +113,7 @@ const RecommendationCard = ({ name, position, text }) => {
       </div>
       <p className="text-5xl text-gray-500 dark:text-gray-400 absolute top-20 left-4 font-serif">“</p>
       <p className="text-base leading-relaxed mt-4 pl-6 text-gray-800 dark:text-gray-200">
-        {text}
+        {formattedText}
       </p>
     </div>
   );
