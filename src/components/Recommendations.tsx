@@ -74,7 +74,7 @@ const Recommendations = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-light text-foreground mb-6">
-            Recommendations (10+)
+            Recommendations (11+)
           </h2>
           <p className="text-lg text-muted-foreground max-w-4xl mx-auto">
           Recommendations / Testimonials from colleagues and industry professionals who've experienced my work firsthand.
