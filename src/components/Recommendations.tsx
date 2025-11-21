@@ -12,6 +12,11 @@ const Recommendations = () => {
       text: "I’ve had the privilege of working with Kenny for over three years, and during this time, I’ve seen him grow tremendously as an engineer and as a professional. \n Kenny has a keen technical mind and a natural curiosity that drives him to pick up new technologies with ease. He’s passionate about doing things the right way, never cutting corners, always striving for quality and scalability in his work. \n One of Kenny’s standout strengths is his ability to communicate effectively with clients, ensuring clarity and confidence in every interaction. He handles pressure with remarkable composure, staying focused on delivering results even in challenging situations. \n Kenny is not just a great engineer; he’s a dependable team player who brings both technical excellence and professionalism to the table."
     },
     {
+      name: "Mohd Naseem",
+      position: "Senior Lead Accessibility Consultant",
+      text: "I worked closely with Kenny as a Senior Accessibility Consultant and he is one of the most impressive Lead Developers I have partnered with. \n Kenny is genuinely committed to accessibility. He fixes accessibility bugs with a clear, structured approach and always ensures his work follows WCAG standards. He has strong knowledge of ARIA attributes, solid experience with mobile accessibility too and is very comfortable using screen readers (NVDA, Narrator, VoiceOver and TalkBack) and accessibility tools. \n He learns quickly understands complex WCAG topics with ease and turns them into clean accessible code. His communication is excellent and he works smoothly with the team. \n Kenny is proactive, reliable and a great partner in building inclusive products. \n I highly recommend Kenny."
+    },
+    {
       name: "Sumit Chakraborty",
       position: "Director - HiTech",
       text: "Kenny is a terrific engineer who just does not gets the work done , but will end up delivering the outcomes at scale .. he was part of my fast paced team at a tech major and while other engineers were looking to solve the immediate problem , Kenny was identifying patterns and writing framework level code to fix those patterns . As a person he is top of his craft and loved working with him to deliver outcomes for customers. You will do good, Kenny ."

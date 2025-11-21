@@ -143,6 +143,16 @@ const AwardsSection = () => {
       mediaUrl: "/kenny-dsouza/assets/awards/Kenny_Dsouza_High_Impact_Team.png",
       mediaType: "image",
     },
+    {
+      id: 12,
+      awardName: "Silver Star (Quarter)",
+      organization: "Brillio Technologies",
+      year: "2025",
+      description:
+        "Kenny has been an outstanding and resourceful member of the team in the FBM 2.0 project. He proactively developed a custom tool that significantly streamlined the translation process, reducing manual effort. Kenny’s strong expertise in SEO and his contributions toward performance improvements have had a direct positive impact on the project’s success. His dedication, problem-solving skills, and willingness to go the extra mile make him a truly valuable and deserving candidate for this recognition.",
+      mediaUrl: "/kenny-dsouza/assets/awards/Kenny_Dsouza_Silver_Star_Quarter.png",
+      mediaType: "image",
+    },
   ];
 
   const handleViewMedia = (award) => {
